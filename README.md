@@ -1,5 +1,4 @@
 # IAC
-IAC Groepsproject
-Danny Mostert
-Patrick Kottman
+Danny Mostert, 
+Patrick Kottman, 
 Tim van de Looy
