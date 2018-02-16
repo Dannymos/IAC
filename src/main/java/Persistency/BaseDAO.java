@@ -10,7 +10,7 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 public class BaseDAO {
     private static DataSource connectionPool;
 
-    private static Connection getConnection() throws URISyntaxException, SQLException {
+    public static Connection getConnection() throws URISyntaxException, SQLException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
         String username = dbUri.getUserInfo().split(":")[0];

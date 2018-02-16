@@ -11,9 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
-=======
+
     <leaf>
       <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Product.java">
@@ -132,12 +130,10 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
-<<<<<<< HEAD
-      <pane id="PackagesPane" />
-=======
+
       <pane id="AndroidView" />
       <pane id="Scratches" />
->>>>>>> 7157e455b24b4ef3c224efe100dd9992b529ea00
+
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,9 +165,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-              <item name="webshop" type="462c0819:PsiDirectoryNode" />
-=======
+
               <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
