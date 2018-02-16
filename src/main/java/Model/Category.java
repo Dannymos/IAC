@@ -42,6 +42,15 @@ public class Category {
         this.picture = picture;
     }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "description='" + description + '\'' +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", picture='" + picture + '\'' +
+                '}';
+    }
 
     public static final class CategoryBuilder {
         private int id;
@@ -84,5 +93,6 @@ public class Category {
             category.setPicture(picture);
             return category;
         }
+
     }
 }

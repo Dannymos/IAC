@@ -5,8 +5,8 @@ import Controller.PriceController;
 public class Main {
     public static void main(String[] args){
 
-        PriceController prc = new PriceController();
+       CategoryDAO cdao = new CategoryDAO();
 
-        System.out.println(prc.calcTaxPrice(20,200));
+       System.out.println(cdao.getAllCategories());
     }
 }
