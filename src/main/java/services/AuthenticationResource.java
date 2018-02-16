@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import dao.UserDAO;
+//import dao.UserDAO;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -19,16 +19,20 @@ import io.jsonwebtoken.impl.crypto.MacProvider;
 @Path("/authentication")
 public class AuthenticationResource {
     final static public Key key = MacProvider.generateKey();
+
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response authenticateUser(@FormParam("gebruikersnaam") String username,
                                      @FormParam("wachtwoord") String password) {
         try {
             // Authenticate the user against the database
-            UserDAO dao = new UserDAO();
-            String role = dao.findRoleForUsernameAndPassword(username, password);
+            //UserDAO dao = new UserDAO();
+            //String role = dao.findRoleForUsernameAndPassword(username, password);
+            String role = "something!";
 
-            if (role == null) { throw new IllegalArgumentException("No user found!"); }
+            if (role == null) {
+                throw new IllegalArgumentException("No user found!");
+            }
 
             // Issue a token for the user
             Calendar expiration = Calendar.getInstance();
@@ -46,3 +50,4 @@ public class AuthenticationResource {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }
+}

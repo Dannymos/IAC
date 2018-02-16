@@ -33,6 +33,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" level="application" />
+    <orderEntry type="library" name="postgresql-42.2.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:2.25.1" level="project" />
@@ -54,6 +55,5 @@
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-dbcp:8.0.33" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:8.0.33" level="project" />
-    <orderEntry type="library" name="postgresql-42.2.1" level="project" />
   </component>
 </module>
