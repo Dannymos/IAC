@@ -47,4 +47,8 @@ public class ProductDAO extends BaseDAO {
         return results;
 
     }
+    public ArrayList<Product> getAllProducts(){
+
+        return getProducts("select * from product");
+    }
 }
