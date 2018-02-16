@@ -5,7 +5,7 @@ public class Main {
         BaseDAO bdao = new BaseDAO();
 
         try{
-            bdao.getConnection();
+            bdao.getlocalConnection();
         }
         catch (Exception e){
             e.printStackTrace();
