@@ -1,4 +1,4 @@
-package services.auth;
+package services;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.ext.Provider;
-import javax.ws.rs.Priorities;
+import javax.ws.rs.Priorities;  
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

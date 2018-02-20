@@ -1,4 +1,4 @@
-package services.auth;
+package services;
 
 import java.security.Principal;
 import javax.ws.rs.core.SecurityContext;
