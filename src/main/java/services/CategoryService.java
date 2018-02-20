@@ -15,7 +15,7 @@ public class CategoryService {
 
     CategoryController cc = new CategoryController();
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/main")
     public JSONArray getMainCategories(){
 
