@@ -1,5 +1,8 @@
 package Model;
 
+
+import org.json.JSONObject;
+
 public class Category {
 
     private int id;
@@ -50,6 +53,16 @@ public class Category {
                 ", name='" + name + '\'' +
                 ", picture='" + picture + '\'' +
                 '}';
+    }
+
+    // create by build json plugin
+    public JSONObject toJson() {
+        JSONObject jo = new JSONObject();
+        jo.put("id", id);
+        jo.put("name", name);
+        jo.put("description", description);
+        jo.put("picture", picture);
+        return jo;
     }
 
     public static final class CategoryBuilder {
