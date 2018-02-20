@@ -10,6 +10,7 @@ local.properties
 .loadpath
 .recommenders
 .idea/
+webshop.iml
 # External tool builders
 .externalToolBuilders/
 
