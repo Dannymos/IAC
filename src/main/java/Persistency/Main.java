@@ -1,17 +1,15 @@
 package Persistency;
 
+import Controller.CategoryController;
 import Controller.PriceController;
 import Model.Category;
 
 public class Main {
     public static void main(String[] args){
 
-       CategoryDAO cdao = new CategoryDAO();
+       CategoryController cdao = new CategoryController();
 
-       for( Category i: cdao.getSubCategories(1)){
-
-           System.out.println(i.toJson());
-       }
+      System.out.println(cdao.getMainCategories());
 
     }
 }

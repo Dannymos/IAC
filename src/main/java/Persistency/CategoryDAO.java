@@ -12,7 +12,7 @@ public class CategoryDAO extends BaseDAO{
 
     private ArrayList<Category> getCategories(String query){
         ArrayList<Category> results = new ArrayList<Category>();
-        try(Connection con = super.getlocalConnection()){
+        try(Connection con = super.getConnection()){
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
