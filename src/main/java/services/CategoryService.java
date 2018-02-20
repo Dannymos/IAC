@@ -17,11 +17,9 @@ public class CategoryService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/main")
-    public JSONArray getMainCategories(){
+    public ArrayList<Category> getMainCategories(){
 
-        JSONArray categories = cc.getMainCategories();
-        System.out.println(categories);
-        // takes advantage to toString() implementation to format as [a, b, c]
-        return categories;
+
+        return cc.getMainCategories();
     }
 }

@@ -11,18 +11,13 @@ public class CategoryController {
 
     CategoryDAO cdao = new CategoryDAO();
 
-    public JSONArray getMainCategories(){
+    public ArrayList<Category> getMainCategories(){
 
 
 
-        JSONArray arr = new JSONArray();
 
-        for(Category i : cdao.getMainCategories()){
 
-           arr.put(i.toJson());
-        }
-
-        return arr;
+        return cdao.getMainCategories();
     }
     public ArrayList<Category> getSubCategories(int id){
 
