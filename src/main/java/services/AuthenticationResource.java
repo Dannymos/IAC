@@ -21,6 +21,7 @@ public class AuthenticationResource {
     final static public Key key = MacProvider.generateKey();
 
     @POST
+    @Path("/authenticate")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response authenticateUser(@FormParam("gebruikersnaam") String username,
                                      @FormParam("wachtwoord") String password) {

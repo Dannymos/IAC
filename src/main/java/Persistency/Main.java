@@ -7,6 +7,6 @@ public class Main {
 
        CategoryDAO cdao = new CategoryDAO();
 
-       System.out.println(cdao.getAllCategories());
+       System.out.println(cdao.getSubCategories(1));
     }
 }

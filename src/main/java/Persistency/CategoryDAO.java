@@ -43,8 +43,12 @@ public class CategoryDAO extends BaseDAO{
         return results;
 
     }
-    public ArrayList<Category> getAllCategories(){
+    public ArrayList<Category> getMainCategories(){
 
         return getCategories("select * from category where subcategory_id is null");
+    }
+    public ArrayList<Category> getSubCategories(int id){
+
+        return getCategories("select * from category where subcategory_id = "+id);
     }
 }
