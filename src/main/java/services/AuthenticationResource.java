@@ -23,8 +23,8 @@ public class AuthenticationResource {
     @POST
     @Path("/authenticate")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response authenticateUser(@FormParam("gebruikersnaam") String username,
-                                     @FormParam("wachtwoord") String password) {
+    public Response authenticateUser(@FormParam("email") String email,
+                                     @FormParam("password") String password) {
         try {
             // Authenticate the user against the database
             //UserDAO dao = new UserDAO();
@@ -40,7 +40,7 @@ public class AuthenticationResource {
             expiration.add(Calendar.MINUTE, 30);
 
             String token = Jwts.builder()
-                    .setSubject(username)
+                    .setSubject(email)
                     .claim("role", role)
                     .setExpiration(expiration.getTime())
                     .signWith(SignatureAlgorithm.HS512, key)
