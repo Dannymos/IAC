@@ -20,7 +20,7 @@ public class CategoryService {
     public JSONArray getMainCategories(){
 
         JSONArray categories = cc.getMainCategories();
-
+        System.out.println(categories);
         // takes advantage to toString() implementation to format as [a, b, c]
         return categories;
     }
