@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-    @Path("categories")
+    @Path("/categories")
 public class CategoryService {
 
     CategoryController cc = new CategoryController();
