@@ -6,7 +6,7 @@ $('#login').click(function(event){
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		console.log(textStatus);
 		console.log(errorThrown);
-		$("#wrongAuthentication").html("Wrong email or password");
+    document.write("cucked")
 	}).done(function(){
 		var uri = "URI THAT GETS DATA OF MEMBER";
 		 $.ajax(uri, {
