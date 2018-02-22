@@ -6,8 +6,7 @@ $('#login').click(function(event){
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		console.log(textStatus);
 		console.log(errorThrown);
-    document.write("cucked");
-	}).done(function(){
+	})/*.done(function(){
 		var uri = "URI THAT GETS DATA OF MEMBER";
 		 $.ajax(uri, {
 		        type: "POST",
@@ -27,7 +26,7 @@ $('#login').click(function(event){
                 window.location.replace("https://iacgroep3.herokuapp.com"); //REMOVE WHEN URI ACTUALLY CONTAINS GOOD URI
 		        }
 		    });
-	});
+	});*/
 
 
 });
