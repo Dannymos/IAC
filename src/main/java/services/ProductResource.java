@@ -39,11 +39,12 @@ public class ProductResource {
     @Path("/add/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response addProduct(@PathParam( "id" ) int id) {
+        Product product = new Product();
         if(controller.addProduct(id, product)) {
             return Response.ok("Succes").build();
         }
         else {
-            return Response.status().build());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 
@@ -54,7 +55,7 @@ public class ProductResource {
             return Response.ok("Succes").build();
         }
         else {
-            return Response.status().build());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 
@@ -65,7 +66,7 @@ public class ProductResource {
             return Response.ok("Succes").build();
         }
         else {
-            return Response.status().build());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 }

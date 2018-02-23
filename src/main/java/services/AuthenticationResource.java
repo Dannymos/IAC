@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-//import dao.UserDAO;
+import Persistency.UserDAO;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -27,9 +27,8 @@ public class AuthenticationResource {
                                      @FormParam("password") String password) {
         try {
             // Authenticate the user against the database
-            //UserDAO dao = new UserDAO();
-            //String role = dao.findRoleForUsernameAndPassword(username, password);
-            String role = "something!";
+            UserDAO dao = new UserDAO();
+            String role = dao.findUser(email, password);
 
             if (role == null) {
                 throw new IllegalArgumentException("No user found!");

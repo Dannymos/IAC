@@ -24,12 +24,15 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         // Users are treated as guests, unless a valid JWT is provided
         boolean isSecure = requestCtx.getSecurityContext().isSecure();
         SecContext msc = new SecContext("Unknown", "guest", isSecure);
+
         // Check if the HTTP Authorization header is present and formatted correctly
         String authHeader = requestCtx.getHeaderString(HttpHeaders.AUTHORIZATION);
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
+
             // Extract the token from the HTTP Authorization header
             String token = authHeader.substring("Bearer".length()).trim();
             try {
+
                 // Validate the token
                 JwtParser parser = Jwts.parser().setSigningKey(AuthenticationResource.key);
                 Claims claims = parser.parseClaimsJws(token).getBody();
