@@ -1,7 +1,7 @@
 info();
 function info(){
 	console.log("test");
-	var uri = "restservices/categories/main";
+	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
@@ -10,8 +10,24 @@ function info(){
 	        },
 	        success: function(response) {
 	            $.each(response, function(key, value){
-	            	$("#product-img").html("<img> src=\""+value[0]["picture"]+"\" />");
-								console.log("test");
+	            	$("#cards").append(
+									"<div class=\"col s12 m6 l3\">"+
+							      "<div class=\"card small\">"+
+							        "<div class=\"card-image\">"+
+							          "<img id=\"product-img\" src=\""+value.picture+"\"/>"+
+							          "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
+							        "</div>"+
+							        "<div class=\"card-content\">"+
+							          "<p id=\"card-content\">"+
+												value.description+
+												"</p>"+
+							        "</div>"+
+							       "<div class=\"card-action\">"+
+							          "<a href=\"#\">Details</a>"+
+							        "</div>"+
+							      "</div>"+
+							   "</div>");
+								console.log(value.picture);
 	            });
 	        },
 	        error: function(response) {
