@@ -10,7 +10,7 @@ function info(){
 	        },
 	        success: function(response) {
 	            $.each(response, function(key, value){
-	            	$("#product-img").html("<img> src=\""+value["picture"]+"\" />");
+	            	$("#product-img").html("<img> src=\""+value[0]["picture"]+"\" />");
 								console.log("test");
 	            });
 	        },
