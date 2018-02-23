@@ -23,7 +23,7 @@ function info(){
 												"</p>"+
 							        "</div>"+
 							       "<div class=\"card-action\">"+
-							          "<a href=\"#\">Details</a>"+
+							          "<a href=\"https://iacgroep3.herokuapp.com/categorie_producten.html?id="+value.id+"\">Details</a>"+
 							        "</div>"+
 							      "</div>"+
 							   "</div>");
