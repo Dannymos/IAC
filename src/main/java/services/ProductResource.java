@@ -55,6 +55,7 @@ public class ProductResource {
             return Response.ok("Succes").build();
         }
         else {
+
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -62,6 +63,7 @@ public class ProductResource {
     @PUT
     @Path("/put/{id}")
     public Response editProduct(@PathParam( "id" ) int id) {
+
         if(controller.editProduct(id), product) {
             return Response.ok("Succes").build();
         }

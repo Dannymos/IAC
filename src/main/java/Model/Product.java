@@ -112,6 +112,6 @@ public class Product {
             product.setExplanation(explanation);
             product.setImage(image);
             return product;
-        }
+    }
     }
 }
