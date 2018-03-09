@@ -51,4 +51,30 @@ public class ProductDAO extends BaseDAO {
 
         return getProducts("select * from product");
     }
+
+    public Product getProduct(int id){
+
+        return getProducts("select * from product where id = " + id).get(0);
+    }
+
+    public boolean deleteProduct(int id){
+
+        if (getProducts("select * from product where id = " + id).get(0) != null) {
+
+        }
+    }
+
+    public boolean editProduct(int id, Product product){
+
+        if (getProducts("select * from product where id = " + id).get(0) != null) {
+
+        }
+    }
+
+    public boolean addProduct(int id, Product product){
+
+        if (getProducts("select * from product where id = " + id).get(0) != null) {
+
+        }
+    }
 }
