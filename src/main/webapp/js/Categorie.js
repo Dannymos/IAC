@@ -1,6 +1,5 @@
-info();
-function info(){
-	console.log("test");
+Categorieinfo();
+function Categorieinfo(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
 	 $.ajax(uri, {
 	        type: "GET",
@@ -27,7 +26,6 @@ function info(){
 							        "</div>"+
 							      "</div>"+
 							   "</div>");
-								console.log(value.picture);
 	            });
 	        },
 	        error: function(response) {
