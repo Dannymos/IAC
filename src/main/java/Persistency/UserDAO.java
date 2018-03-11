@@ -15,10 +15,11 @@ public class UserDAO extends BaseDAO {
             if(rs.next()) {
                 return rs.getString("role");
             }
-            return null;
+
         }
         catch(Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
