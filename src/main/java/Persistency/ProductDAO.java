@@ -1,13 +1,17 @@
 package Persistency;
 
+import Model.Offer;
 import Model.Product;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import static Model.Product.ProductBuilder.aProduct;
+import static Model.Offer.OfferBuilder.anOffer;
+
 public class ProductDAO extends BaseDAO {
 
 
@@ -58,16 +62,19 @@ public class ProductDAO extends BaseDAO {
     }
 
     public boolean deleteProduct(int id){
-        int  deleted  = 0;
         try (Connection con = super.getConnection()) {
             Statement stmt = con.createStatement();
             String query = "delete from product where id = "+ id;
-            deleted = stmt.executeUpdate(query);
+            if(stmt.executeUpdate(query) == 1){
+                return true;
+            }
+            else {
+                return false;
+            }
 
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return deleted==1;
     }
 
     public boolean editProduct(int id, Product product) {
@@ -83,17 +90,22 @@ public class ProductDAO extends BaseDAO {
 
     }
 
-
-
-    public boolean addProduct(int id, Product product){
-        int added = 0;
+    public boolean addProduct(Product product){
         try (Connection con = super.getConnection()) {
 
+            Statement stmt = con.createStatement();
+            String query = "INSERT INTO product VALUES(product_product_id_seq.NEXTVAL, " + product.getName() + ", " + product.getPrice() + ", " + product.getExplanation() + ", " + product.getImage() + ")";
 
+            if(stmt.executeUpdate(query) == 1){
+                return true;
+            }
+            else {
+                return false;
+            }
 
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return added==1;
+        return false;
     }
 }

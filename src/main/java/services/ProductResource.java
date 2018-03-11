@@ -3,6 +3,8 @@ package services;
 import Controller.ProductController;
 import java.util.ArrayList;
 import Model.Product;
+import Model.Offer;
+import static Model.Product.ProductBuilder.aProduct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -29,11 +31,17 @@ public class ProductResource {
     }
 
     @POST
-    @Path("/add/{id}")
+    @Path("/add}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response addProduct(@PathParam( "id" ) int id) {
-        Product product = new Product();
-        if(controller.addProduct(id, product)) {
+    public Response addProduct(@FormParam("name") String name, @FormParam("Price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
+        Product product = aProduct()
+                .setName(name)
+                .setPrice(price)
+                .setExplanation(explanation)
+                .setImage(image)
+                .build();
+
+        if(controller.addProduct(product)) {
             return Response.ok("Succes").build();
         }
         else {
@@ -64,4 +72,5 @@ public class ProductResource {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
+
 }

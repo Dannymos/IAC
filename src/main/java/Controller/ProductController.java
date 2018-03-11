@@ -1,7 +1,10 @@
 package Controller;
 
 import Model.Product;
+import Model.Offer;
+
 import Persistency.ProductDAO;
+
 import java.util.ArrayList;
 
 public class ProductController {
@@ -24,8 +27,8 @@ public class ProductController {
         return dao.editProduct(id, product);
     }
 
-    public boolean addProduct(int id, Product product) {
-       return dao.addProduct(id, product);
+    public boolean addProduct(Product product) {
+       return dao.addProduct(product);
     }
 
     public boolean deleteProduct(int id) {
