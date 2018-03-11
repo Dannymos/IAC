@@ -58,23 +58,42 @@ public class ProductDAO extends BaseDAO {
     }
 
     public boolean deleteProduct(int id){
+        int  deleted  = 0;
+        try (Connection con = super.getConnection()) {
+            Statement stmt = con.createStatement();
+            String query = "delete from product where id = "+ id;
+            deleted = stmt.executeUpdate(query);
 
-        if (getProducts("select * from product where id = " + id).get(0) != null) {
-
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
         }
+        return deleted==1;
     }
 
-    public boolean editProduct(int id, Product product){
+    public boolean editProduct(int id, Product product) {
+        int updated = 0;
+        try (Connection con = super.getConnection()) {
 
-        if (getProducts("select * from product where id = " + id).get(0) != null) {
 
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
         }
+        return updated==1;
+
     }
+
+
 
     public boolean addProduct(int id, Product product){
+        int added = 0;
+        try (Connection con = super.getConnection()) {
 
-        if (getProducts("select * from product where id = " + id).get(0) != null) {
 
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
         }
+        return added==1;
     }
 }

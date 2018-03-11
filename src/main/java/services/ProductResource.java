@@ -15,24 +15,17 @@ public class ProductResource {
     @Path("/get/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Product getProduct(@PathParam( "id" ) int id) {
-        try {
             return controller.getProduct(id);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @GET
     @Path("/get/all")
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Product> getAllProducts() {
-        try {
+
             return controller.getAllProducts();
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @POST
@@ -63,8 +56,8 @@ public class ProductResource {
     @PUT
     @Path("/put/{id}")
     public Response editProduct(@PathParam( "id" ) int id) {
-
-        if(controller.editProduct(id), product) {
+        Product product = new Product();
+        if(controller.editProduct(id,product)) {
             return Response.ok("Succes").build();
         }
         else {
