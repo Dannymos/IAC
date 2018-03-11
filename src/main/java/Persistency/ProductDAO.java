@@ -72,6 +72,7 @@ public class ProductDAO extends BaseDAO {
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
+        return false;
     }
 
     public boolean editProduct(Product product) {
