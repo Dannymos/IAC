@@ -23,8 +23,8 @@ public class ProductController {
         return dao.getAllProducts();
     }
 
-    public boolean editProduct(int id, Product product) {
-        return dao.editProduct(id, product);
+    public boolean editProduct(Product product) {
+        return dao.editProduct(product);
     }
 
     public boolean addProduct(Product product) {

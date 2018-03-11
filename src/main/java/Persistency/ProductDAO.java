@@ -1,16 +1,13 @@
 package Persistency;
 
-import Model.Offer;
 import Model.Product;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import static Model.Product.ProductBuilder.aProduct;
-import static Model.Offer.OfferBuilder.anOffer;
 
 public class ProductDAO extends BaseDAO {
 
@@ -77,17 +74,28 @@ public class ProductDAO extends BaseDAO {
         }
     }
 
-    public boolean editProduct(int id, Product product) {
-        int updated = 0;
+    public boolean editProduct(Product product) {
         try (Connection con = super.getConnection()) {
 
+            Statement stmt = con.createStatement();
+            String query = "UPDATE product " +
+                    "SET product_name = " + product.getName() + " " +
+                    "SET price = " + product.getPrice() + " " +
+                    "SET explanation = " + product.getExplanation() + " " +
+                    "SET image_url = " + product.getImage() + " " +
+                    "WHERE id = " + product.getId();
 
+            if(stmt.executeUpdate(query) == 1){
+                return true;
+            }
+            else {
+                return false;
+            }
 
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return updated==1;
-
+        return false;
     }
 
     public boolean addProduct(Product product){

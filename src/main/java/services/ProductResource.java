@@ -65,7 +65,7 @@ public class ProductResource {
     @Path("/put/{id}")
     public Response editProduct(@PathParam( "id" ) int id) {
         Product product = new Product();
-        if(controller.editProduct(id,product)) {
+        if(controller.editProduct(product)) {
             return Response.ok("Succes").build();
         }
         else {
