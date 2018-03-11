@@ -59,23 +59,20 @@ public class ProductDAO extends BaseDAO {
     }
 
     public boolean deleteProduct(int id){
+        int deleted =0;
+
         try (Connection con = super.getConnection()) {
             Statement stmt = con.createStatement();
             String query = "delete from product where id = "+ id;
-            if(stmt.executeUpdate(query) == 1){
-                return true;
-            }
-            else {
-                return false;
-            }
-
+           deleted = stmt.executeUpdate(query);
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return false;
+        return deleted==1;
     }
 
     public boolean editProduct(Product product) {
+        int editted =0;
         try (Connection con = super.getConnection()) {
 
             Statement stmt = con.createStatement();
@@ -86,35 +83,26 @@ public class ProductDAO extends BaseDAO {
                     "SET image_url = " + product.getImage() + " " +
                     "WHERE id = " + product.getId();
 
-            if(stmt.executeUpdate(query) == 1){
-                return true;
-            }
-            else {
-                return false;
-            }
-
-        } catch (Exception sqle) {
+            editted = stmt.executeUpdate(query);
+        }
+        catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return false;
+        return editted==1;
     }
 
     public boolean addProduct(Product product){
+        int added =0;
         try (Connection con = super.getConnection()) {
 
             Statement stmt = con.createStatement();
             String query = "INSERT INTO product VALUES(product_product_id_seq.NEXTVAL, " + product.getName() + ", " + product.getPrice() + ", " + product.getExplanation() + ", " + product.getImage() + ")";
 
-            if(stmt.executeUpdate(query) == 1){
-                return true;
-            }
-            else {
-                return false;
-            }
+            added = stmt.executeUpdate(query);
 
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return false;
+        return added==1;
     }
 }
