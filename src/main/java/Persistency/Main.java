@@ -7,9 +7,9 @@ import Model.Category;
 public class Main {
     public static void main(String[] args){
 
-       CategoryController cdao = new CategoryController();
+       BaseDAO bdao = new BaseDAO();
 
-      System.out.println(cdao.getMainCategories());
+       bdao.getlocalConnection();
 
     }
 }
