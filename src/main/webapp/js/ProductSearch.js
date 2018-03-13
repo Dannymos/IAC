@@ -9,7 +9,7 @@ function Producten(){
 	        },
 	        success: function(response) {
 	            $.each(response, function(key, value){
-	            	$("#cards").append(
+	            	$("#ProductCards").append(
 									"<div class=\"col s12 m6 l3\">"+
 							      "<div class=\"card small\">"+
 							        "<div class=\"card-image\">"+
