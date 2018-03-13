@@ -6,6 +6,7 @@ $('#login').click(function(event){
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		console.log(textStatus);
 		console.log(errorThrown);
+		console.log("Try logging in again");
 	}).done(function(){
 		var uri = "URI THAT GETS DATA OF MEMBER";
 		 $.ajax(uri, {
@@ -17,12 +18,14 @@ $('#login').click(function(event){
 		        },
 		        success: function(response) {
 		            $.each(response, function(key, value){
-		            	window.sessionStorage.setItem("PUTVALUEHERE", value["PUTVALUEHERE"]);
-		            		window.location.replace("https://iacgroep3.herokuapp.com");
+		            	window.sessionStorage.setItem("gebruiker", value["gebruiker"]);
+									window.sessionStorage.setItem("role" value["role"])
+		            	window.location.replace("https://iacgroep3.herokuapp.com");
+									console.log("Succesfull login")
 		            });
 		        },
 		        error: function(response) {
-		            $("#response").text("RIP!");
+		            $("#response").text("Lid data niet gevonden");
                 window.location.replace("https://iacgroep3.herokuapp.com"); //REMOVE WHEN URI ACTUALLY CONTAINS GOOD URI
 		        }
 		    });
