@@ -17,7 +17,8 @@ $('#login').click(function(event){
 		        },
 		        success: function(response) {
 		            $.each(response, function(key, value){
-		            	/*window.sessionStorage.setItem("PUTVALUEHERE", value["PUTVALUEHERE"]);*/
+		            	window.sessionStorage.setItem("email", value["email"]);
+									window.sessionStorage.setItem("role" value["role"])
 		            	window.location.replace("https://iacgroep3.herokuapp.com");
 		            });
 		        },
