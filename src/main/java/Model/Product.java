@@ -3,11 +3,12 @@ package Model;
 public class Product {
 
     private int id;
-    private int tax;
+
     private String name;
     private float price;
     private String explanation;
     private String image;
+    private Offer offer;
 
     public int getId() {
         return id;
@@ -17,13 +18,7 @@ public class Product {
         this.id = id;
     }
 
-    public int getTax() {
-        return tax;
-    }
 
-    public void setTax(int tax) {
-        this.tax = tax;
-    }
 
     public String getName() {
         return name;
@@ -57,14 +52,21 @@ public class Product {
         this.image = image;
     }
 
+    public Offer getOffer() {
+        return offer;
+    }
+
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
 
     public static final class ProductBuilder {
         private int id;
-        private int tax;
         private String name;
         private float price;
         private String explanation;
         private String image;
+        private Offer offer;
 
         private ProductBuilder() {
         }
@@ -75,11 +77,6 @@ public class Product {
 
         public ProductBuilder setId(int id) {
             this.id = id;
-            return this;
-        }
-
-        public ProductBuilder setTax(int tax) {
-            this.tax = tax;
             return this;
         }
 
@@ -103,15 +100,20 @@ public class Product {
             return this;
         }
 
+        public ProductBuilder setOffer(Offer offer) {
+            this.offer = offer;
+            return this;
+        }
+
         public Product build() {
             Product product = new Product();
             product.setId(id);
-            product.setTax(tax);
             product.setName(name);
             product.setPrice(price);
             product.setExplanation(explanation);
             product.setImage(image);
+            product.setOffer(offer);
             return product;
-    }
+        }
     }
 }

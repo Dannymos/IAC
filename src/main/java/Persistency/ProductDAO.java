@@ -11,6 +11,7 @@ import static Model.Product.ProductBuilder.aProduct;
 
 public class ProductDAO extends BaseDAO {
 
+    OfferDAO odao = new OfferDAO();
 
     private ArrayList<Product> getProducts(String query){
         ArrayList<Product> results = new ArrayList<Product>();
@@ -19,7 +20,7 @@ public class ProductDAO extends BaseDAO {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 int productid = rs.getInt("product_id");
 
@@ -27,16 +28,28 @@ public class ProductDAO extends BaseDAO {
                 float price = rs.getFloat("price");
                 String explanation = rs.getString("explanation");
                 String image = rs.getString("image_url");
+                if (odao.getOfferByProduct(productid) != null) {
+                    Product product = aProduct()
+                            .setId(productid)
+                            .setName(product_name)
+                            .setPrice(price)
+                            .setExplanation(explanation)
+                            .setImage(image)
+                            .setOffer(odao.getOfferByProduct(productid))
+                            .build();
+                    results.add(product);
+                } else {
+                    Product product = aProduct()
+                            .setId(productid)
+                            .setName(product_name)
+                            .setPrice(price)
+                            .setExplanation(explanation)
+                            .setImage(image)
 
-                Product product = aProduct()
-                        .setId(productid)
-                        .setName(product_name)
-                        .setPrice(price)
-                        .setExplanation(explanation)
-                        .setImage(image)
-                        .build();
+                            .build();
 
-                results.add(product);
+                    results.add(product);
+                }
             }
 
         }
