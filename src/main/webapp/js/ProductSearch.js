@@ -13,7 +13,7 @@ function Producten(){
 									"<div class=\"col s12 m6 l3\">"+
 							      "<div class=\"card small\">"+
 							        "<div class=\"card-image\">"+
-							          "<img id=\"product-img\" src=\""+value.picture+"\"/>"+
+							          "<img id=\"product-img\" src=\""+value.image+"\"/>"+
 							          "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
 							        "</div>"+
 							        "<div class=\"card-content\">"+
