@@ -9,20 +9,20 @@ function Producten(){
 	        },
 	        success: function(response) {
 	            $.each(response, function(key, value){
-	            	$("#cards").append(
+	            	$("#ProductCards").append(
 									"<div class=\"col s12 m6 l3\">"+
 							      "<div class=\"card small\">"+
 							        "<div class=\"card-image\">"+
-							          "<img id=\"product-img\" src=\""+value.picture+"\"/>"+
-							          "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
+							          "<img id=\"product-img\" src=\""+value.image+"\"/>"+
+							          "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ /*value.price*/ +"</span>"+
 							        "</div>"+
 							        "<div class=\"card-content\">"+
 							          "<p id=\"card-content\">"+
-												value.description+
+												value.name+
 												"</p>"+
 							        "</div>"+
 							       "<div class=\"card-action\">"+
-							          "<a href=\"https://iacgroep3.herokuapp.com/get/?id="+value.id+"\">Details</a>"+
+							          "<div class=\"row\"><div class=\"col s6\"><a href=\"https://iacgroep3.herokuapp.com/get/?id="+value.id+"\">Details</a></div></div>"+
 							        "</div>"+
 							      "</div>"+
 							   "</div>");
