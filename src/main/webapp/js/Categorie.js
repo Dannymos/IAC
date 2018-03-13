@@ -11,14 +11,14 @@ function Categorieinfo(){
 	            $.each(response, function(key, value){
 	            	$("#cards").append(
 									"<div class=\"col s12 m6 l3\">"+
-							      "<div class=\"card small\">"+
+							      "<div class=\"card large\">"+
 							        "<div class=\"card-image\">"+
 							          "<img id=\"product-img\" src=\""+value.picture+"\"/>"+
 
 							        "</div>"+
 							        "<div class=\"card-content\">"+
-                        "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
-							          "<p id=\"cardcontent\">"+
+                        "<span id=\"product-title\" class=\"card-title grey-text text-darken-4\">"+ value.name +"</span>"+
+                        "<p class=\"card-subtitle grey-text text-darken-2\">"+
 												value.description+
 												"</p>"+
 							        "</div>"+
