@@ -29,6 +29,24 @@ public class ProductResource {
             return controller.getAllProducts();
 
     }
+    @GET
+    @Path("/category/{category}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Product> getAllProductsFromCategory(@PathParam("category")int category){
+        return controller.getAllProductsFromCategory(category);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     @POST
     @Path("/{add}")

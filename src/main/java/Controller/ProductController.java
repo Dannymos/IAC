@@ -1,8 +1,10 @@
 package Controller;
 
+import Model.ProdCats;
 import Model.Product;
 import Model.Offer;
 
+import Persistency.ProdCatDAO;
 import Persistency.ProductDAO;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 public class ProductController {
 
     private ProductDAO dao = new ProductDAO();
-
+    private ProdCatDAO pcdao = new ProdCatDAO();
     public ProductController() {
 
     }
@@ -33,5 +35,16 @@ public class ProductController {
 
     public boolean deleteProduct(int id) {
         return dao.deleteProduct(id);
+    }
+
+    public ArrayList<Product> getAllProductsFromCategory(int category){
+
+        ArrayList<Product> products = new ArrayList<Product>();
+        ArrayList<ProdCats> prodcats = pcdao.getAllProdCatsByCategory(category);
+
+        for(ProdCats i : prodcats){
+            products.add(dao.getProduct(i.getId()));
+        }
+        return products;
     }
 }
