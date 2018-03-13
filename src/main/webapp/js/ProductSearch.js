@@ -17,9 +17,9 @@ function Producten(){
 							          "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ /*value.price*/ +"</span>"+
 							        "</div>"+
 							        "<div class=\"card-content\">"+
-							          "<p id=\"card-content\">"+
+							          "<div class=\"row\"><div class=\"col s6\"><p id=\"card-content\">"+
 												value.name+
-												"</p>"+
+												"</p></div></div>"+
 							        "</div>"+
 							       "<div class=\"card-action\">"+
 							          "<div class=\"row\"><div class=\"col s6\"><a href=\"https://iacgroep3.herokuapp.com/get/?id="+value.id+"\">Details</a></div></div>"+
