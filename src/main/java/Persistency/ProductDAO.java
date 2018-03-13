@@ -66,7 +66,7 @@ public class ProductDAO extends BaseDAO {
     }
 
     public Product getProduct(int id){
-
+        System.out.println(id);
         return getProducts("select * from product where product_id = " + id).get(0);
     }
 

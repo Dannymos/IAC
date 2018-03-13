@@ -2,14 +2,15 @@ package Persistency;
 
 import Controller.CategoryController;
 import Controller.PriceController;
+import Controller.ProductController;
 import Model.Category;
 
 public class Main {
     public static void main(String[] args){
 
-       BaseDAO bdao = new BaseDAO();
+        ProductController pc = new ProductController();
 
-       bdao.getlocalConnection();
+        System.out.println(pc.getAllProductsFromCategory(11));
 
     }
 }

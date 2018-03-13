@@ -43,7 +43,7 @@ public class ProductController {
         ArrayList<ProdCats> prodcats = pcdao.getAllProdCatsByCategory(category);
         System.out.println(prodcats);
         for(ProdCats i : prodcats){
-            products.add(dao.getProduct(i.getId()));
+            products.add(dao.getProduct(i.getProduct()));
         }
         return products;
     }

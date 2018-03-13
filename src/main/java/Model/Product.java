@@ -60,6 +60,18 @@ public class Product {
         this.offer = offer;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "explanation='" + explanation + '\'' +
+                ", id=" + id +
+                ", image='" + image + '\'' +
+                ", name='" + name + '\'' +
+                ", offer=" + offer +
+                ", price=" + price +
+                '}';
+    }
+
     public static final class ProductBuilder {
         private int id;
         private String name;
