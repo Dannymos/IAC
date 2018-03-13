@@ -14,9 +14,10 @@ function Categorieinfo(){
 							      "<div class=\"card small\">"+
 							        "<div class=\"card-image\">"+
 							          "<img id=\"product-img\" src=\""+value.picture+"\"/>"+
-							          "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
+
 							        "</div>"+
 							        "<div class=\"card-content\">"+
+                        "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
 							          "<p id=\"card-content\">"+
 												value.description+
 												"</p>"+
