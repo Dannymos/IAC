@@ -28,3 +28,6 @@ body {
 .dropdown-content{
     overflow: visible !important;
 }
+.card{
+    justify-content:flex-start;
+}
