@@ -17,12 +17,12 @@ $('#login').click(function(event){
 		        },
 		        success: function(response) {
 		            $.each(response, function(key, value){
-		            	window.sessionStorage.setItem("PUTVALUEHERE", value["PUTVALUEHERE"]);
-		            		window.location.replace("https://iacgroep3.herokuapp.com");
+		            	/*window.sessionStorage.setItem("PUTVALUEHERE", value["PUTVALUEHERE"]);*/
+		            	window.location.replace("https://iacgroep3.herokuapp.com");
 		            });
 		        },
 		        error: function(response) {
-		            $("#response").text("RIP!");
+		            $("#response").text("Login mislukt");
                 window.location.replace("https://iacgroep3.herokuapp.com"); //REMOVE WHEN URI ACTUALLY CONTAINS GOOD URI
 		        }
 		    });
