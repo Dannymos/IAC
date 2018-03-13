@@ -54,7 +54,7 @@ public class ProductDAO extends BaseDAO {
 
     public Product getProduct(int id){
 
-        return getProducts("select * from product where id = " + id).get(0);
+        return getProducts("select * from product where product_id = " + id).get(0);
     }
 
     public boolean deleteProduct(int id){
@@ -62,7 +62,7 @@ public class ProductDAO extends BaseDAO {
 
         try (Connection con = super.getConnection()) {
             Statement stmt = con.createStatement();
-            String query = "delete from product where id = "+ id;
+            String query = "delete from product where product_id = "+ id;
            deleted = stmt.executeUpdate(query);
         } catch (Exception sqle) {
             sqle.printStackTrace();
@@ -80,7 +80,7 @@ public class ProductDAO extends BaseDAO {
                     "SET price = " + product.getPrice() + " " +
                     "SET explanation = " + product.getExplanation() + " " +
                     "SET image_url = " + product.getImage() + " " +
-                    "WHERE id = " + product.getId();
+                    "WHERE product_id = " + product.getId();
 
             editted = stmt.executeUpdate(query);
         }
