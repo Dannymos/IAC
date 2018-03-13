@@ -91,17 +91,18 @@ public class ProductDAO extends BaseDAO {
     }
 
     public boolean addProduct(Product product){
-        int added =0;
         try (Connection con = super.getConnection()) {
 
             Statement stmt = con.createStatement();
             String query = "INSERT INTO product VALUES(product_product_id_seq.NEXTVAL, " + product.getName() + ", " + product.getPrice() + ", " + product.getExplanation() + ", " + product.getImage() + ")";
 
-            added = stmt.executeUpdate(query);
+            if(stmt.executeUpdate(query) == 1) {
+                return true;
+            }
 
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
-        return added==1;
+        return false;
     }
 }
