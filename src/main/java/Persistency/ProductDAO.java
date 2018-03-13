@@ -22,7 +22,7 @@ public class ProductDAO extends BaseDAO {
             while (rs.next()){
 
                 int productid = rs.getInt("product_id");
-                int taxid = rs.getInt("tax_id");
+
                 String product_name = rs.getString("product_name");
                 float price = rs.getFloat("price");
                 String explanation = rs.getString("explanation");
@@ -30,7 +30,6 @@ public class ProductDAO extends BaseDAO {
 
                 Product product = aProduct()
                         .setId(productid)
-                        .setTax(taxid)
                         .setName(product_name)
                         .setPrice(price)
                         .setExplanation(explanation)
