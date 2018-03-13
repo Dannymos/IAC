@@ -11,14 +11,14 @@ function Producten(){
 	            $.each(response, function(key, value){
 	            	$("#ProductCards").append(
 									"<div class=\"col s12 m6 l3\">"+
-							      "<div class=\"card small\">"+
+							      "<div class=\"card \">"+
 							        "<div class=\"card-image\">"+
 							          "<img id=\"product-img\" src=\""+value.image+"\"/>"+
 
 							        "</div>"+
 							        "<div class=\"card-content\">"+
                         "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.price +"</span>"+
-							          "<p id=\"card-content\">"+
+							          "<p id=\"cardcontent\">"+
 												value.name+
 												"</p>"+
 							        "</div>"+

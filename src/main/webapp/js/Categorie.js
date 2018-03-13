@@ -18,7 +18,7 @@ function Categorieinfo(){
 							        "</div>"+
 							        "<div class=\"card-content\">"+
                         "<span id=\"product-title\" class=\"card-title blue-text text-darken-4\">"+ value.name +"</span>"+
-							          "<p id=\"card-content\">"+
+							          "<p id=\"cardcontent\">"+
 												value.description+
 												"</p>"+
 							        "</div>"+
