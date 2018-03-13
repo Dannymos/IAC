@@ -11,7 +11,7 @@ function Producten(){
 	            $.each(response, function(key, value){
 	            	$("#ProductCards").append(
 									"<div class=\"col s12 m6 l3\">"+
-							      "<div class=\"card \">"+
+							      "<div class=\"card large\">"+
 							        "<div class=\"card-image\">"+
 							          "<img id=\"product-img\" src=\""+value.image+"\"/>"+
 
