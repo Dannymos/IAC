@@ -9,7 +9,7 @@ function getProductInfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-	            $.each(JSON.parse(response), function(key, value){
+	            $.each(response, function(key, value){
                 console.log(value.image)
 	            });
 	        },
