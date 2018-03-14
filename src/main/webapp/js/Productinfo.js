@@ -11,11 +11,7 @@ function getProductInfo(){
 	        },
 	        success: function(response) {
             console.log(response);
-	            $.each(response, function(key, value){
-                console.log(value);
-                console.log(key);
-                console.log(value.image);
-	            });
+                console.log(response.image);
 	        },
 	        error: function(response) {
 	            $("#response").text("RIP!");
