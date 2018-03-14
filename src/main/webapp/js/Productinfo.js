@@ -13,6 +13,7 @@ function getProductInfo(){
             console.log(response);
 	            $.each(response, function(key, value){
                 console.log(value);
+                console.log(key);
 	            });
 	        },
 	        error: function(response) {
