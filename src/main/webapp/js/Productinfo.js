@@ -1,7 +1,7 @@
 getProductInfo();
 function getProductInfo(){
-  console.log(window.location.href);
-	var uri = window.location.href;
+  href = window.location.href;
+	var uri = href;
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
