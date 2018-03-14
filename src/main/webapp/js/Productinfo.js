@@ -12,7 +12,7 @@ function getProductInfo(){
 	        success: function(response) {
             console.log(response);
 	            $.each(response, function(key, value){
-                console.log(this.image);
+                console.log(value);
 	            });
 	        },
 	        error: function(response) {
