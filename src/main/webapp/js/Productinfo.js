@@ -14,6 +14,7 @@ function getProductInfo(){
 	            $.each(response, function(key, value){
                 console.log(value);
                 console.log(key);
+                console.log(value.image);
 	            });
 	        },
 	        error: function(response) {
