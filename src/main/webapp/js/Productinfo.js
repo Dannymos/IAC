@@ -1,6 +1,6 @@
 Producten();
 function getProductInfo(ID){
-	var uri = "https://iacgroep3.herokuapp.com/restservices/product/get/all";
+	var uri = window.location.href;
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
@@ -9,7 +9,7 @@ function getProductInfo(ID){
 	        },
 	        success: function(response) {
 	            $.each(response, function(key, value){
-
+                console.log(value.image)
 	            });
 	        },
 	        error: function(response) {
