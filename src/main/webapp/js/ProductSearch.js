@@ -23,7 +23,7 @@ function Producten(){
 												"</p>"+
 							        "</div>"+
 							       "<div class=\"card-action\">"+
-							          "<a href=\"https://iacgroep3.herokuapp.com/product/?id="+value.id+"\">Details</a>"+
+							          "<a href=\"https://iacgroep3.herokuapp.com/Productinfo.html\">Details</a>"+
 							        "</div>"+
 							      "</div>"+
 							   "</div>");
