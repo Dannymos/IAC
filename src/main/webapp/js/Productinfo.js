@@ -1,6 +1,7 @@
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
+  console.log("https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id'));
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
@@ -9,8 +10,9 @@ function getProductInfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
+            console.log(response);
 	            $.each(response, function(key, value){
-                console.log(value["image"])
+                console.log(value.image)
 	            });
 	        },
 	        error: function(response) {
