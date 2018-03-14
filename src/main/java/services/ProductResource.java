@@ -14,7 +14,7 @@ public class ProductResource {
     ProductController controller = new ProductController();
 
     @GET
-    @Path("/get/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Product getProduct(@PathParam( "id" ) int id) {
             return controller.getProduct(id);
@@ -22,7 +22,7 @@ public class ProductResource {
     }
 
     @GET
-    @Path("/get/all")
+    @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Product> getAllProducts() {
 
@@ -68,7 +68,7 @@ public class ProductResource {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     public Response deleteProduct(@PathParam( "id" ) int id) {
         if(controller.deleteProduct(id)) {
             return Response.ok("Succes").build();
@@ -80,7 +80,7 @@ public class ProductResource {
     }
 
     @PUT
-    @Path("/put/{id}")
+    @Path("/{id}")
     public Response editProduct(@PathParam( "id" ) int id) {
         Product product = new Product();
         if(controller.editProduct(product)) {
