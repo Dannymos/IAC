@@ -15,14 +15,14 @@ public class OfferResource {
     OfferController controller = new OfferController();
 
     @GET
-    @Path("/get/offer/product/{id}")
+    @Path("/offer/product/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Offer getOfferByProduct(@PathParam( "id" ) int id) {
         return controller.getOfferByProduct(id);
     }
 
     @GET
-    @Path("get/all")
+    @Path("all")
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Offer> getAllOffers() {
         return controller.getAllOffers();

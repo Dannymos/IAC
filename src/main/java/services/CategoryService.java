@@ -25,7 +25,7 @@ public class CategoryService {
     }
         @GET
         @Produces(MediaType.APPLICATION_JSON)
-        @Path("/{category}/sub")
+        @Path("/{category}")
         public ArrayList<Category> getSubCategories(@PathParam("category")int category){
 
 
