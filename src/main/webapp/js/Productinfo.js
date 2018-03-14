@@ -1,7 +1,6 @@
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
-  console.log("https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id'));
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
@@ -10,8 +9,7 @@ function getProductInfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-            console.log(response);
-                console.log(response.image);
+                $("#productPic").html("<img class=\"materialboxed\" width="450" src=\""+response.image+"\">");
 	        },
 	        error: function(response) {
 	            $("#response").text("RIP!");
