@@ -1,3 +1,10 @@
+$('.button-collapse').sideNav({
+    menuWidth: 300,
+    edge: 'left',
+    closeOnClick: true,
+    draggable: true
+});
+
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
