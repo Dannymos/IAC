@@ -1,5 +1,5 @@
 getProductenInfo();
-function getProductInfo(ID){
+function getProductInfo(){
 	var uri = window.location.href;
 	 $.ajax(uri, {
 	        type: "GET",
