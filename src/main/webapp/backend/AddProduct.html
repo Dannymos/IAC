@@ -6,8 +6,9 @@
   <title>Insert title here</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/mainStyling.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/mainStyling.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/addproduct.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -26,31 +27,33 @@
           <h4 class="header2">Fill in product information</h4>
           <div class="row">
             <form class="col s12" id="AddProductForm>
+            <div class="inputboxes">
               <div class="row">
                 <div class="input-field col s12">
+                  <label for="name">Name:</label>
                   <i class="mdi-action-account-circle prefix"></i>
                   <input id="name" type="text" class="validate">
-                  <label for="name">Name</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
+                  <label for="price">Price:</label>
                   <i class="mdi-communication-email prefix"></i>
                   <input id="price" type="number" class="validate">
-                  <label for="price">Price</label>
                 </div>
               </div>
               <div class="row">
+                <label id="exp" for="message">Explanation:</label>
                 <div class="input-field col s12">
                   <i class="mdi-action-question-answer prefix"></i>
                   <textarea id="explanation" class="materialize-textarea validate" length="120"></textarea>
-                  <label for="message">Explanation</label>
                 </div>
+              </div>
               <div class="row">
                 <div class="input-field col s12">
+                  <label for="image link">Image:</label>
                   <i class="mdi-action-lock-outline prefix"></i>
                   <input id="image" type="text" class="validate">
-                  <label for="image link">image link</label>
                 </div>
               </div>
               <div class="row">
@@ -59,6 +62,7 @@
                 </div>
               </div>
             </div>
+          </div>
           </form>
         </div>
       </div>
