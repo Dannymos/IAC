@@ -9,7 +9,8 @@ function getProductInfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-                $("#productPic").html("<img class=\"materialboxed\" width="450" src=\""+response.image+"\">");
+            $("productTitle").html("<h4>"+ response.name +"</h4>");
+            $("#productPic").html("<img class=\"materialboxed\" width=\"450\" src=\""+response.image+"\">");
 	        },
 	        error: function(response) {
 	            $("#response").text("RIP!");
