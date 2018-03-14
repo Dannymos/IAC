@@ -47,4 +47,17 @@ public class ProductController {
         }
         return products;
     }
+    public ArrayList<Product> getAllProductsOnOffer(){
+        ArrayList<Product> products = dao.getAllProducts();
+        ArrayList<Product> results = new ArrayList<Product>();
+
+        for(Product i: products){
+
+            if (i.getOffer() != null)
+                results.add(i);
+
+        }
+        System.out.println(results);
+        return results;
+    }
 }

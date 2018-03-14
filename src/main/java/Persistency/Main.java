@@ -10,7 +10,7 @@ public class Main {
 
         ProductController pc = new ProductController();
 
-        System.out.println(pc.getAllProductsFromCategory(11));
+        System.out.println(pc.getAllProductsOnOffer());
 
     }
 }
