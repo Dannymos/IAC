@@ -1,9 +1,7 @@
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
-  console.log(urlParams.get('id'));
-  href = window.location.href;
-	var uri = href;
+	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
