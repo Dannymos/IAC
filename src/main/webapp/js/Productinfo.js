@@ -1,6 +1,7 @@
 getProductInfo();
 function getProductInfo(){
-  urlParams.get('id')
+  var urlParams = new URLSearchParams(window.location.search);
+  console.log(urlParams.get('id'));
   href = window.location.href;
 	var uri = href;
 	 $.ajax(uri, {
