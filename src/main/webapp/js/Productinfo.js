@@ -11,7 +11,7 @@ function getProductInfo(){
 	        success: function(response) {
             $("#productTitle").html("<h3>"+ response.name +"</h3>");
             $("#productPic").html("<img class=\"materialboxed\" width=\"450\" src=\""+response.image+"\">");
-            $("#productExplanation").html("<p>"+ response.explanation +"</p>");
+            $("#productExplanation").html("<h5>"+ response.explanation +"</h5>");
             $("#productPrice").html("<h5 class=\"teal-text text-darken-2\">"+ response.price +"</h5>");
 	        },
 	        error: function(response) {
