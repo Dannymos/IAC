@@ -12,7 +12,7 @@ function getProductInfo(){
             $("#productTitle").html("<h4>"+ response.name +"</h4>");
             $("#productPic").html("<img class=\"materialboxed\" width=\"450\" src=\""+response.image+"\">");
             $("#productExplanation").html("<p>"+ response.explanation +"</p>");
-            $("#productPrice").html("<h5 class=\"teal-text text-darken-2\"></h5>");
+            $("#productPrice").html("<h5 class=\"teal-text text-darken-2\">"+ response.price +"</h5>");
 	        },
 	        error: function(response) {
 	            $("#response").text("RIP!");
