@@ -5,6 +5,7 @@ $("#navbar").append(
       "<ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">"+
         "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
+        "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"Afmeleden.html\">Afmelden</a></li>"+
       "</ul>"+
     "</div>"+

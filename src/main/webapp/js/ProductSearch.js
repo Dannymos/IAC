@@ -1,6 +1,6 @@
 Producten();
 function Producten(){
-	var uri = "https://iacgroep3.herokuapp.com/restservices/product/get/all";
+	var uri = "https://iacgroep3.herokuapp.com/restservices/product/all";
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
@@ -23,7 +23,7 @@ function Producten(){
 												"</p>"+
 							        "</div>"+
 							       "<div class=\"card-action\">"+
-							          "<a href=\"https://iacgroep3.herokuapp.com/get/?id="+value.id+"\">Details</a>"+
+							          "<a href=\"https://iacgroep3.herokuapp.com/productinfo.html\?id="+ value.id +"\">Details</a>"+
 							        "</div>"+
 							      "</div>"+
 							   "</div>");
