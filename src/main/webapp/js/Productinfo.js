@@ -41,7 +41,7 @@ $('#addProductButton').click(function(event){
               var element = {}, cart = [];
             }
             else{
-              var element = element = {}, JSON.parse(sessionStorage.getItem("cart"));
+              var element = element = {}, cart[JSON.parse(sessionStorage.getItem("cart"))];
               console.log(element);
             }
             var amount = parseInt($("#amount").val());
