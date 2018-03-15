@@ -7,6 +7,7 @@ $("#navbar").html(
         "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
+        "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul>"+
     "</div>"+
@@ -18,6 +19,7 @@ $("#mobileNavbar").html(
     "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
     "<li><a href=\"Contact.html\">Contact</a></li>"+
     "<li><a href=\"ProductSearch.html\">All products</a></li>"+
+    "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
     "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
   "</ul>"
 );
