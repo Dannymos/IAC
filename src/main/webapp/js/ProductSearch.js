@@ -1,3 +1,10 @@
+$('.button-collapse').sideNav({
+    menuWidth: 300,
+    edge: 'left',
+    closeOnClick: true,
+    draggable: true
+});
+
 Producten();
 function Producten(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/all";

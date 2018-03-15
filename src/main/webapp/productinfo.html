@@ -15,10 +15,43 @@
 
   <div class="navbar-fixed" id="navbar">
   </div>
+  <div id="mobileNavbar">
+  </div>
 
   <div class="container">
-    <div class="row"><div class="col s12 m12"><h4 id="product title"></h4></div></div>
-    <div class="row"><div class="col s12 m6"><img class="materialboxed" width="450" src="https://dierendokterscom-dierendokters487.netdna-ssl.com/images/1.layout_dieren/hoe_doe_ik_dat_hond.jpg"></div></div>
+    <div class="row"><div class="col s12 m12" id="productTitle"></div></div>
+    <div class="row">
+      <div class="col s12 m6" id="productPic"></div>
+      <div class="col s12 m6">
+        <div class="row">
+          <div class="row">
+            <div class="col s12 m12">
+              <h4>Price:</h4>
+            </div>
+            <div class="col s12 m12" id="productPrice">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m12">
+              <h4>Explanation:</h4>
+            </div>
+            <div class="col s12 m12" id="productExplanation">
+            </div>
+          </div>
+          <div class="row">
+            <form id="addProductForm">
+              <div class="input-field col s12 m8">
+                <button class="waves-effect waves-light btn-large green darken-2" type="button" id="addProductButton">Toevoegen aan winkelwagen</button>
+              </div>
+              <div class="input-field col s12 m4">
+                <input type="number" class="validate" id="amount">
+                <label for="amount">Amount?</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

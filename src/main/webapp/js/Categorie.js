@@ -1,3 +1,10 @@
+$('.button-collapse').sideNav({
+    menuWidth: 300,
+    edge: 'left',
+    closeOnClick: true,
+    draggable: true
+});
+
 Categorieinfo();
 function Categorieinfo(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
