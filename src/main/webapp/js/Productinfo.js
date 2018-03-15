@@ -8,8 +8,8 @@ $('.button-collapse').sideNav({
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
-  sessionStorage.setItem("Product_id", urlParams.get(id));
-  console.log(sessionStorage.setItem("Product_id", urlParams.get(id)));
+  sessionStorage.setItem("Product_id", urlParams.get('id'));
+  console.log("https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id'));
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
