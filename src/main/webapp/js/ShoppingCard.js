@@ -27,7 +27,7 @@ else{
   //ERROR HANDLING FOR EMPTY SHOPPING CARD?
 }
 
-removeProduct(id){
+function removeProduct(id){
   var element = JSON.parse(sessionStorage.getItem("cart"));
   element = element.filter(function(el) {
     return el.id !== id;
