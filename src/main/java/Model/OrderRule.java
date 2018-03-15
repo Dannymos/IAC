@@ -36,7 +36,7 @@ public class OrderRule {
         return product;
     }
 
-    public void setProduct_id(Product product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
