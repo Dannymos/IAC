@@ -21,8 +21,29 @@ public class CategoryController {
     }
     public ArrayList<Category> getSubCategories(int id){
 
-        CategoryDAO cdao = new CategoryDAO();
+
 
         return cdao.getSubCategories(id);
+    }
+    public JSONObject getAllSubCategoriesList(){
+        JSONObject jo = new JSONObject();
+        jo.put("firstName", "John");
+        jo.put("lastName", "Doe");
+        ArrayList<Category> categories = cdao.getAllSubCategories();
+        for(Category i:categories){
+
+            jo.put(Integer.toString(i.getId()),i.getName());
+        }
+        return jo;
+    }
+    public boolean addMainCategory(Category category){
+
+        return cdao.addMainCategory(category);
+
+    }
+    public boolean addSubCategory(Category category,int maincategory){
+
+        return cdao.addSubCategory(category,maincategory);
+
     }
 }
