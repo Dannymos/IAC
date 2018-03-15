@@ -8,6 +8,7 @@ $('.button-collapse').sideNav({
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
+  sessionStorage.setItem("Product_id", urlParams);
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
@@ -30,8 +31,7 @@ function getProductInfo(){
 $('#addProductButton').click(function(event){
   var data = $('#loginForm').serialize();
   console.log(data);
-  var urlParams = new URLSearchParams(window.location.search);
-  var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
+  var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+sessionStorage.getItem("Product_id");
    $.ajax(uri, {
           type: "GET",
           beforeSend: function(xhr){
