@@ -4,3 +4,5 @@ $('.button-collapse').sideNav({
     closeOnClick: true,
     draggable: true
 });
+
+$('.dropdown-button').dropdown('open');
