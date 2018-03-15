@@ -9,7 +9,7 @@ if(sessionStorage.getItem("cart")!=null){
   var element = JSON.parse(sessionStorage.getItem("cart"));
   var el;
   for (el in element) {
-      console.log(el.id);
+      console.log(el);
   }
 }
 else{
