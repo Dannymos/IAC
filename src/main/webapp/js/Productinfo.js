@@ -37,21 +37,20 @@ $('#addProductButton').click(function(event){
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(response) {
+            var amount = parseInt($("#amount").val());
             if(sessionStorage.getItem("cart")==null){
-              var element = {}, cart = [];
+              var element = [{id: response.id, amount: amount, price: response.price}];
+              console.log(element);
+              var jsonStr = JSON.stringify( element );
+              sessionStorage.setItem("cart", jsonStr);
             }
             else{
-              var element = JSON.parse(sessionStorage.getItem("cart")), cart = [];
+              var element = [JSON.parse(sessionStorage.getItem("cart"))];
               console.log(element);
+              element.push({id: response.id, amount: amount, price: response.price});
+              var jsonStr = JSON.stringify( element );
+              sessionStorage.setItem("cart", jsonStr);
             }
-            var amount = parseInt($("#amount").val());
-            element.id = response.id;
-            element.quantity = amount;
-            element.price = response.price;
-            cart.push({element: element});
-            console.log(element);
-            var jsonStr = JSON.stringify( element );
-            sessionStorage.setItem("cart", jsonStr);
 
             /*if(sessionStorage.getItem(cart)==null){
               var amount = $("#amount").val();
