@@ -26,3 +26,33 @@ function getProductInfo(){
 	        }
 	    });
 }
+
+$('#addProductButton').click(function(event){
+  var data = $('#loginForm').serialize();
+  console.log(data);
+  var urlParams = new URLSearchParams(window.location.search);
+  var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
+   $.ajax(uri, {
+          type: "GET",
+          beforeSend: function(xhr){
+            var token = window.sessionStorage.getItem("sessionToken");
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+          },
+          success: function(response) {
+
+            var cart = {
+                item: response.name,
+                price: response.price,
+                amount: 2
+            };
+
+            var jsonStr = JSON.stringify( cart );
+
+            sessionStorage.setItem( "cart", jsonStr );
+            // now the cart is {"item":"Product name","price":35.50,"amount":2}
+          },
+          error: function(response) {
+              $("#response").text("RIP!");
+          }
+      });
+});
