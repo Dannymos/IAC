@@ -19,15 +19,15 @@ public class OrderDAO extends BaseDAO {
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-            int custID = rs.getInt("Customer_ID");
-            String deliveryAddress = rs.getString("deliveryAddress");
-            int id = rs.getInt("id");
-            String status = rs.getString("status");
 
-            //TODO make request for order items use class OrderRuleDAO
-            String items = "items";
+
+
+
             while (rs.next()) {
-
+                int custID = rs.getInt("Customer_ID");
+                String deliveryAddress = rs.getString("delivery_Address");
+                int id = rs.getInt("order_id");
+                String status = rs.getString("status");
 
                 Order order = anOrder()
                         .setCustomer_id(custID)
@@ -48,8 +48,7 @@ public class OrderDAO extends BaseDAO {
 
     public Order getOrderByID(int id) {
 
-        Order order = new Order();
 
-        return order;
+        return getOrders("select * from product_order where order_id= "+id).get(0);
     }
 }

@@ -51,6 +51,17 @@ public class Order {
         this.items = items;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "customer_id=" + customer_id +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", id=" + id +
+                ", items=" + items +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
     public static final class OrderBuilder {
         private int id;
         private int customer_id;
