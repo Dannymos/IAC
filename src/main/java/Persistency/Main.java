@@ -1,6 +1,7 @@
 package Persistency;
 
 import Controller.CategoryController;
+import Controller.OrderController;
 import Controller.PriceController;
 import Controller.ProductController;
 import Model.Category;
@@ -8,10 +9,9 @@ import Model.Category;
 public class Main {
     public static void main(String[] args){
 
-        OrderDAO dao = new OrderDAO();
-        OrderruleDAO odao = new OrderruleDAO();
+        OrderController oc = new OrderController();
 
-        System.out.println(dao.getOrderByID(1));
+        System.out.println(oc.getOrderByID(1));
 
 
     }
