@@ -8,9 +8,11 @@ import Model.Category;
 public class Main {
     public static void main(String[] args){
 
-        ProductController pc = new ProductController();
+        OrderDAO dao = new OrderDAO();
+        OrderruleDAO odao = new OrderruleDAO();
 
-        System.out.println(pc.getAllProductsFromCategory(11));
+        System.out.println(dao.getOrderByID(1));
+
 
     }
 }

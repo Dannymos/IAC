@@ -10,29 +10,27 @@ import java.util.ArrayList;
 import static Model.OrderRule.OrderRuleBuilder.anOrderRule;
 
 public class OrderruleDAO extends BaseDAO{
-
+    ProductDAO pdao = new ProductDAO();
     private ArrayList<OrderRule> getOrderrules(String query) {
         ArrayList<OrderRule> results = new ArrayList<OrderRule>();
         try (Connection con = super.getConnection()) {
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-            int amount = rs.getInt("amount");
-            int id = rs.getInt("id");
-            int orderID = rs.getInt("order_id");
-            int productID = rs.getInt("product_id");
 
 
-
-            String items = "items";
             while (rs.next()) {
+                int amount = rs.getInt("amount");
+                int id = rs.getInt("orderrule_id");
+                int orderID = rs.getInt("order_id");
+                int productID = rs.getInt("product_id");
 
 
                 OrderRule orderrule = anOrderRule()
                         .setAmount(amount)
                         .setId(id)
                         .setOrder_id(orderID)
-                        .setProduct_id(productID)
+                        .setProduct(pdao.getProduct(productID))
                         .build();
 
                 results.add(orderrule);
@@ -46,6 +44,6 @@ public class OrderruleDAO extends BaseDAO{
     }
 
     public ArrayList<OrderRule> getOrderulesbyOrder(int id){
-        return getOrderrules("select * from orderrule where orderID ="+ id);
+        return getOrderrules("select * from orderrule where order_ID ="+ id);
     }
 }

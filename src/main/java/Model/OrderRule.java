@@ -4,7 +4,7 @@ public class OrderRule {
 
     private int id;
     private int order_id;
-    private int product_id;
+    private Product product;
     private int amount;
 
     public int getId() {
@@ -23,13 +23,6 @@ public class OrderRule {
         this.order_id = order_id;
     }
 
-    public int getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
-    }
 
     public int getAmount() {
         return amount;
@@ -39,11 +32,28 @@ public class OrderRule {
         this.amount = amount;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct_id(Product product) {
+        this.product = product;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderRule{" +
+                "amount=" + amount +
+                ", id=" + id +
+                ", order_id=" + order_id +
+                ", product=" + product +
+                '}';
+    }
 
     public static final class OrderRuleBuilder {
         private int id;
         private int order_id;
-        private int product_id;
+        private Product product;
         private int amount;
 
         private OrderRuleBuilder() {
@@ -63,8 +73,8 @@ public class OrderRule {
             return this;
         }
 
-        public OrderRuleBuilder setProduct_id(int product_id) {
-            this.product_id = product_id;
+        public OrderRuleBuilder setProduct(Product product) {
+            this.product = product;
             return this;
         }
 
@@ -77,8 +87,8 @@ public class OrderRule {
             OrderRule orderRule = new OrderRule();
             orderRule.setId(id);
             orderRule.setOrder_id(order_id);
-            orderRule.setProduct_id(product_id);
             orderRule.setAmount(amount);
+            orderRule.product = this.product;
             return orderRule;
         }
     }
