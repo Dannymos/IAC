@@ -44,7 +44,7 @@ $('#addProductButton').click(function(event){
               var element = JSON.parse(sessionStorage.getItem("cart"));
               console.log(element);
             }
-            var amount = number($("#amount").val());
+            var amount = parseInt($("#amount").val());
             element.id = response.id;
             element.quantity = amount;
             element.price = response.price;
