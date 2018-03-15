@@ -37,7 +37,7 @@ $('#addProductButton').click(function(event){
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(response) {
-            if(sessionStorage.getItem(cart)==null){
+            if(sessionStorage.getItem("cart")==null){
               var element = {}, cart = [];
             }
             else{
