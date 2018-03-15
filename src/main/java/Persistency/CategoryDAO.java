@@ -51,4 +51,43 @@ public class CategoryDAO extends BaseDAO{
 
         return getCategories("select * from category where subcategory_id = "+id);
     }
+    public ArrayList<Category> getAllSubCategories(){
+
+        return getCategories("select * from category where subcategory_id is not null");
+    }
+    public boolean addMainCategory(Category category){
+        try (Connection con = super.getConnection()) {
+
+            Statement stmt = con.createStatement();
+            String query = "INSERT INTO category (category_name,description,picture)" +
+                    " VALUES( " + category.getName() + ", " + category.getDescription() + ", " + category.getPicture()+")";
+
+            if(stmt.executeUpdate(query) == 1) {
+                return true;
+            }
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean addSubCategory(Category category,int mainCategory){
+
+        try (Connection con = super.getConnection()) {
+
+            Statement stmt = con.createStatement();
+            String query = "INSERT INTO category (category_name,description,picture,subcategory_id)" +
+                    " VALUES( " + category.getName() + "," + category.getDescription() + ", " + category.getPicture() + ", " + mainCategory + ")";
+
+            if(stmt.executeUpdate(query) == 1) {
+                return true;
+            }
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+        return false;
+    }
+
 }
