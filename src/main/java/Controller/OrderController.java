@@ -23,4 +23,8 @@ public class OrderController {
     public ArrayList<OrderRule> getOrderrulesByOrder(int id){
         return ordao.getOrderulesbyOrder(id);
     }
+    public boolean addProductToOrder(int id,int product,int amount){
+
+        return ordao.addProductToOrder(id,product,amount);
+    }
 }
