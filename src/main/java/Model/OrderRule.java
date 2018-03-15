@@ -36,7 +36,7 @@ public class OrderRule {
         return product;
     }
 
-    public void setProduct_id(Product product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
@@ -88,7 +88,7 @@ public class OrderRule {
             orderRule.setId(id);
             orderRule.setOrder_id(order_id);
             orderRule.setAmount(amount);
-            orderRule.product = this.product;
+            orderRule.setProduct(product);
             return orderRule;
         }
     }
