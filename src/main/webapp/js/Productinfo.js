@@ -40,6 +40,7 @@ $('#addProductButton').click(function(event){
             if(sessionStorage.getItem(cart)==null){
               var element = {}, cart = [];
             }
+            var amount = $("#amount").val();
             element.id = response.id;
             element.quantity = amount;
             element.price = response.price;
