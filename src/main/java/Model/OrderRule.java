@@ -88,7 +88,7 @@ public class OrderRule {
             orderRule.setId(id);
             orderRule.setOrder_id(order_id);
             orderRule.setAmount(amount);
-            orderRule.product = this.product;
+            orderRule.setProduct(product);
             return orderRule;
         }
     }
