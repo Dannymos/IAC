@@ -17,6 +17,7 @@ function getProductInfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
+            $("#productTitle2").html(response.name);
             $("#productTitle").html("<h3>"+ response.name +"</h3>");
             $("#productPic").html("<img class=\"materialboxed\" width=\"450\" src=\""+response.image+"\">");
             $("#productExplanation").html("<h5>"+ response.explanation +"</h5>");

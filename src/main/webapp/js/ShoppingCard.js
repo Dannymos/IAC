@@ -16,11 +16,9 @@ if(sessionStorage.getItem("cart")!=null){
         "<div class=\"col s2 m2\" id=\"productTitle\"><p>"+ element[el].name +"</p></div>"+
         "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].price +"</p></div>"+
         "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].amount +"</p></div>"+
-        "<div class=\"col s3 m3\"><button class=\"waves-effect waves-light btn-large red darken-2\" type=\"button\" id=\"removeProduct"+element[el].id+"\">Remove Product</button></div>"+
+        "<div class=\"col s3 m3\"><button class=\"waves-effect waves-light btn-large red darken-2\" type=\"button\" id=\"removeProduct\" onclick=\"removeProduct("+ element[el].id +")\">Remove Product</button></div>"+
       "</div>"
     );
-    var wichProduct = "#removeProduct"+element[el].id;
-    document.getElementById(wichProduct).onclick = removeProduct(element[el].id);
   }
 }
 else{
