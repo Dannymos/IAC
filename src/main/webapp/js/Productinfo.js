@@ -45,7 +45,7 @@ $('#addProductButton').click(function(event){
               sessionStorage.setItem("cart", jsonStr);
             }
             else{
-              var element = [JSON.parse(sessionStorage.getItem("cart"))];
+              var element = JSON.parse(sessionStorage.getItem("cart"));
               console.log(element);
               element.push({id: response.id, amount: amount, price: response.price});
               var jsonStr = JSON.stringify( element );
