@@ -30,8 +30,6 @@ function getProductInfo(){
 }
 
 $('#addProductButton').click(function(event){
-  var data = $('#loginForm').serialize();
-  console.log(data);
   console.log("https://iacgroep3.herokuapp.com/restservices/product/"+sessionStorage.getItem("Product_id"));
   var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+sessionStorage.getItem("Product_id");
    $.ajax(uri, {
@@ -42,10 +40,13 @@ $('#addProductButton').click(function(event){
           },
           success: function(response) {
 
+            var amount = $("#amount").val();
+            console.log(amount);
+            
             var cart = {
                 item: response.name,
                 price: response.price,
-                amount: 2
+                amount: amount
             };
 
             var jsonStr = JSON.stringify( cart );
