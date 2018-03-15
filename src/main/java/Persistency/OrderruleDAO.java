@@ -46,4 +46,21 @@ public class OrderruleDAO extends BaseDAO{
     public ArrayList<OrderRule> getOrderulesbyOrder(int id){
         return getOrderrules("select * from orderrule where order_ID ="+ id);
     }
+
+    public boolean addProductToOrder(int id,int product,int amount){
+        try (Connection con = super.getConnection()) {
+
+            Statement stmt = con.createStatement();
+            String query = "INSERT INTO orderrule(order_id,product_id,amount) " +
+                    "values ("+id+","+product+","+amount+") ";
+
+            if(stmt.executeUpdate(query) == 1) {
+                return true;
+            }
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+        return false;
+    }
 }

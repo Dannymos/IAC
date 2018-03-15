@@ -11,7 +11,7 @@ public class Main {
 
         OrderController oc = new OrderController();
 
-        System.out.println(oc.getOrderByID(1));
+        System.out.println(oc.addProductToOrder(1,2,4));
 
 
     }
