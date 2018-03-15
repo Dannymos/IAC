@@ -39,7 +39,7 @@ $('#addProductButton').click(function(event){
           success: function(response) {
             var amount = parseInt($("#amount").val());
             if(sessionStorage.getItem("cart")==null){
-              var element = [{id: response.id, amount: amount, price: response.price, image: response.image}];
+              var element = [{id: response.id, amount: amount, price: response.price, image: response.image, name: response.name}];
               console.log(element);
               var jsonStr = JSON.stringify( element );
               sessionStorage.setItem("cart", jsonStr);
@@ -47,7 +47,7 @@ $('#addProductButton').click(function(event){
             else{
               var element = JSON.parse(sessionStorage.getItem("cart"));
               console.log(element);
-              element.push({id: response.id, amount: amount, price: response.price, image: response.image});
+              element.push({id: response.id, amount: amount, price: response.price, image: response.image, name: response.name});
               var jsonStr = JSON.stringify( element );
               sessionStorage.setItem("cart", jsonStr);
             }
