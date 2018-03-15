@@ -5,49 +5,10 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
-
-/* Converts a JSON string to a JavaScript object
- * @param str String the JSON string
- * @returns obj Object the JavaScript object
- */
-
-_toJSONObject: function( str ) {
-    var obj = JSON.parse( str );
-    return obj;
-},
-
-/* Converts a JavaScript object to a JSON string
- * @param obj Object the JavaScript object
- * @returns str String the JSON string
- */
-
-_toJSONString: function( obj ) {
-    var str = JSON.stringify( obj );
-    return str;
-}
-
-
-/* Add an object to the cart as a JSON string
- * @param values Object the object to be added to the cart
- * @returns void
- */
-
-_addToCart: function( values ) {
-    var cart = this.storage.getItem( this.cartName );
-    var cartObject = this._toJSONObject( cart );
-    var cartCopy = cartObject;
-    var items = cartCopy.items;
-    items.push( values );
-
-    this.storage.setItem( this.cartName, this._toJSONString( cartCopy ) );
-}
-
-
 getProductInfo();
 function getProductInfo(){
   var urlParams = new URLSearchParams(window.location.search);
   sessionStorage.setItem("Product_id", urlParams.get('id'));
-  console.log("https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id'));
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
@@ -68,7 +29,6 @@ function getProductInfo(){
 }
 
 $('#addProductButton').click(function(event){
-  console.log("https://iacgroep3.herokuapp.com/restservices/product/"+sessionStorage.getItem("Product_id"));
   var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+sessionStorage.getItem("Product_id");
    $.ajax(uri, {
           type: "GET",
@@ -77,7 +37,16 @@ $('#addProductButton').click(function(event){
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(response) {
-            if(sessionStorage.getItem("cartName") == null){
+            if(sessionStorage.getItem(cart)==null){
+              var element = {}, cart = [];
+            }
+            element.id = response.id;
+            element.quantity = amount;
+            element.price = response.price;
+            cart.push({element: element});
+            console.log(element);
+
+            /*if(sessionStorage.getItem(cart)==null){
               var amount = $("#amount").val();
 
               var cart = {
@@ -89,17 +58,12 @@ $('#addProductButton').click(function(event){
 
               var jsonStr = JSON.stringify( cart );
 
-              sessionStorage.setItem( "cartName", jsonStr );
+              sessionStorage.setItem( "cart", jsonStr );
               // now the cart is {"item":"Product name","price":35.50,"amount":2}
             }
             else{
-              this._addToCart({
-                id:response.id,
-                item: response.name,
-                price: response.price,
-                amount: amount
-              });
-            }
+
+            }*/
           },
           error: function(response) {
               $("#response").text("RIP!");
