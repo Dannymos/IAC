@@ -32,4 +32,5 @@ function removeProduct(id){
   });
   var jsonStr = JSON.stringify( element );
   sessionStorage.setItem("cart", jsonStr);
+  location.reload();
 }
