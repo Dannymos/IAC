@@ -37,40 +37,20 @@ $('#addProductButton').click(function(event){
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(response) {
-            if(sessionStorage.getItem("cart")==null){
-              var element = {}, cart = [];
-            }
-            else{
-              var element = element = {}, cart[JSON.parse(sessionStorage.getItem("cart"))];
-              console.log(element);
-            }
             var amount = parseInt($("#amount").val());
-            element.id = response.id;
-            element.quantity = amount;
-            element.price = response.price;
-            cart.push({element: element});
-            console.log(element);
-            var jsonStr = JSON.stringify( element );
-            sessionStorage.setItem("cart", jsonStr);
-
-            /*if(sessionStorage.getItem(cart)==null){
-              var amount = $("#amount").val();
-
-              var cart = {
-                  id:response.id,
-                  item: response.name,
-                  price: response.price,
-                  amount: amount
-              };
-
-              var jsonStr = JSON.stringify( cart );
-
-              sessionStorage.setItem( "cart", jsonStr );
-              // now the cart is {"item":"Product name","price":35.50,"amount":2}
+            if(sessionStorage.getItem("cart")==null){
+              var element = [{id: response.id, amount: amount, price: response.price, image: response.image, name: response.name}];
+              console.log(element);
+              var jsonStr = JSON.stringify( element );
+              sessionStorage.setItem("cart", jsonStr);
             }
             else{
-
-            }*/
+              var element = JSON.parse(sessionStorage.getItem("cart"));
+              console.log(element);
+              element.push({id: response.id, amount: amount, price: response.price, image: response.image, name: response.name});
+              var jsonStr = JSON.stringify( element );
+              sessionStorage.setItem("cart", jsonStr);
+            }
           },
           error: function(response) {
               $("#response").text("RIP!");
