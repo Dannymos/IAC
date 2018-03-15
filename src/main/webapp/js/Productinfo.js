@@ -38,7 +38,7 @@ $('#addProductButton').click(function(event){
           },
           success: function(response) {
             if(sessionStorage.getItem("cart")==null){
-              var element = {};
+              var element = {}, cart = [];
             }
             else{
               var element = JSON.parse(sessionStorage.getItem("cart")), cart = [];
