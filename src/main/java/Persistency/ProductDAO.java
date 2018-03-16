@@ -89,10 +89,10 @@ public class ProductDAO extends BaseDAO {
 
             Statement stmt = con.createStatement();
             String query = "UPDATE product " +
-                    "SET product_name = " + product.getName() + " " +
-                    "SET price = " + product.getPrice() + " " +
-                    "SET explanation = " + product.getExplanation() + " " +
-                    "SET image_url = " + product.getImage() + " " +
+                    "SET product_name = \'" + product.getName() + "\', " +
+                    "SET price = " + product.getPrice() + " ," +
+                    "SET explanation = \'" + product.getExplanation() + "\', " +
+                    "SET image_url = \'" + product.getImage() + "\', " +
                     "WHERE product_id = " + product.getId();
 
             editted = stmt.executeUpdate(query);
@@ -108,7 +108,7 @@ public class ProductDAO extends BaseDAO {
 
             Statement stmt = con.createStatement();
             String query = "INSERT INTO product (product_name, price, explanation, image_url)" +
-                    " VALUES( " + product.getName() + ", " + product.getPrice() + ", " + product.getExplanation() + ", " + product.getImage() + ")";
+                    " VALUES( \'" + product.getName() + " \', " + product.getPrice() + ",\' " + product.getExplanation() + "\',\' " + product.getImage() + "\')";
 
             if(stmt.executeUpdate(query) == 1) {
                 return true;
