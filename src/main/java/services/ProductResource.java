@@ -51,7 +51,7 @@ public class ProductResource {
     @POST
     @Path("/add")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response addProduct(@FormParam("name") String name, @FormParam("Price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
+    public Response addProduct(@FormParam("name") String name, @FormParam("price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
         Product product = aProduct()
                 .setName(name)
                 .setPrice(price)
@@ -81,8 +81,16 @@ public class ProductResource {
 
     @PUT
     @Path("/{id}")
-    public Response editProduct(@PathParam( "id" ) int id) {
-        Product product = new Product();
+    public Response editProduct(@PathParam( "id" ) int id,@FormParam("name") String name, @FormParam("Price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
+
+        Product product = aProduct()
+                .setName(name)
+                .setPrice(price)
+                .setExplanation(explanation)
+                .setImage(image)
+                .setId(id)
+                .build();
+
         if(controller.editProduct(product)) {
             return Response.ok("Succes").build();
         }
