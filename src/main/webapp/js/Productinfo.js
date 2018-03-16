@@ -24,7 +24,7 @@ function getProductInfo(){
             $("#productPrice").html("<h5 class=\"teal-text text-darken-2\">"+ response.price +"</h5>");
 	        },
 	        error: function(response) {
-	            $("#response").text("RIP!");
+	            $("#errorHandling").html("The server could not provide you with further information about the product. Try to login again or selecting the product again.");
 	        }
 	    });
 }
@@ -54,7 +54,7 @@ $('#addProductButton').click(function(event){
             }
           },
           error: function(response) {
-              $("#response").text("RIP!");
+               $("#errorHandling").html("The server could not add this product to your card. See if its already added or try again later.");
           }
       });
 });

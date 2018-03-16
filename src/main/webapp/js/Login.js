@@ -25,7 +25,7 @@ $('#login').click(function(event){
 		            });
 		        },
 		        error: function(response) {
-		            $("#response").text("Lid data niet gevonden");
+		            $("#errorHandling").html("Lid data niet gevonden");
                 window.location.replace("https://iacgroep3.herokuapp.com"); //REMOVE WHEN URI ACTUALLY CONTAINS GOOD URI
 		        }
 		    });

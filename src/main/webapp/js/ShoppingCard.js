@@ -34,3 +34,13 @@ function removeProduct(id){
   sessionStorage.setItem("cart", jsonStr);
   location.reload();
 }
+
+$('#orderConfirmed').click(function(event){
+  if(sessionStorage.getItem("role")!= null){
+    sessionStorage.setItem("performingOrder", true);
+    window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
+  }
+  else{
+    
+  }
+});

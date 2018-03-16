@@ -37,7 +37,7 @@ function Producten(){
 	            });
 	        },
 	        error: function(response) {
-	            $("#response").text("RIP!");
+	             $("#errorHandling").html("The server could not get any products from our database. Try logging in again or try again later.");;
 	        }
 	    });
 }
