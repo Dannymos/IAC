@@ -55,7 +55,8 @@ $('#addProductButton').click(function(event){
             var el;
             for (el in element) {
               if(element[el].id == urlParams.get('id')){
-                $("#addProductButton").replace("<button class=\"disabled\" type=\"button\" id=\"addProductButton\">Already added</button>")
+                $("#addProductButton").remove();
+                $("#buttonDiv").html("<button class=\"disabled\" type=\"button\" id=\"addProductButton\">Already added</button>")
               }
             }
           },
