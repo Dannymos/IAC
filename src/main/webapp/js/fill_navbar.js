@@ -21,16 +21,6 @@ $("#navbar").html(
 
 Categorieinfo();
 
-/*$("#mobileNavbar").html(
-  "<ul class=\"side-nav\" id=\"mobile-demo\">"+
-    "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
-    "<li><a href=\"Contact.html\">Contact</a></li>"+
-    "<li><a href=\"ProductSearch.html\">All products</a></li>"+
-    "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
-    "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
-  "</ul>"
-);*/
-
 function Categorieinfo(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
 	 $.ajax(uri, {
@@ -46,7 +36,6 @@ function Categorieinfo(){
             );
 	            $.each(response, function(key, value){
                 if(response.length-1 == key){
-                  console.log("been here")
 	            	$("#navContent2").append(
                     "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\" id=\"navContent3\">"+ value.name +"</a></li>"
                   );
