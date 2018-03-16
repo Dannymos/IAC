@@ -9,7 +9,8 @@ $("#navbar").html(
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
-      "</ul id=\"navContent1\">"+
+      "</ul>"+
+      "<div id=\"navContent1\"></div>"+
     "</div>"+
   "</nav>"
 );
@@ -35,7 +36,7 @@ function Categorieinfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-            $("#navContent1").append(
+            $("#navContent1").html(
               "<div class=\"nav-content\">"+
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"
             );
