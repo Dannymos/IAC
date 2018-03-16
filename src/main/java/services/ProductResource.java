@@ -50,7 +50,7 @@ public class ProductResource {
 
     @POST
     @Path("/add")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Consumes("application/x-www-form-urlencoded")
     public Response addProduct(@FormParam("name") String name, @FormParam("price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
         Product product = aProduct()
                 .setName(name)
