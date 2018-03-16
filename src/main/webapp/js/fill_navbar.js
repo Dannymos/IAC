@@ -10,7 +10,7 @@ $("#navbar").html(
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul>"+
-      "<div id=\"navContent1\"></div>"+
+      "<p id=\"navContent1\"></p>"+
     "</div>"+
   "</nav>"
 );
@@ -56,7 +56,6 @@ function Categorieinfo(){
                 "</ul>"+
               "</div>"
               );
-              $("#navContent1").remove();
 	        },
 	        error: function(response) {
 	            $("#errorHandling").html("The server could not get the main categories to display. Try logging in again or try again later.");
