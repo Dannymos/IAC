@@ -92,7 +92,7 @@ public class ProductDAO extends BaseDAO {
                     "set product_name = \'" + product.getName() + "\', " +
                     " price = " + product.getPrice() + " ," +
                     " explanation = \'" + product.getExplanation() + "\', " +
-                    " image_url = \'" + product.getImage() + "\', " +
+                    " image_url = \'" + product.getImage() + "\' " +
                     "WHERE product_id = " + product.getId();
             System.out.println(query);
             editted = stmt.executeUpdate(query);
