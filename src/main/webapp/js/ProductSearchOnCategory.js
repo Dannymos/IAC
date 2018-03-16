@@ -9,7 +9,7 @@ Producten();
 function Producten(){
   var urlParams = new URLSearchParams(window.location.search);
   sessionStorage.setItem("subcategory_id", urlParams.get('id'));
-	var uri = "https://iacgroep3.herokuapp.com/restservices/product/categories/"+urlParams.get('id');
+	var uri = "https://iacgroep3.herokuapp.com/restservices/product/category/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
