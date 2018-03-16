@@ -10,10 +10,6 @@ $("#navbar").html(
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul id=\"navContent1\">"+
-      "<div class=\"nav-content\">"+
-        "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"+
-        "</ul>"+
-      "</div>"+
     "</div>"+
   "</nav>"
 );
@@ -44,9 +40,14 @@ function Categorieinfo(){
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"
             );
 	            $.each(response, function(key, value){
-                                  console.log(response);
 	            	$("#navContent2").append(
-                  "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>"
+                  if(response.length-1 == key){
+                    "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\" id=\"navContent3\">"+ value.name +"</a></li>"
+                    console.log("been here");
+                  }
+                  else{
+                    "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>"
+                  }
                 );
 	            });
               $("#navContent3").append(
