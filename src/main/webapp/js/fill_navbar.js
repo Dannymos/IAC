@@ -9,32 +9,16 @@ $("#navbar").html(
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
-      "</ul>"+
+      "</ul id=\"navContent1\">"+
       "<div class=\"nav-content\">"+
-        "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"+
-        var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
-         $.ajax(uri, {
-                type: "GET",
-                beforeSend: function(xhr){
-                  var token = window.sessionStorage.getItem("sessionToken");
-                  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                },
-                success: function(response) {
-                    $.each(response, function(key, value){
-                        "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>"+
-                    });
-                },
-                error: function(response) {
-                    $("#errorHandling").html("The server could not get the main categories to display. Try logging in again or try again later.");
-                }
-            });
+        "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"+
         "</ul>"+
       "</div>"+
     "</div>"+
   "</nav>"
 );
 
-//Categorieinfo();
+Categorieinfo();
 
 $("#mobileNavbar").html(
   "<ul class=\"side-nav\" id=\"mobile-demo\">"+
@@ -55,11 +39,20 @@ function Categorieinfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
+            $("#navContent1").append(
+              "<div class=\"nav-content\">"+
+                "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"
+            );
 	            $.each(response, function(key, value){
-	            	$("#navContent").append(
+	            	$("#navContent2").append(
                   "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>"
+                  console.log(response);
                 );
 	            });
+              $("#navContent3").append(
+                "</ul>"+
+              "</div>"
+              );
 	        },
 	        error: function(response) {
 	            $("#errorHandling").html("The server could not get the main categories to display. Try logging in again or try again later.");
