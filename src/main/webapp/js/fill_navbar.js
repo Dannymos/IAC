@@ -9,7 +9,7 @@ $("#navbar").html(
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul>"+
-    "</div>"+
+    "</div>"
 );
 
 Categorieinfo();
