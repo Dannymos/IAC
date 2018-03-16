@@ -13,7 +13,7 @@ public class Main {
         OrderController oc = new OrderController();
         CategoryController cc = new CategoryController();
         CategoryService cs = new CategoryService();
-        System.out.println(cs.getAllSubCategories().getEntity());
+        System.out.println(cs.getAllSubCategories());
 //        System.out.println(oc.addProductToOrder(1,2,4));
 
 

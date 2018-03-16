@@ -37,7 +37,7 @@ public class CategoryService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/subcategories")
-    public JSONObject getAllSubCategories() {
+    public ArrayList<Category> getAllSubCategories() {
 
 
         return cc.getAllSubCategoriesList();
