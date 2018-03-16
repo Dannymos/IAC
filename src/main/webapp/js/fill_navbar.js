@@ -40,7 +40,7 @@ function Categorieinfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-            $("#navContent1").after(
+            $("#mobile-demo").after(
               "<div class=\"nav-content\">"+
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"
             );
