@@ -1,6 +1,6 @@
 function loadGegevens(){
   $.ajax({
-            url: "restservices/product/" + $("#id").val(),
+            url: "../restservices/product/" + $("#id").val(),
             type: 'GET',
             beforeSend: function(xhr) {
                 var token = window.sessionStorage.getItem("sessionToken");
@@ -20,4 +20,28 @@ function loadGegevens(){
                         });
 
 });
+}
+
+function submitGegevens(){
+    event.preventDefault();
+  var data = $("#submitform").serialize();
+   $.ajax({
+             url: '../restservices/product/'+$("#id").val(),
+             type: 'PUT',
+             data: data,
+
+             beforeSend: function(xhr) {
+                 var token = window.sessionStorage.getItem("sessionToken");
+                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+             }
+         })
+         .done(function() {
+             console.log("success");
+         })
+         .fail(function() {
+             console.log("failed");
+         })
+         .always(function() {
+            Materialize.toast('Information is changed', 4000);
+         });
 }

@@ -80,6 +80,7 @@ public class ProductResource {
     }
 
     @PUT
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/{id}")
     public Response editProduct(@PathParam( "id" ) int id,@FormParam("name") String name, @FormParam("Price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
 
