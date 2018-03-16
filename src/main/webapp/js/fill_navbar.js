@@ -56,6 +56,7 @@ function Categorieinfo(){
                 "</ul>"+
               "</div>"
               );
+              $("#navContent1").remove();
 	        },
 	        error: function(response) {
 	            $("#errorHandling").html("The server could not get the main categories to display. Try logging in again or try again later.");
