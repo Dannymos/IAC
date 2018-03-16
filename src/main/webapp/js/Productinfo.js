@@ -5,6 +5,7 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 var urlParams = new URLSearchParams(window.location.search);
+checkShoppingCard();
 getProductInfo();
 function getProductInfo(){
   sessionStorage.setItem("Product_id", urlParams.get('id'));
@@ -51,6 +52,7 @@ $('#addProductButton').click(function(event){
               var jsonStr = JSON.stringify( element );
               sessionStorage.setItem("cart", jsonStr);
             }
+            checkShoppingCard();
           },
           error: function(response) {
                $("#errorHandling").html("The server could not add this product to your card. See if its already added or try again later.");
@@ -58,11 +60,13 @@ $('#addProductButton').click(function(event){
       });
 });
 
-var element = JSON.parse(sessionStorage.getItem("cart"));
-var el;
-for (el in element) {
-  if(element[el].id == urlParams.get('id')){
-    $("#addProductButton").remove();
-    $("#buttonDiv").html("<button class=\"disabled btn-large\" type=\"button\" id=\"addProductButton\">Already added</button>")
+function checkShoppingCard(){
+  var element = JSON.parse(sessionStorage.getItem("cart"));
+  var el;
+  for (el in element) {
+    if(element[el].id == urlParams.get('id')){
+      $("#addProductButton").remove();
+      $("#buttonDiv").html("<button class=\"disabled btn-large\" type=\"button\" id=\"addProductButton\">Already added</button>")
+    }
   }
 }
