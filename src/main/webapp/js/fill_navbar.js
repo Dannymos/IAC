@@ -57,8 +57,7 @@ function Categorieinfo(){
                   }
 	            });
               $("#navContent3").append(
-                "</ul>"+
-              "</div>"
+                "</ul>"
               );
 	        },
 	        error: function(response) {
