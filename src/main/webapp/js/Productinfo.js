@@ -20,21 +20,12 @@ function getProductInfo(){
             $("#productTitle").html("<h3>"+ response.name +"</h3>");
             $("#productPic").html("<img class=\"materialboxed\" width=\"450\" src=\""+response.image+"\">");
             $("#productExplanation").html("<h5>"+ response.explanation +"</h5>");
-            $("#productPrice").html("<h5 class=\"teal-text text-darken-2\">"+ response.price +"</h5>");
+            $("#productPrice").html("<h5 class=\"teal-text text-darken-2\">&euro;"+ response.price +"</h5>");
 	        },
 	        error: function(response) {
 	            $("#errorHandling").html("The server could not provide you with further information about the product. Try to login again or selecting the product again.");
 	        }
 	    });
-}
-
-var element = JSON.parse(sessionStorage.getItem("cart"));
-var el;
-for (el in element) {
-  if(element[el].id == urlParams.get('id')){
-    $("#addProductButton").remove();
-    $("#buttonDiv").html("<button class=\"disabled btn-large\" type=\"button\" id=\"addProductButton\">Already added</button>")
-  }
 }
 
 $('#addProductButton').click(function(event){
@@ -66,3 +57,12 @@ $('#addProductButton').click(function(event){
           }
       });
 });
+
+var element = JSON.parse(sessionStorage.getItem("cart"));
+var el;
+for (el in element) {
+  if(element[el].id == urlParams.get('id')){
+    $("#addProductButton").remove();
+    $("#buttonDiv").html("<button class=\"disabled btn-large\" type=\"button\" id=\"addProductButton\">Already added</button>")
+  }
+}

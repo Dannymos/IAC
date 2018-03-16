@@ -24,7 +24,7 @@ function Producten(){
 
 							        "</div>"+
 							        "<div class=\"card-content\">"+
-                        "<span id=\"product-title\" class=\"card-title grey-text text-darken-4\">"+ value.price +"</span>"+
+                        "<span id=\"product-title\" class=\"card-title grey-text text-darken-4\">&euro;"+ value.price +"</span>"+
 							          "<p class=\"card-subtitle grey-text text-darken-2\">"+
 												value.name+
 												"</p>"+
