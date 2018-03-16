@@ -10,8 +10,9 @@ public class Main {
     public static void main(String[] args){
 
         OrderController oc = new OrderController();
+        CategoryController cc = new CategoryController();
 
-        System.out.println(oc.addProductToOrder(1,2,4));
+        System.out.println(cc.getAllSubCategoriesList());
 
 
     }
