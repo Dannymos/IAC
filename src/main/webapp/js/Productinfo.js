@@ -4,10 +4,9 @@ $('.button-collapse').sideNav({
     closeOnClick: true,
     draggable: true
 });
-
+var urlParams = new URLSearchParams(window.location.search);
 getProductInfo();
 function getProductInfo(){
-  var urlParams = new URLSearchParams(window.location.search);
   sessionStorage.setItem("Product_id", urlParams.get('id'));
 	var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+urlParams.get('id');
 	 $.ajax(uri, {
@@ -51,6 +50,13 @@ $('#addProductButton').click(function(event){
               element.push({id: response.id, amount: amount, price: response.price, image: response.image, name: response.name});
               var jsonStr = JSON.stringify( element );
               sessionStorage.setItem("cart", jsonStr);
+            }
+            var element = JSON.parse(sessionStorage.getItem("cart"));
+            var el;
+            for (el in element) {
+              if(element[el].id == urlParams.get('id')){
+                $("#addProductButton").replace("<button class=\"disabled\" type=\"button\" id=\"addProductButton\">Already added</button>")
+              }
             }
           },
           error: function(response) {

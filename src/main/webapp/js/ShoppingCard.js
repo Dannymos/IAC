@@ -9,7 +9,6 @@ if(sessionStorage.getItem("cart")!=null){
   var element = JSON.parse(sessionStorage.getItem("cart"));
   var el;
   for (el in element) {
-    console.log(element[el].price);
     $("#productsInCard").append(
       "<div class=\"row\">"+
         "<div class=\"col s3 m3\" id=\"productImage\"><img class=\"materialboxed\" width=\"150\" src=\"" +element[el].image +"\"></div>"+
@@ -41,6 +40,6 @@ $('#orderConfirmed').click(function(event){
     window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
   }
   else{
-    
+
   }
 });
