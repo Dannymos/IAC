@@ -86,7 +86,7 @@ public class ProductResource {
 
         Product product = aProduct()
                 .setName(formParams.getFirst("name"))
-                .setPrice(Integer.parseInt(formParams.getFirst("price")))
+                .setPrice(Float.parseFloat(formParams.getFirst("price")))
                 .setExplanation(formParams.getFirst("explanation"))
                 .setImage(formParams.getFirst("image"))
                 .setId(id)
