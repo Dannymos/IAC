@@ -1,5 +1,4 @@
 $("#navbar").html(
-  "<nav class=\"nav-extended\">"+
     "<div class=\"nav-wrapper grey lighten-1\">"+
       "<a href=\"index.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
@@ -11,7 +10,6 @@ $("#navbar").html(
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul>"+
     "</div>"+
-  "</nav>"
 );
 
 Categorieinfo();
