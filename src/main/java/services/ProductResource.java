@@ -51,12 +51,12 @@ public class ProductResource {
     @POST
     @Path("/add")
     @Consumes("application/x-www-form-urlencoded")
-    public Response addProduct(@FormParam("name") String name, @FormParam("price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
+    public Response addProduct(MultivaluedMap<String,String> formParams) {
         Product product = aProduct()
-                .setName(name)
-                .setPrice(price)
-                .setExplanation(explanation)
-                .setImage(image)
+                .setName(formParams.getFirst("name"))
+                .setPrice(Integer.parseInt(formParams.getFirst("price")))
+                .setExplanation(formParams.getFirst("explanation"))
+                .setImage(formParams.getFirst("image"))
                 .build();
 
         if(controller.addProduct(product)) {
@@ -82,13 +82,13 @@ public class ProductResource {
     @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/{id}")
-    public Response editProduct(@PathParam( "id" ) int id,@FormParam("name") String name, @FormParam("Price") float price, @FormParam("explanation") String explanation, @FormParam("image") String image) {
+    public Response editProduct(@PathParam( "id" ) int id,MultivaluedMap<String ,String >formParams) {
 
         Product product = aProduct()
-                .setName(name)
-                .setPrice(price)
-                .setExplanation(explanation)
-                .setImage(image)
+                .setName(formParams.getFirst("name"))
+                .setPrice(Integer.parseInt(formParams.getFirst("price")))
+                .setExplanation(formParams.getFirst("explanation"))
+                .setImage(formParams.getFirst("image"))
                 .setId(id)
                 .build();
 
