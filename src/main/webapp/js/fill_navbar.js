@@ -38,7 +38,7 @@ function Categorieinfo(){
 	        success: function(response) {
             $("#navContent1").html(
               "<div class=\"nav-content\">"+
-                "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"
+                "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"
             );
 	            $.each(response, function(key, value){
                 if(response.length-1 == key){
