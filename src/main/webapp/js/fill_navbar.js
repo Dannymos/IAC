@@ -2,19 +2,26 @@ $("#navbar").html(
     "<div class=\"nav-wrapper grey lighten-1\">"+
       "<a href=\"index.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
-      "<ul class=\"right hide-on-med-and-down\" id=\"navContent1\">"+
+      "<ul class=\"right hide-on-med-and-down\" id=\"nav-mobile\">"+
         "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul>"+
+      "<ul class=\"side-nav\" id=\"mobile-demo\">"+
+        "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
+        "<li><a href=\"Contact.html\">Contact</a></li>"+
+        "<li><a href=\"ProductSearch.html\">All products</a></li>"+
+        "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
+        "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
+      "</ul>"
     "</div>"
 );
 
 Categorieinfo();
 
-$("#mobileNavbar").html(
+/*$("#mobileNavbar").html(
   "<ul class=\"side-nav\" id=\"mobile-demo\">"+
     "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
     "<li><a href=\"Contact.html\">Contact</a></li>"+
@@ -22,7 +29,7 @@ $("#mobileNavbar").html(
     "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
     "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
   "</ul>"
-);
+);*/
 
 function Categorieinfo(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
