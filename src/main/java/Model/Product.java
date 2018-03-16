@@ -5,7 +5,7 @@ public class Product {
     private int id;
 
     private String name;
-    private float price;
+    private double price;
     private String explanation;
     private String image;
     private Offer offer;
@@ -28,11 +28,11 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -75,7 +75,7 @@ public class Product {
     public static final class ProductBuilder {
         private int id;
         private String name;
-        private float price;
+        private double price;
         private String explanation;
         private String image;
         private Offer offer;
@@ -97,7 +97,7 @@ public class Product {
             return this;
         }
 
-        public ProductBuilder setPrice(float price) {
+        public ProductBuilder setPrice(double price) {
             this.price = price;
             return this;
         }
