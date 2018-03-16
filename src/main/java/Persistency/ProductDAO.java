@@ -89,12 +89,12 @@ public class ProductDAO extends BaseDAO {
 
             Statement stmt = con.createStatement();
             String query = "UPDATE product " +
-                    "SET product_name = \'" + product.getName() + "\', " +
-                    "SET price = " + product.getPrice() + " ," +
-                    "SET explanation = \'" + product.getExplanation() + "\', " +
-                    "SET image_url = \'" + product.getImage() + "\', " +
+                    "set product_name = \'" + product.getName() + "\', " +
+                    " price = " + product.getPrice() + " ," +
+                    " explanation = \'" + product.getExplanation() + "\', " +
+                    " image_url = \'" + product.getImage() + "\' " +
                     "WHERE product_id = " + product.getId();
-
+            System.out.println(query);
             editted = stmt.executeUpdate(query);
         }
         catch (Exception sqle) {
