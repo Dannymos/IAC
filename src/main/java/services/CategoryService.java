@@ -20,27 +20,27 @@ public class CategoryService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/main")
-    public Response getMainCategories() {
+    public ArrayList<Category> getMainCategories() {
 
-
-        return Response.status(200).entity(cc.getMainCategories()).build();
+        //Response.status(200).entity().build()
+        return cc.getMainCategories();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{category}")
-    public Response getSubCategories(@PathParam("category") int category) {
+    public ArrayList<Category> getSubCategories(@PathParam("category") int category) {
 
-
-        return Response.status(200).entity(cc.getSubCategories(category)).build();
+        //Response.status(200).entity().build()
+        return cc.getSubCategories(category);
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/subcategories")
-    public Response getAllSubCategories() {
+    public ArrayList<Category> getAllSubCategories() {
 
-        JSONObject jo = cc.getAllSubCategoriesList();
-        return Response.status(200).entity(jo).build();
+
+        return cc.getAllSubCategoriesList();
     }
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

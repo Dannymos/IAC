@@ -5,8 +5,10 @@ import Persistency.CategoryDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import static Model.Category.CategoryBuilder.aCategory;
 public class CategoryController {
 
     CategoryDAO cdao = new CategoryDAO();
@@ -25,16 +27,18 @@ public class CategoryController {
 
         return cdao.getSubCategories(id);
     }
-    public JSONObject getAllSubCategoriesList(){
-        JSONObject jo = new JSONObject();
-        jo.put("firstName", "John");
-        jo.put("lastName", "Doe");
+    public ArrayList<Category> getAllSubCategoriesList(){
+        ArrayList<Category> results = new ArrayList<Category>();
+
         ArrayList<Category> categories = cdao.getAllSubCategories();
         for(Category i:categories){
 
-            jo.put(Integer.toString(i.getId()),i.getName());
+           results.add(aCategory()
+           .setId(i.getId())
+           .setName(i.getName())
+           .build());
         }
-        return jo;
+        return results;
     }
     public boolean addMainCategory(Category category){
 
