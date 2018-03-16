@@ -41,7 +41,7 @@ function Categorieinfo(){
 	        },
 	        success: function(response) {
             $("#navContent1").after(
-              "<div class=\"nav-content\">"+
+              "<div class=\"nav-content grey lighten-1\">"+
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"
             );
 	            $.each(response, function(key, value){
