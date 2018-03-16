@@ -23,6 +23,7 @@ function loadGegevens(){
 }
 
 function submitGegevens(){
+    event.preventDefault();
   var data = $("#submitform").serialize();
    $.ajax({
              url: '../restservices/product/'+$("#id").val(),
