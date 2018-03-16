@@ -15,7 +15,7 @@ $("#navbar").html(
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
-      "</ul>"
+      "</ul>"+
     "</div>"
 );
 
