@@ -3,14 +3,13 @@ $("#navbar").html(
     "<div class=\"nav-wrapper grey lighten-1\">"+
       "<a href=\"index.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
-      "<ul class=\"right hide-on-med-and-down\">"+
+      "<ul class=\"right hide-on-med-and-down\" id=\"navContent1\">"+
         "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
         "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
       "</ul>"+
-      "<p id=\"navContent1\"></p>"+
     "</div>"+
   "</nav>"
 );
@@ -36,7 +35,7 @@ function Categorieinfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-            $("#navContent1").html(
+            $("#navContent1").after(
               "<div class=\"nav-content\">"+
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"
             );
