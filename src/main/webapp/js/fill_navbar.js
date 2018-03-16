@@ -40,15 +40,16 @@ function Categorieinfo(){
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"
             );
 	            $.each(response, function(key, value){
+                if(response.length-1 == key){
+                  console.log("been here")
 	            	$("#navContent2").append(
-                  if(response.length-1 == key){
                     "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\" id=\"navContent3\">"+ value.name +"</a></li>"
-                    console.log("been here");
+                  );
                   }
                   else{
-                    "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>"
+                    $("#navContent2").append(
+                    "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>");
                   }
-                );
 	            });
               $("#navContent3").append(
                 "</ul>"+
