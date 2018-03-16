@@ -31,7 +31,7 @@ function SubCategorieInfo(){
 												"</p>"+
 							        "</div>"+
 							       "<div class=\"card-action\">"+
-							          "<a href=\"https://iacgroep3.herokuapp.com/SubCategories\?id="+ value.id +"\">Details</a>"+
+							          "<a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">Details</a>"+
 							        "</div>"+
 							      "</div>"+
 							   "</div>");
