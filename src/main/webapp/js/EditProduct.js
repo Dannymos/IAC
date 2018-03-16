@@ -1,7 +1,6 @@
-
 function loadGegevens(){
   $.ajax({
-            url: "restservices/product/" + ("#id").val();,
+            url: "restservices/product/" + ("#id").val(),
             type: 'GET',
             beforeSend: function(xhr) {
                 var token = window.sessionStorage.getItem("sessionToken");
@@ -20,4 +19,5 @@ function loadGegevens(){
 
                         });
 
+});
 }
