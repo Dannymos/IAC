@@ -41,6 +41,7 @@ function Categorieinfo(){
 	        },
 	        success: function(response) {
             $("#mobile-demo").after(
+              "</div>"+
               "<div class=\"nav-content\">"+
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"
             );
