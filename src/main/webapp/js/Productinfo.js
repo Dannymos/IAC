@@ -28,6 +28,15 @@ function getProductInfo(){
 	    });
 }
 
+var element = JSON.parse(sessionStorage.getItem("cart"));
+var el;
+for (el in element) {
+  if(element[el].id == urlParams.get('id')){
+    $("#addProductButton").remove();
+    $("#buttonDiv").html("<button class=\"disabled btn-large\" type=\"button\" id=\"addProductButton\">Already added</button>")
+  }
+}
+
 $('#addProductButton').click(function(event){
   var uri = "https://iacgroep3.herokuapp.com/restservices/product/"+sessionStorage.getItem("Product_id");
    $.ajax(uri, {
@@ -50,14 +59,6 @@ $('#addProductButton').click(function(event){
               element.push({id: response.id, amount: amount, price: response.price, image: response.image, name: response.name});
               var jsonStr = JSON.stringify( element );
               sessionStorage.setItem("cart", jsonStr);
-            }
-            var element = JSON.parse(sessionStorage.getItem("cart"));
-            var el;
-            for (el in element) {
-              if(element[el].id == urlParams.get('id')){
-                $("#addProductButton").remove();
-                $("#buttonDiv").html("<button class=\"disabled btn-large\" type=\"button\" id=\"addProductButton\">Already added</button>")
-              }
             }
           },
           error: function(response) {
