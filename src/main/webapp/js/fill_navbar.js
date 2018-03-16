@@ -1,5 +1,5 @@
 $("#navbar").html(
-    "<div class=\"nav-wrapper grey lighten-1\">"+
+    "<div class=\"nav-wrapper grey lighten-1\" id=\"navContent1\">"+
       "<a href=\"index.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
       "<ul class=\"right hide-on-med-and-down\" id=\"nav-mobile\">"+
@@ -40,8 +40,7 @@ function Categorieinfo(){
 	        	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 	        },
 	        success: function(response) {
-            $("#mobile-demo").after(
-              "</div>"+
+            $("navContent1").after(
               "<div class=\"nav-content\">"+
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent2\">"
             );
