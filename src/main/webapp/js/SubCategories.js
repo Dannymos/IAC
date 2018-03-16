@@ -5,9 +5,11 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
-Categorieinfo();
-function Categorieinfo(){
-	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/main";
+SubCategorieInfo();
+function SubCategorieInfo(){
+  var urlParams = new URLSearchParams(window.location.search);
+  sessionStorage.setItem("Category_id", urlParams.get('id'));
+	var uri = "https://iacgroep3.herokuapp.com/restservices/categories/"+urlParams.get('id');
 	 $.ajax(uri, {
 	        type: "GET",
 	        beforeSend: function(xhr){
@@ -21,7 +23,6 @@ function Categorieinfo(){
 							      "<div class=\"card large\">"+
 							        "<div class=\"card-image\">"+
 							          "<img id=\"product-img\" src=\""+value.picture+"\"/>"+
-
 							        "</div>"+
 							        "<div class=\"card-content\">"+
                         "<span id=\"product-title\" class=\"card-title grey-text text-darken-4\">"+ value.name +"</span>"+
@@ -37,7 +38,7 @@ function Categorieinfo(){
 	            });
 	        },
 	        error: function(response) {
-	            $("#errorHandling").html("The server could not get the main categories to display. Try logging in again or try again later.");
+	            $("#errorHandling").html("The server could not get the sub categories to display. Try logging in again or try again later.");
 	        }
 	    });
 }
