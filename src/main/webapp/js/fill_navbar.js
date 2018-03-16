@@ -44,9 +44,9 @@ function Categorieinfo(){
                 "<ul class=\"tabs tabs-transparent\" id=\"navContent\">"
             );
 	            $.each(response, function(key, value){
+                                  console.log(response);
 	            	$("#navContent2").append(
                   "<li class=\"tab\"><a href=\"https://iacgroep3.herokuapp.com/SubCategories.html\?id="+ value.id +"\">"+ value.name +"</a></li>"
-                  console.log(response);
                 );
 	            });
               $("#navContent3").append(
