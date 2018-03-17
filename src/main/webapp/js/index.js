@@ -41,7 +41,7 @@ function OfferProducten(){
           							          "<a href=\"https://iacgroep3.herokuapp.com/productinfo.html\?id="+ response.id +"\">Details</a>"+
           							        "</div>"+
           							      "</div>"+
-          							   "</div>"
+          							   "</div>");
               	        },
               	        error: function(response) {
               	             $("#errorHandling").html("The server could not get any products corresponding with the offers from our database.");;
