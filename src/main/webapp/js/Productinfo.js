@@ -26,7 +26,7 @@ function getProductInfo(){
               $("#priceReduction").html("<h5 class=\"teal-text text-darken-2\">No price reduction</h5>");
             }
             else{
-              $("#priceReduction").html("<h5 class=\"teal-text text-darken-2\">"+ response.offer.reduction +"</h5>");
+              $("#priceReduction").html("<h5 class=\"teal-text text-darken-2\">"+ response.offer.reduction +"&#37;</h5>");
             }
 	        },
 	        error: function(response) {
