@@ -1,6 +1,7 @@
 package services;
 
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.ws.rs.Consumes;
@@ -10,6 +11,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import Model.Account;
+
+import Model.User;
 import Persistency.UserDAO;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -28,9 +32,9 @@ public class AuthenticationResource {
         try {
             // Authenticate the user against the database
             UserDAO dao = new UserDAO();
-            String role = dao.findUser(email, password);
+            User user = dao.findUser(email, password);
 
-            if (role == null) {
+            if (user.getRole() == null) {
                 throw new IllegalArgumentException("No user found!");
             }
 
@@ -40,12 +44,16 @@ public class AuthenticationResource {
 
             String token = Jwts.builder()
                     .setSubject(email)
-                    .claim("role", role)
+                    .claim("customer_id", user.getCustomerId())
+                    .claim("role", user.getRole())
                     .setExpiration(expiration.getTime())
                     .signWith(SignatureAlgorithm.HS512, key)
                     .compact();
             // Return the token on the response
-            return Response.ok(token).build();
+            ArrayList<String> response = new ArrayList<String>();
+            response.add( Integer.toString(user.getCustomerId()));
+            response.add(token);
+            return Response.ok(response).build();
         } catch (JwtException | IllegalArgumentException e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }

@@ -38,6 +38,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
                 Claims claims = parser.parseClaimsJws(token).getBody();
                 String user = claims.getSubject();
                 String role = claims.get("role").toString();
+                int id = Integer.parseInt(claims.get("customer_id").toString());
                 msc = new SecContext(user, role, isSecure);
 
             } catch (JwtException | IllegalArgumentException e) {
