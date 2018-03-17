@@ -32,7 +32,7 @@ function OfferProducten(){
 
           							        "</div>"+
           							        "<div class=\"card-content\">"+
-                                  "<span id=\"product-title\" class=\"card-title grey-text text-darken-4\">&euro;"+ response.price +"</span>"+
+                                  "<span id=\"product-title\" class=\"card-title grey-text text-darken-4\">Now just!: &euro;"+ response.price +"</span>"+
           							          "<p class=\"card-subtitle grey-text text-darken-2\">"+
           												response.name+
           												"</p>"+
