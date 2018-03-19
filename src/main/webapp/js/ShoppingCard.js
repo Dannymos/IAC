@@ -21,7 +21,11 @@ if(sessionStorage.getItem("cart")!=null){
   }
 }
 else{
-  //ERROR HANDLING FOR EMPTY SHOPPING CARD?
+  $("#productsInCard").append(
+    "<div class=\"row\">"+
+      "<div class=\"col s12 m12\"><h4>You have not added any products yet.</h4></div>"+
+    "</div>"
+  );
 }
 
 function removeProduct(id){
@@ -35,11 +39,11 @@ function removeProduct(id){
 }
 
 $('#orderConfirmed').click(function(event){
-  if(sessionStorage.getItem("role")!= null){
+  if(sessionStorage.getItem("role") != "null"){
     sessionStorage.setItem("performingOrder", true);
     window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
   }
   else{
-
+    window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
   }
 });

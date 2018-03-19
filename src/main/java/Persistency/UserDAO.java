@@ -1,7 +1,7 @@
 package Persistency;
 
 import Model.Account;
-import Model.Account.AccountBuilder.anAccount;
+import static Model.Account.AccountBuilder.anAccount;
 import Model.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
         try(Connection con = super.getConnection()){
-            String query = "SELECT * FROM user" + ml + " AND password = " + pwd;
+            String query = "SELECT * FROM user where email =" + ml + " AND password = " + pwd;
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -32,14 +32,14 @@ public class UserDAO extends BaseDAO {
             String query = "SELECT * FROM account WHERE customer_id = " + id;
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-
+            boolean a= rs.getInt("is_active") != 0;
             if(rs.next()) {
                 Account account = anAccount()
                         .setAccount_id(rs.getInt("account_id"))
-                        .setCustomer_id(rs.getInt("account_id"))
-                        .setBilling_address()
-                        .setIs_active(rs.getInt("account_id"))
-                        .setOpeningDate(rs.getDate("account_id"))
+                        .setCustomer_id(rs.getInt("customer_id"))
+                        .setBilling_address(rs.getString("billing_address"))
+                        .setIs_active(a)
+                        .setOpening_date(rs.getDate("opening_date"))
                         .build();
                 return account;
             }
