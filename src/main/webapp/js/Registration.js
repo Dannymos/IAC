@@ -19,6 +19,7 @@ $("input, textarea").alphanum({
     forceLower         : false,
     maxLength          : NaN
 });
+
 $("#registerForm").validate({
        rules: {
            name:{
