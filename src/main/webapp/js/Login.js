@@ -1,6 +1,6 @@
 $('#login').click(function(event){
 	var data = $('#loginForm').serialize();
-	$.post("restservices/authentication/authenticate", data, function(response){
+	$.post("https://iacgroep3.herokuapp.com/restservices/authentication/authenticate", data, function(response){
 		console.log(response);
 		var tokenAndId = JSON.parse(response);
 		console.log(tokenAndId);
