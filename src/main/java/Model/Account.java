@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Account {
@@ -8,7 +9,7 @@ public class Account {
     private int customer_id;
     private String billing_address;
     private boolean is_active;
-    private Timestamp opening_date;
+    private Date opening_date;
 
     public int getAccount_id() {
         return account_id;
@@ -42,11 +43,11 @@ public class Account {
         this.is_active = is_active;
     }
 
-    public Timestamp getOpening_date() {
+    public Date getOpening_date() {
         return opening_date;
     }
 
-    public void setOpening_date(Timestamp opening_date) {
+    public void setOpening_date(Date opening_date) {
         this.opening_date = opening_date;
     }
 
@@ -56,7 +57,7 @@ public class Account {
         private int customer_id;
         private String billing_address;
         private boolean is_active;
-        private Timestamp opening_date;
+        private Date opening_date;
 
         private AccountBuilder() {
         }
@@ -85,7 +86,7 @@ public class Account {
             return this;
         }
 
-        public AccountBuilder setOpening_date(Timestamp opening_date) {
+        public AccountBuilder setOpening_date(Date opening_date) {
             this.opening_date = opening_date;
             return this;
         }
