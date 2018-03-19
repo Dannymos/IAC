@@ -36,12 +36,11 @@ function removeProduct(id){
 
 $('#orderConfirmed').click(function(event){
   console.log(sessionStorage.getItem("role"));
-  if(sessionStorage.getItem("role")!== null){
-    console.log(sessionStorage.getItem("role"));
+  if(sessionStorage.getItem("role") != null){
     sessionStorage.setItem("performingOrder", true);
     window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
   }
   else{
-
+    console.log(sessionStorage.getItem("role"));
   }
 });
