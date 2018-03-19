@@ -11,7 +11,7 @@ public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
         try(Connection con = super.getConnection()){
-            String query = "SELECT * FROM user" + ml + " AND password = " + pwd;
+            String query = "SELECT * FROM user where email =" + ml + " AND password = " + pwd;
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
