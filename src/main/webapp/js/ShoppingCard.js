@@ -44,6 +44,6 @@ $('#orderConfirmed').click(function(event){
     window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
   }
   else{
-
+    window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
   }
 });
