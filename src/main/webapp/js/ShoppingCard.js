@@ -35,7 +35,7 @@ function removeProduct(id){
 }
 
 $('#orderConfirmed').click(function(event){
-  console.log("been here 1");
+  console.log(sessionStorage.getItem("role"));
   if(sessionStorage.getItem("role")!= null){
     console.log(sessionStorage.getItem("role"));
     sessionStorage.setItem("performingOrder", true);
