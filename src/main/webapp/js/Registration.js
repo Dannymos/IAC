@@ -110,11 +110,11 @@ $("#registerForm").validate({
            error.insertAfter(element);
          }
      },
-     /*submitHandler: function(form) {
+     submitHandler: function(form) {
        var uri = "restservices/Lid/Insert";
       $.ajax(uri, {
           type: "POST",
-          data: $("#LidForum").serialize(),
+          data: $("#registerForm").serialize(),
           beforeSend: function(xhr){
           var token = window.sessionStorage.getItem("sessionToken");
           xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -124,15 +124,14 @@ $("#registerForm").validate({
                   console.log("reloading");
                   location.reload();
                 },1000)
-              $("#response").text("Something Inserted!");
           },
           error: function(response) {
-              $("#response").text("RIP!");
+              $("#errorHandling").text("Adding a member doestn work.");
           }
       });
 
        event.preventDefault();
-    }*/
+    }
     });
 
 $('#postalcode').formatter({
