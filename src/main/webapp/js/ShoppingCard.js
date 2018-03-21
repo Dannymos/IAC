@@ -6,19 +6,30 @@ $('.button-collapse').sideNav({
 });
 
 var element = JSON.parse(sessionStorage.getItem("cart"));
-if(element.length > 0){
-  console.log(sessionStorage.getItem("cart"));
-  var el;
-  for (el in element) {
+if(element !== null){
+  if(element.length > 0){
+    console.log(sessionStorage.getItem("cart"));
+    var el;
+    for (el in element) {
+      $("#productsInCard").append(
+        "<div class=\"row\">"+
+          "<div class=\"col s3 m3\" id=\"productImage\"><img class=\"materialboxed\" width=\"150\" src=\"" +element[el].image +"\"></div>"+
+          "<div class=\"col s2 m2\" id=\"productTitle\"><p>"+ element[el].name +"</p></div>"+
+          "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].price +"</p></div>"+
+          "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].amount +"</p></div>"+
+          "<div class=\"col s3 m3\"><button class=\"waves-effect waves-light btn-large red darken-2\" type=\"button\" id=\"removeProduct\" onclick=\"removeProduct("+ element[el].id +")\">Remove Product</button></div>"+
+        "</div>"
+      );
+    }
+  }
+  else{
     $("#productsInCard").append(
       "<div class=\"row\">"+
-        "<div class=\"col s3 m3\" id=\"productImage\"><img class=\"materialboxed\" width=\"150\" src=\"" +element[el].image +"\"></div>"+
-        "<div class=\"col s2 m2\" id=\"productTitle\"><p>"+ element[el].name +"</p></div>"+
-        "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].price +"</p></div>"+
-        "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].amount +"</p></div>"+
-        "<div class=\"col s3 m3\"><button class=\"waves-effect waves-light btn-large red darken-2\" type=\"button\" id=\"removeProduct\" onclick=\"removeProduct("+ element[el].id +")\">Remove Product</button></div>"+
+        "<div class=\"col s12 m12\"><h4>You have not added any products yet.</h4></div>"+
       "</div>"
     );
+    $('#orderConfirmed').remove();
+    $('#buttonContainer').html("<button class=\"disabled waves-effect waves-light btn-large green darken-2\" type=\"button\">Add products first</button></div>");
   }
 }
 else{
