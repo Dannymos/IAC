@@ -47,12 +47,10 @@ $('#addProductButton').click(function(event){
             var amount = parseInt($("#amount").val());
             console.log(amount);
             if(isNaN(amount)){
-               $("#errorHandling").html("Please give a valid amount");
-               console.log("been here");
+               $("#amountFeedback").html("Please give a valid amount");
             }
             else if(amount < 1){
-              $("#errorHandling").html("Please give a valid amount");
-              console.log("been here to");
+              $("#amountFeedback").html("Please give a valid amount");
             }
             else{
               if(sessionStorage.getItem("cart")==null){
