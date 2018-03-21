@@ -27,4 +27,14 @@ public class User {
     public int getCustomerId() {
         return customer_id;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "customer_id=" + customer_id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

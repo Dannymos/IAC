@@ -4,31 +4,37 @@ import Model.Account;
 import static Model.Account.AccountBuilder.anAccount;
 import Model.User;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
-        pwd = "test";
-        ml = "test@test.nl";
+
+        ArrayList<User> users = new ArrayList<User>();
+
         try(Connection con = super.getConnection()){
-            String query = "SELECT * FROM user WHERE email = " + ml + " AND password = " + pwd;
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            User user = new User("test@test.nl", "test", 1, "user");
-            return user;
-            //if(rs.next()) {
-                //User user = new User(rs.getString("email"), rs.getString("password"), rs.getInt("customer_id"), rs.getString("role"));
-             //   return user;
-            //}
+            String query = "SELECT * FROM \"user\" WHERE email = ? AND password = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1,ml);
+            stmt.setString(2,pwd);
+            ResultSet rs = stmt.executeQuery();
+
+
+            while(rs.next()) {
+
+                User user = new User(rs.getString("email"), rs.getString("password"), rs.getInt("customer_id"), rs.getString("role"));
+                users.add(user);
+
+            }
 
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        User user = new User("test@test.nl", "test", 1, "user");
-        return user;
+        return users.get(0);
     }
 
     public Account getUserById(int id) {
@@ -37,7 +43,7 @@ public class UserDAO extends BaseDAO {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             boolean a= rs.getInt("is_active") != 0;
-            if(rs.next()) {
+            while(rs.next()) {
                 Account account = anAccount()
                         .setAccount_id(rs.getInt("account_id"))
                         .setCustomer_id(rs.getInt("customer_id"))

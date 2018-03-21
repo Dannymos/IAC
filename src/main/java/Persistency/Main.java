@@ -12,7 +12,8 @@ import static Model.Order.OrderBuilder.anOrder;
 public class Main {
     public static void main(String[] args){
 
-       OfferDAO odao = new OfferDAO();
-        System.out.println(odao.getOfferByProduct(1));
+       UserDAO udao = new UserDAO();
+
+       System.out.println(udao.findUser("test@test.nl","test"));
     }
 }
