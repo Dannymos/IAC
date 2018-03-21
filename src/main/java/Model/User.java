@@ -7,11 +7,11 @@ public class User {
     private int customer_id;
     private String role;
 
-    public User(String email, String password, int customer_id, String role) {
-        this.email = email;
-        this.password = password;
-        this.customer_id = customer_id;
-        this.role = role;
+    public User(String ml, String pwd, int cust_id, String rl) {
+        this.email = ml;
+        this.password = pwd;
+        this.customer_id = cust_id;
+        this.role = rl;
     }
 
     public User() {
