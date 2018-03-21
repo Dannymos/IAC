@@ -12,11 +12,7 @@ import static Model.Order.OrderBuilder.anOrder;
 public class Main {
     public static void main(String[] args){
 
-        Order order = anOrder().setDeliveryAddress("glennhof")
-                .setCustomer_id(1)
-                .build();
-        OrderController oc = new OrderController();
-
-        System.out.println(oc.addOrder(order));
+       OfferDAO odao = new OfferDAO();
+        System.out.println(odao.getOfferByProduct(1));
     }
 }
