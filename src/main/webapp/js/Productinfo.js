@@ -45,23 +45,28 @@ $('#addProductButton').click(function(event){
           },
           success: function(response) {
             var amount = parseInt($("#amount").val());
-            if(sessionStorage.getItem("cart")==null){
-              var element = [{id: response.id, amount: amount, price: response.price, image: response.image, name: response.name}];
-              console.log(element);
-              var jsonStr = JSON.stringify( element );
-              sessionStorage.setItem("cart", jsonStr);
+            if(amount == null || amount<1){
+               $("#errorHandling").html("Please give a valid amount");
             }
             else{
-              var element = JSON.parse(sessionStorage.getItem("cart"));
-              console.log(element);
-              element.push({id: response.id, amount: amount, price: response.price, image: response.image, name: response.name});
-              var jsonStr = JSON.stringify( element );
-              sessionStorage.setItem("cart", jsonStr);
+              if(sessionStorage.getItem("cart")==null){
+                var element = [{id: response.id, amount: amount, price: response.price, image: response.image, name: response.name}];
+                console.log(element);
+                var jsonStr = JSON.stringify( element );
+                sessionStorage.setItem("cart", jsonStr);
+              }
+              else{
+                var element = JSON.parse(sessionStorage.getItem("cart"));
+                console.log(element);
+                element.push({id: response.id, amount: amount, price: response.price, image: response.image, name: response.name});
+                var jsonStr = JSON.stringify( element );
+                sessionStorage.setItem("cart", jsonStr);
+              }
+              checkShoppingCard();
+            },
+            error: function(response) {
+                 $("#errorHandling").html("The server could not add this product to your card. See if its already added or try again later.");
             }
-            checkShoppingCard();
-          },
-          error: function(response) {
-               $("#errorHandling").html("The server could not add this product to your card. See if its already added or try again later.");
           }
       });
 });
