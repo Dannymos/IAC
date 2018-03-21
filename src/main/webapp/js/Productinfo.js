@@ -63,10 +63,10 @@ $('#addProductButton').click(function(event){
                 sessionStorage.setItem("cart", jsonStr);
               }
               checkShoppingCard();
-            },
-            error: function(response) {
-                 $("#errorHandling").html("The server could not add this product to your card. See if its already added or try again later.");
             }
+          },
+          error: function(response) {
+            $("#errorHandling").html("The server could not add this product to your card. See if its already added or try again later.");
           }
       });
 });
