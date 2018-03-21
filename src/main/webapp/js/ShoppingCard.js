@@ -5,9 +5,9 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
-if(sessionStorage.getItem("cart")!==null){
+var element = JSON.parse(sessionStorage.getItem("cart"));
+if(element.length > 0){
   console.log(sessionStorage.getItem("cart"));
-  var element = JSON.parse(sessionStorage.getItem("cart"));
   var el;
   for (el in element) {
     $("#productsInCard").append(
