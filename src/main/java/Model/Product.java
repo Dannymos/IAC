@@ -10,6 +10,9 @@ public class Product {
     private String image;
     private Offer offer;
 
+    public Product() {
+    }
+
     public int getId() {
         return id;
     }
