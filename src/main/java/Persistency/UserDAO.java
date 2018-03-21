@@ -16,6 +16,7 @@ public class UserDAO extends BaseDAO {
             ResultSet rs = stmt.executeQuery(query);
 
             if(rs.next()) {
+                rs.beforeFirst();
                 User user = new User(rs.getString("email"), rs.getString("password"), rs.getInt("customer_id"), rs.getString("role"));
                 return user;
             }
