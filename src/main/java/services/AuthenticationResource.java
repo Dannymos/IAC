@@ -44,7 +44,7 @@ public class AuthenticationResource {
 
             String token = Jwts.builder()
                     .setSubject(email)
-                    .claim("customer_id", user.getCustomerId())
+                    .claim("customer_id", Integer.toString(user.getCustomerId()))
                     .claim("role", user.getRole())
                     .setExpiration(expiration.getTime())
                     .signWith(SignatureAlgorithm.HS512, key)
