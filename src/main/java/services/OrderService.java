@@ -28,9 +28,9 @@ public class OrderService {
         @GET
         @Path("/items/{id}")
         @Produces(MediaType.APPLICATION_JSON)
-        public  Response getOrderRulesByOrder(@PathParam("id")int id){
+        public  ArrayList<OrderRule> getOrderRulesByOrder(@PathParam("id")int id){
 
-                return Response.status(200).entity(oc.getOrderrulesByOrder(id)).build();
+                return oc.getOrderrulesByOrder(id);
         }
 
         @POST
