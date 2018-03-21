@@ -14,9 +14,9 @@ if(element !== null){
       $("#productsInCard").append(
         "<div class=\"row\">"+
           "<div class=\"col s3 m3\" id=\"productImage\"><img class=\"materialboxed\" width=\"150\" src=\"" +element[el].image +"\"></div>"+
-          "<div class=\"col s2 m2\" id=\"productTitle\"><p>"+ element[el].name +"</p></div>"+
-          "<div class=\"col s2 m2\" id=\"productPrice\"><p>Price: &euro;"+ element[el].price +"</p></div>"+
-          "<div class=\"col s2 m2\" id=\"productPrice\"><p>Amount: "+ element[el].amount +"</p></div>"+
+          "<div class=\"col s3 m3\" id=\"productTitle\"><p>"+ element[el].name +"</p></div>"+
+          "<div class=\"col s3 m3\" id=\"productPrice\"><p>Price: &euro;"+ element[el].price +"</p></div>"+
+          "<div class=\"col s3 m3\" id=\"productPrice\"><p>Amount: "+ element[el].amount +"</p></div>"+
         "</div>"
       );
       var totalPrice = totalPrice + Number(element[el].price);
