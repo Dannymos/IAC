@@ -21,10 +21,10 @@ public class User {
     }
 
     public String getRole() {
-        return this.role;
+        return role;
     }
 
     public int getCustomerId() {
-        return this.customer_id;
+        return customer_id;
     }
 }
