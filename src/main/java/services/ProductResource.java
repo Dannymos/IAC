@@ -24,9 +24,9 @@ public class ProductResource {
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Product> getAllProducts() {
+    public Response getAllProducts() {
 
-            return controller.getAllProducts();
+            return Response.status(200).entity(controller.getAllProducts()).build();
 
     }
     @GET
