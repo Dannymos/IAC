@@ -19,7 +19,7 @@ if(element !== null){
           "<div class=\"col s2 m2\" id=\"productPrice\"><p>"+ element[el].amount +"</p></div>"+
         "</div>"
       );
-      var totalPrice += Number(element[el].price);
+      var totalPrice = totalPrice + Number(element[el].price);
     }
     $("#productsInCard").append(
       "<div class=\"row\">"+
