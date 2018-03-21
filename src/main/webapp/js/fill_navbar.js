@@ -3,18 +3,18 @@ $("#navbar").html(
       "<a href=\"Home.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
       "<ul class=\"right hide-on-med-and-down\" id=\"nav-mobile\">"+
-        "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
+        "<li><a href=\"Categorie.html\">Categories</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
-        "<li><a id=\"afmelden\" href=\"index.html\">Afmelden</a></li>"+
+        "<li><a id=\"logOut\" href=\"index.html\">Log out</a></li>"+
       "</ul>"+
       "<ul class=\"side-nav\" id=\"mobile-demo\">"+
-        "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
+        "<li><a href=\"Categorie.html\">Categories</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">Shopping Cart</a></li>"+
-        "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
+        "<li><a id=\"logOut\" href=\"index.html\">Log out</a></li>"+
       "</ul>"+
     "</div>"
 );
@@ -55,7 +55,7 @@ function Categorieinfo(){
 	    });
 }
 
-$('#afmelden').click(function(event){
+$('#logOut').click(function(event){
   sessionStorage.removeItem("sessionToken");
   console.log("Afgemeld");
 });
