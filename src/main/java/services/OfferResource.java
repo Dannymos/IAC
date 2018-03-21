@@ -15,7 +15,7 @@ public class OfferResource {
     OfferController controller = new OfferController();
 
     @GET
-    @Path("/offer/product/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Offer getOfferByProduct(@PathParam( "id" ) int id) {
         return controller.getOfferByProduct(id);
