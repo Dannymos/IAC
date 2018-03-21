@@ -26,6 +26,8 @@ else{
       "<div class=\"col s12 m12\"><h4>You have not added any products yet.</h4></div>"+
     "</div>"
   );
+  $('#orderConfirmed').remove();
+  $('#buttonContainer').html("<button class=\"disabled waves-effect waves-light btn-large green darken-2\" type=\"button\">Add products first</button></div>");
 }
 
 function removeProduct(id){
