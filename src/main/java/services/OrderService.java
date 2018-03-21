@@ -11,6 +11,8 @@ import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static Model.Order.OrderBuilder.anOrder;
+
 @Path("/order")
 
 public class OrderService {
@@ -34,7 +36,7 @@ public class OrderService {
         @POST
         @Path("/{id}")
 
-        public Response addProductToOrder(@PathParam("id")int id,@QueryParam("product")int productid,@QueryParam("amount")int amount){
+        public Response addProductsToOrder(@PathParam("id")int id,@QueryParam("product")int productid,@QueryParam("amount")int amount){
 
             boolean succesful = oc.addProductToOrder(id,productid,amount);
 
@@ -45,4 +47,18 @@ public class OrderService {
                 return Response.status(400).build();
             }
         }
+
+        @POST
+        @Path("/complete")
+
+        public Response completeOrder(@QueryParam("CustomerID")int customerID,@QueryParam("deliveryAddress")String deliveryaddress){
+            Order order = anOrder().setCustomer_id(customerID)
+                    .setDeliveryAddress(deliveryaddress)
+                    .build();
+            int orderid = oc.completeOrder(order);
+
+            return Response.status(200).entity(orderid).build();
+        }
+
+
 }

@@ -3,6 +3,7 @@ package Persistency;
 import Model.Product;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -74,9 +75,10 @@ public class ProductDAO extends BaseDAO {
         int deleted =0;
 
         try (Connection con = super.getConnection()) {
-            Statement stmt = con.createStatement();
-            String query = "delete from product where product_id = "+ id;
-           deleted = stmt.executeUpdate(query);
+
+            PreparedStatement stmt = con.prepareStatement("delete from product where product_id = ?");
+           stmt.setInt(1,id);
+           deleted = stmt.executeUpdate();
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
@@ -87,15 +89,21 @@ public class ProductDAO extends BaseDAO {
         int editted =0;
         try (Connection con = super.getConnection()) {
 
-            Statement stmt = con.createStatement();
             String query = "UPDATE product " +
-                    "set product_name = \'" + product.getName() + "\', " +
-                    " price = " + product.getPrice() + " ," +
-                    " explanation = \'" + product.getExplanation() + "\', " +
-                    " image_url = \'" + product.getImage() + "\' " +
-                    "WHERE product_id = " + product.getId();
+                    "set product_name = ?, " +
+                    " price = ? ," +
+                    " explanation = ?, " +
+                    " image_url = ? " +
+                    "WHERE product_id = ?" ;
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1,product.getName());
+            stmt.setDouble(2,product.getPrice());
+            stmt.setString(3,product.getExplanation());
+            stmt.setString(4,product.getImage());
+            stmt.setInt(5,product.getId());
+
             System.out.println(query);
-            editted = stmt.executeUpdate(query);
+            editted = stmt.executeUpdate();
         }
         catch (Exception sqle) {
             sqle.printStackTrace();

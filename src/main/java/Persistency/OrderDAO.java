@@ -3,7 +3,9 @@ package Persistency;
 import Model.Order;
 import Model.Product;
 
+
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -50,5 +52,27 @@ public class OrderDAO extends BaseDAO {
 
 
         return getOrders("select * from product_order where order_id= "+id).get(0);
+    }
+    public Order getLatestOrder(){
+        return getOrders("select * from product_order ORDER BY order_id DESC LIMIT 1").get(0);
+    }
+    public boolean addOrder(Order order) {
+        int editted =0;
+        try (Connection con = super.getConnection()) {
+
+            String query = "insert into product_order (customer_id,status,delivery_address)" +
+                    " values(?,?,?)";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1,order.getCustomer_id());
+            stmt.setString(2,"new");
+            stmt.setString(3,order.getDeliveryAddress());
+
+            System.out.println(query);
+            editted = stmt.executeUpdate();
+        }
+        catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+        return editted==1;
     }
 }

@@ -53,7 +53,7 @@ public class OfferDAO extends BaseDAO{
 
             ResultSet result = stmt.executeQuery(query);
 
-            if(result.next()) {
+            while(result.next()) {
                 int offerid = result.getInt("offer_id");
                 int productid = result.getInt("product_id");
                 Timestamp startdate = result.getTimestamp("start_date");
