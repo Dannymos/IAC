@@ -3,7 +3,7 @@ $("#navbar").html(
       "<a href=\"Home.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
       "<ul class=\"right hide-on-med-and-down\" id=\"nav-mobile\">"+
-        "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
+        "<li><a href=\"Categorie.html\">Categories</a></li>"+
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
