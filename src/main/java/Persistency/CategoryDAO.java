@@ -3,6 +3,7 @@ package Persistency;
 import Model.Category;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -57,10 +58,12 @@ public class CategoryDAO extends BaseDAO{
     }
     public boolean addMainCategory(Category category){
         try (Connection con = super.getConnection()) {
-
-            Statement stmt = con.createStatement();
             String query = "INSERT INTO category (category_name,description,picture)" +
-                    " VALUES( " + category.getName() + ", " + category.getDescription() + ", " + category.getPicture()+")";
+                    " VALUES(?, ?, ?)";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1,category.getName());
+            stmt.setString(2,category.getDescription());
+            stmt.setString(3,category.getPicture());
 
             if(stmt.executeUpdate(query) == 1) {
                 return true;
@@ -76,9 +79,13 @@ public class CategoryDAO extends BaseDAO{
 
         try (Connection con = super.getConnection()) {
 
-            Statement stmt = con.createStatement();
             String query = "INSERT INTO category (category_name,description,picture,subcategory_id)" +
-                    " VALUES( " + category.getName() + "," + category.getDescription() + ", " + category.getPicture() + ", " + mainCategory + ")";
+                    " VALUES(?, ?, ?,?)";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1,category.getName());
+            stmt.setString(2,category.getDescription());
+            stmt.setString(3,category.getPicture());
+            stmt.setInt(4,mainCategory);
 
             if(stmt.executeUpdate(query) == 1) {
                 return true;

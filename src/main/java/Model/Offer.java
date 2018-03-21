@@ -50,6 +50,16 @@ public class Offer {
         this.reduction = reduction;
     }
 
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "end_date=" + end_date +
+                ", offer_id=" + offer_id +
+                ", product_id=" + product_id +
+                ", reduction=" + reduction +
+                ", start_date=" + start_date +
+                '}';
+    }
 
     public static final class OfferBuilder {
         private int offer_id;

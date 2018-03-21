@@ -2,10 +2,7 @@ package Persistency;
 
 import Model.Offer;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.ArrayList;
 
 import static Model.Offer.OfferBuilder.anOffer;
@@ -14,13 +11,13 @@ public class OfferDAO extends BaseDAO{
 
     public Offer getOfferByProduct(int id) {
         try (Connection con = super.getConnection()) {
+            String query = "SELECT * FROM offer WHERE product_id = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+           stmt.setInt(1,id);
 
-            Statement stmt = con.createStatement();
-            String query = "SELECT * FROM offer WHERE product_id ="+ id;
+            ResultSet result = stmt.executeQuery();
 
-            ResultSet result = stmt.executeQuery(query);
-
-            if(result.next()) {
+            while(result.next()) {
                 int offerid = result.getInt("offer_id");
                 int productid = result.getInt("product_id");
                 Timestamp startdate = result.getTimestamp("start_date");
