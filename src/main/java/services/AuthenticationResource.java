@@ -24,6 +24,8 @@ import io.jsonwebtoken.impl.crypto.MacProvider;
 public class AuthenticationResource {
     final static public Key key = MacProvider.generateKey();
 
+    private User user;
+
     @POST
     @Path("/authenticate")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -32,7 +34,7 @@ public class AuthenticationResource {
         try {
             // Authenticate the user against the database
             UserDAO dao = new UserDAO();
-            User user = dao.findUser(email, password);
+            user = dao.findUser(email, password);
 
             if (user.getRole() == "") {
                 throw new IllegalArgumentException("No user found!");
@@ -53,7 +55,8 @@ public class AuthenticationResource {
             String response = "['id':' " + Integer.toString(user.getCustomerId()) + " ', 'token':'" + token + "'";
             return Response.ok(response).build();
         } catch (JwtException | IllegalArgumentException e) {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+            String response = "['id':' " + Integer.toString(user.getCustomerId()) + "'";
+            return Response.ok(response).build();
         }
     }
 }
