@@ -15,9 +15,9 @@ public class User {
     }
 
     public User() {
-        this.email = null;
-        this.password = null;
-        this.role = null;
+        this.email = "";
+        this.password = "";
+        this.role = "";
     }
 
     public String getRole() {

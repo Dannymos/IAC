@@ -34,7 +34,7 @@ public class AuthenticationResource {
             UserDAO dao = new UserDAO();
             User user = dao.findUser(email, password);
 
-            if (user.getRole() == null) {
+            if (user.getRole() == "") {
                 throw new IllegalArgumentException("No user found!");
             }
 
