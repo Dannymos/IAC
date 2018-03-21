@@ -17,7 +17,7 @@ public class User {
     public User() {
         this.email = "";
         this.password = "";
-        this.role = "";
+        this.role = "none";
     }
 
     public String getRole() {

@@ -37,7 +37,7 @@ public class AuthenticationResource {
             UserDAO dao = new UserDAO();
             user = dao.findUser(email, password);
 
-            if (user.getRole() == "") {
+            if (user.getRole() == "none") {
                 throw new IllegalArgumentException("No user found!");
             }
 
@@ -56,7 +56,7 @@ public class AuthenticationResource {
             String response = "['id':' " + Integer.toString(user.getCustomerId()) + " ', 'token':'" + token + "'";
             return Response.ok(response).build();
         } catch (JwtException | IllegalArgumentException e) {
-            String response = "['id':' " + user.getRole() + " ', 'token':'" + token + "'";
+            String response = "['id':' " + user.getRole() + "', 'token':'" + token + "'";
             return Response.ok(response).build();
         }
     }
