@@ -48,6 +48,11 @@ $('#addProductButton').click(function(event){
             console.log(amount);
             if(amount == NaN){
                $("#errorHandling").html("Please give a valid amount");
+               console.log("been here");
+            }
+            else if(amount < 1){
+              $("#errorHandling").html("Please give a valid amount");
+              console.log("been here to");
             }
             else{
               if(sessionStorage.getItem("cart")==null){
