@@ -34,7 +34,7 @@ public class UserDAO extends BaseDAO {
         catch(Exception e) {
             e.printStackTrace();
         }
-        return users.get(0);
+        return null;
     }
 
     public Account getUserById(int id) {
