@@ -25,6 +25,7 @@ public class AuthenticationResource {
     final static public Key key = MacProvider.generateKey();
 
     private User user;
+    private String token;
 
     @POST
     @Path("/authenticate")
@@ -44,7 +45,7 @@ public class AuthenticationResource {
             Calendar expiration = Calendar.getInstance();
             expiration.add(Calendar.MINUTE, 30);
 
-            String token = Jwts.builder()
+            token = Jwts.builder()
                     .setSubject(email)
                     .claim("customer_id", Integer.toString(user.getCustomerId()))
                     .claim("role", user.getRole())
@@ -55,7 +56,7 @@ public class AuthenticationResource {
             String response = "['id':' " + Integer.toString(user.getCustomerId()) + " ', 'token':'" + token + "'";
             return Response.ok(response).build();
         } catch (JwtException | IllegalArgumentException e) {
-            String response = "['id':' " + Integer.toString(user.getCustomerId()) + "'";
+            String response = "['id':' " + user.getRole() + " ', 'token':'" + token + "'";
             return Response.ok(response).build();
         }
     }
