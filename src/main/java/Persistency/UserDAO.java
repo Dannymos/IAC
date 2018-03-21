@@ -16,12 +16,12 @@ public class UserDAO extends BaseDAO {
             String query = "SELECT * FROM user WHERE email = " + ml + " AND password = " + pwd;
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-
-            if(rs.next()) {
+            User user = new User("test@test.nl", "test", 1, "user");
+            return user;
+            //if(rs.next()) {
                 //User user = new User(rs.getString("email"), rs.getString("password"), rs.getInt("customer_id"), rs.getString("role"));
-                User user = new User("test@test.nl", "test", 1, "user");
-                return user;
-            }
+             //   return user;
+            //}
 
         }
         catch(Exception e) {
