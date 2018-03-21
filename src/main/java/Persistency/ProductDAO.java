@@ -114,11 +114,15 @@ public class ProductDAO extends BaseDAO {
     public boolean addProduct(Product product){
         try (Connection con = super.getConnection()) {
 
-            Statement stmt = con.createStatement();
             String query = "INSERT INTO product (product_name, price, explanation, image_url)" +
-                    " VALUES( \'" + product.getName() + " \', " + product.getPrice() + ",\' " + product.getExplanation() + "\',\' " + product.getImage() + "\')";
+                    " VALUES(?, ?, ?, ?)";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1,product.getName());
+            stmt.setDouble(2,product.getPrice());
+            stmt.setString(3,product.getExplanation());
+            stmt.setString(4,product.getImage());
 
-            if(stmt.executeUpdate(query) == 1) {
+            if(stmt.executeUpdate() == 1) {
                 return true;
             }
 

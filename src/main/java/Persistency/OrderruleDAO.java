@@ -3,6 +3,7 @@ package Persistency;
 import Model.OrderRule;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -50,11 +51,14 @@ public class OrderruleDAO extends BaseDAO{
     public boolean addProductToOrder(int id,int product,int amount){
         try (Connection con = super.getConnection()) {
 
-            Statement stmt = con.createStatement();
             String query = "INSERT INTO orderrule(order_id,product_id,amount) " +
-                    "values ("+id+","+product+","+amount+") ";
+                    "values (?,?,?) ";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1,id);
+            stmt.setInt(2,product);
+            stmt.setInt(3,amount);
 
-            if(stmt.executeUpdate(query) == 1) {
+            if(stmt.executeUpdate() == 1) {
                 return true;
             }
 
