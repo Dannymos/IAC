@@ -24,8 +24,12 @@ if(element !== null){
     $("#productsInCard").append(
       "<div class=\"row\">"+
         "<div class=\"divider col s12 m12\"></div>"+
-        "<div class=\"col s4 m4 push-m8\"><h5 class=\"teal-text text-darken-2\">Grand total: &euro;"+ totalPrice +"</h5></div>"+
+        "<div class=\"col s6 m6 push-m6\"><h5 class=\"teal-text text-darken-2\">Grand total: &euro;"+ totalPrice +"</h5></div>"+
       "</div>"
     );
   }
 }
+
+$('#orderConfirmed').click(function(event){
+  //ADD THEM ORDERS M8
+});
