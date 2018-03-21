@@ -13,8 +13,6 @@ public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
 
-        ArrayList<User> users = new ArrayList<User>();
-
         try(Connection con = super.getConnection()){
             String query = "SELECT * FROM \"user\" WHERE email = ? AND password = ?";
             PreparedStatement stmt = con.prepareStatement(query);
@@ -26,7 +24,7 @@ public class UserDAO extends BaseDAO {
             while(rs.next()) {
 
                 User user = new User(rs.getString("email"), rs.getString("password"), rs.getInt("customer_id"), rs.getString("role"));
-                users.add(user);
+                return user;
 
             }
 
