@@ -22,7 +22,7 @@ function getProductInfo(){
             $("#productPic").html("<img class=\"materialboxed\" width=\"450\" src=\""+response.image+"\">");
             $("#productExplanation").html("<h5>"+ response.explanation +"</h5>");
             $("#productPrice").html("<h5 class=\"teal-text text-darken-2\">&euro;"+ response.price +"</h5>");
-            if(response.offer.reduction == null){
+            if(response.offer.reduction == "null"){
               $("#priceReduction").html("<h5 class=\"teal-text text-darken-2\">No price reduction</h5>");
             }
             else{
