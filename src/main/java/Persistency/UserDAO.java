@@ -10,13 +10,14 @@ import java.sql.Statement;
 public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
+        pwd = "test";
+        ml = "test@test.nl";
         try(Connection con = super.getConnection()){
             String query = "SELECT * FROM user where email =" + ml + " AND password = " + pwd;
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             if(rs.next()) {
-                rs.beforeFirst();
                 User user = new User(rs.getString("email"), rs.getString("password"), rs.getInt("customer_id"), rs.getString("role"));
                 return user;
             }
