@@ -1,3 +1,10 @@
+$('.button-collapse').sideNav({
+    menuWidth: 300,
+    edge: 'left',
+    closeOnClick: true,
+    draggable: true
+});
+
 $('#login').click(function(event){
 	var data = $('#loginForm').serialize();
 	$.post("https://iacgroep3.herokuapp.com/restservices/authentication/authenticate", data, function(response){
