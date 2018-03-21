@@ -1,5 +1,5 @@
 $("#navbar").html(
-    "<div class=\"nav-wrapper grey lighten-1\" id=\"navContent1\">"+
+    "<div class=\"nav-wrapper blue lighten-5\" id=\"navContent1\">"+
       "<a href=\"Home.html\" class=\"brand-logo\">Logo</a>"+
       "<a href=\"#\" data-activates=\"mobile-demo\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>"+
       "<ul class=\"right hide-on-med-and-down\" id=\"nav-mobile\">"+
