@@ -46,7 +46,7 @@ $('#addProductButton').click(function(event){
           success: function(response) {
             var amount = parseInt($("#amount").val());
             console.log(amount);
-            if(amount == "NaN" || amount < 1){
+            if(amount == NaN || amount < 1){
                $("#errorHandling").html("Please give a valid amount");
             }
             else{
