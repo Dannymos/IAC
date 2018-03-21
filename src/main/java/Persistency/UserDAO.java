@@ -24,7 +24,8 @@ public class UserDAO extends BaseDAO {
         catch(Exception e) {
             e.printStackTrace();
         }
-        return null;
+        User user = new User();
+        return user;
     }
 
     public Account getUserById(int id) {
