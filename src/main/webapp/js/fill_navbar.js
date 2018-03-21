@@ -7,7 +7,7 @@ $("#navbar").html(
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
-        "<li><a href=\"Afmelden.html\">Afmelden</a></li>"+
+        "<li><a id=\"afmelden\" href=\"index.html\">Afmelden</a></li>"+
       "</ul>"+
       "<ul class=\"side-nav\" id=\"mobile-demo\">"+
         "<li><a href=\"Categorie.html\">Categorie�n</a></li>"+
@@ -54,3 +54,8 @@ function Categorieinfo(){
 	        }
 	    });
 }
+
+$('#afmelden').click(function(event){
+  sessionStorage.removeItem("sessionToken");
+  console.log("Afgemeld");
+});
