@@ -8,7 +8,6 @@ $('.button-collapse').sideNav({
 var element = JSON.parse(sessionStorage.getItem("cart"));
 if(element !== null){
   if(element.length > 0){
-    console.log(sessionStorage.getItem("cart"));
     var el;
     for (el in element) {
       $("#productsInCard").append(
