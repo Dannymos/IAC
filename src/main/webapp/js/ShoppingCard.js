@@ -5,7 +5,8 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
-if(sessionStorage.getItem("cart")!=="null"){
+if(sessionStorage.getItem("cart")!==null){
+  console.log(sessionStorage.getItem("cart"));
   var element = JSON.parse(sessionStorage.getItem("cart"));
   var el;
   for (el in element) {
