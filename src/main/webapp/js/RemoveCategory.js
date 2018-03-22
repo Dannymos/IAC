@@ -15,15 +15,15 @@ $("#getcategoriesforproduct").click( (e)=> {
     })
         .done(function (data) {
             console.log(data);
-            $(data).each((index) => {
-                console.log(this);
+            for (let i = 0; i < data.length;i++) {
+                console.log(i);
                 $('#categories').empty();
                 $('#categories').append(
-                    "<li class=\"collection-item\"><div>" + data[index].name + "<a class=\" removebutton data-category=\"" + data[index].id + "\" href=\"#!\">delete me</a></div></li>"
+                    "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton data-category=\"" + data[i].id + "\" href=\"#!\">delete me</a></div></li>"
                 );
+            }
 
 
-            })
         })
                 .fail(function () {
                     console.log("failed");
