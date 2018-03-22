@@ -14,8 +14,8 @@ $('#login').click(function(event){
         		var tokenAndId = JSON.parse(response);
         		window.sessionStorage.setItem("sessionToken", tokenAndId.token);
         		window.sessionStorage.setItem("id", tokenAndId.id);
-            console.log(tokenAndId.role);
             window.sessionStorage.setItem("role", tokenAndId.role);
+            window.location.replace("https://iacgroep3.herokuapp.com/Home.html");
           },
 	        error: function(response) {
             console.log(textStatus);
