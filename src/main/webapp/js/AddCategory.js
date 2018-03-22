@@ -5,6 +5,27 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
+// $( document ).ready(function loadCategory(){
+//   $.ajax({
+//             url: "../restservices/categories/subcategories",
+//             type: 'GET',
+//             beforeSend: function(xhr) {
+//                 var token = window.sessionStorage.getItem("sessionToken");
+//                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+//             }
+//           })
+//
+//
+//
+//             .done(function(result) {
+//               $(result).each(function(index)){
+//                   $("#select").append($("<option />").val(this.id).text(this.name));
+//
+//               });
+//
+// });
+// }
+
 $( document ).ready(function loadCategory(){
   $.ajax({
             url: "../restservices/categories/subcategories",
@@ -12,16 +33,18 @@ $( document ).ready(function loadCategory(){
             beforeSend: function(xhr) {
                 var token = window.sessionStorage.getItem("sessionToken");
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-            }, success: function(result) {
-              
-              $.each(result, function() {
-                  $("#select").append($("<option />").val(this.id).text(this.name));
-
-              });
             }
+            })
+            .done(function(data) {
+                        $(data).each(function(index) {
+                            $("#select").append($("<option />").val(this.id).text(this.name));
+
+
+                            Materialize.updateTextFields();
+
+                        });
+
 });
-
-
 });
 
 
