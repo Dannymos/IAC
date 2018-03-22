@@ -13,7 +13,7 @@ $("#getcategoriesforproduct").click( (e)=> {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         }
     })
-        .done(function (data) {
+         .done(function (data) {
             console.log(data);
             $('#categories').empty();
             for (let i = 0; i < data.length;i++) {
