@@ -62,11 +62,11 @@ public class UserDAO extends BaseDAO {
 
     public boolean registerUser(String email, String password) {
         try(Connection con = super.getConnection()) {
-            String query = "INSERT INTO \"user\"(email, password, role) VALUES (?, ?, \"user\")";
+            String query = "INSERT INTO \"user\" (email, password, role) VALUES (?, ?, \'user\')";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, email);
             stmt.setString(2, password);
-            if(stmt.executeUpdate(query) == 1) {
+            if(stmt.executeUpdate() == 1) {
                 return true;
             }
 

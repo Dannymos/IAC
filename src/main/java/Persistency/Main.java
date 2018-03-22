@@ -14,6 +14,6 @@ public class Main {
 
        UserDAO udao = new UserDAO();
 
-       System.out.println(udao.findUser("test@test.nl","test"));
+       System.out.println(udao.registerUser("testt@testt.nl","testt"));
     }
 }
