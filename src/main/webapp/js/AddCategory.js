@@ -38,7 +38,7 @@ $( document ).ready(function loadCategory(){
             .done(function(data) {
                         $.each(data, function (i, data) {
                           console.log(this.name);
-                            $('#select').append('<option value=this.id>this.name</option>');
+                            $('#select').append(new Option(this.id, this.name));
 
 
 
