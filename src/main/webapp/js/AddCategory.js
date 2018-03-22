@@ -17,7 +17,7 @@ $( document ).ready(function loadCategory(){
 
 
 
-            .success(function(result) {
+            .done(function(result) {
               var $select = $("#select");
               $.each(result, function() {
                   $("#select").append($("<option />").val(this.id).text(this.name));
