@@ -4,7 +4,7 @@ $("#getcategoriesforproduct").click( (e)=> {
     let product = $("#id").val();
 
     $.ajax({
-        url: '../restservices/category/product/' + product,
+        url: '../restservices/categories/product/' + product,
         type: 'GET',
 
 
@@ -15,6 +15,7 @@ $("#getcategoriesforproduct").click( (e)=> {
     })
         .done(function (data) {
             $(data).each(data, (index) => {
+                $('#categories').empty();
                 $('#categories').append(
                     "<li class=\"collection-item\"><div>" + this.name + "<a data-category=\"" + this.id + "\" href=\"#!\">delete me</a></div></li>"
                 );
