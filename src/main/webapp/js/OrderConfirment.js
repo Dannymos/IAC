@@ -56,7 +56,7 @@ $('#orderConfirmed').click(function(event){
                         if(element.length > 0){
                           var el;
                           for (el in element) {
-                            var uri = "https://iacgroep3.herokuapp.com/restservices/order/"+response.orderid+"?product="+element[el].id+"&amount="+element[el].amount;
+                            var uri = "https://iacgroep3.herokuapp.com/restservices/order/"+response+"?product="+element[el].id+"&amount="+element[el].amount;
                              $.ajax(uri, {
                                     type: "POST",
                                     beforeSend: function(xhr){
