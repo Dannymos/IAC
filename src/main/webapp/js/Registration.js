@@ -20,11 +20,11 @@ $("#registerMember").click(function(){
     success: function(response) {
       if(sessionStorage.getItem("performingOrder")){
         sessionStorage.removeItem("performingOrder");
-        //window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");                  REMOVE "//" WHEN NO ERRORS ARE GENERATED
+        window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
           console.log("Succesfully registered!");
       }
       else{
-        //window.location.replace("https://iacgroep3.herokuapp.com/index.html");                            REMOVE "//" WHEN NO ERRORS ARE GENERATED
+        window.location.replace("https://iacgroep3.herokuapp.com/index.html");                          
       }
     },
     error: function(response) {
