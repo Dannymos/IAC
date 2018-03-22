@@ -36,7 +36,7 @@ public class UserDAO extends BaseDAO {
         try(Connection con = super.getConnection()) {
             String query = "SELECT * FROM account WHERE customer_id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, Integer.toString(id));
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             boolean a= rs.getInt("is_active") != 0;
             while(rs.next()) {
