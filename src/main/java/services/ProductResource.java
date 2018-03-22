@@ -52,9 +52,9 @@ public class ProductResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Path("/add")
+    @Path("/addproduct")
 
-    public Response addProduct(@FormDataParam("name")String name, @FormDataParam("price")double price, @FormDataParam("explanation")String explanation, @FormDataParam("image")String image) {
+    public Response addProduct(@FormParam("name")String name, @FormParam("price")double price, @FormParam("explanation")String explanation, @FormParam("image")String image) {
         Product product = aProduct()
                 .setName(name)
                 .setPrice(price)
@@ -66,7 +66,7 @@ public class ProductResource {
             return Response.ok("Succes").build();
         }
         else {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(500).build();
         }
     }
 
@@ -78,7 +78,7 @@ public class ProductResource {
         }
         else {
 
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(500).build();
         }
     }
 
