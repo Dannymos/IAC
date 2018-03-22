@@ -31,8 +31,7 @@ $("#getcategoriesforproduct").click( (e)=> {
                 });
 
 
-        })
-});
+        });
 
 $(".removebutton").click( (e) =>{
 
