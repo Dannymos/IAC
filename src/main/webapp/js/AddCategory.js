@@ -38,7 +38,7 @@ $( document ).ready(function loadCategory(){
             .done(function(data) {
                         $.each(data, function (i, data) {
                           console.log(this.name);
-                            $("#select").innerHTML = "<option value=''"+this.id+"''>"+this.name+"</option>";
+                            $('#select').append('<option value="foo" selected="selected">Foo</option>');
 
 
 
