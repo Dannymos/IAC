@@ -51,6 +51,7 @@ $('#orderConfirmed').click(function(event){
                       xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                     },
                     success: function(response) {
+                        console.log(response);
                       if(element !== null){
                         if(element.length > 0){
                           var el;
