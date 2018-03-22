@@ -7,14 +7,14 @@ $('.button-collapse').sideNav({
 
 $("#registerMember").click(function(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/user/register";
-$.ajax(uri, {
+    console.log($("#registerForm").serialize());
+    $.ajax(uri, {
     type: "POST",
     data: $("#registerForm").serialize(),
     contentType: 'application/x-www-form-urlencoded',
     beforeSend: function(xhr){
     	var token = window.sessionStorage.getItem("sessionToken");
     	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-    	console.log($("#registerForm").serialize());
     },
     success: function(response) {
       if(sessionStorage.getItem("performingOrder")){
