@@ -71,12 +71,13 @@ public class UserDAO extends BaseDAO {
                 PreparedStatement stmt2 = con.prepareStatement(query2);
                 stmt2.setString(1, email);
                 ResultSet rs = stmt2.executeQuery();
+                String custid = Integer.toString(rs.getInt("customer_id"));
 
                 String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
                 PreparedStatement stmt = con.prepareStatement(query);
                 stmt.setString(1, email);
                 stmt.setString(2, password);
-                stmt.setString(3, Integer.toString(rs.getInt("customer_id")));
+                stmt.setString(3, custid);
                 if(stmt.executeUpdate() == 1) {
                     return true;
                 }
@@ -87,7 +88,6 @@ public class UserDAO extends BaseDAO {
         catch(Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Something went wrong!");
         return false;
     }
 }
