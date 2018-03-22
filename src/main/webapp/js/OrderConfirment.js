@@ -31,5 +31,30 @@ if(element !== null){
 }
 
 $('#orderConfirmed').click(function(event){
-  //ADD THEM ORDERS M8
+  var uri = "https://iacgroep3.herokuapp.com/restservices/user/"+sessionStorage.getItem("id");
+   $.ajax(uri, {
+          type: "GET",
+          beforeSend: function(xhr){
+            var token = window.sessionStorage.getItem("sessionToken");
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+          },
+          success: function(response) {
+            console.log(response);
+            var uri = "https://iacgroep3.herokuapp.com/restservices/order/complete?CustomerID="+sessionStorage.getItem("id")+"&deliveryAddress="+response.deliveryAddress;
+             $.ajax(uri, {
+                    type: "POST",
+                    beforeSend: function(xhr){
+                      var token = window.sessionStorage.getItem("sessionToken");
+                      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+                    },
+                    success: function(response) {
+                      console.log("Order created");
+                    },
+                    error: function(response) {
+                      $("#errorHandling").html("The server could not create a order. Please login again or try again at a later time.");
+                });
+          },
+          error: function(response) {
+
+      });
 });
