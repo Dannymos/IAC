@@ -1,6 +1,5 @@
 var LogedIn = "Log in"
 if(sessionStorage.getItem("role") == "user"){
-  console.log(sessionStorage.getItem("role"));
   var LogedIn = "Log out";
 }
 
