@@ -80,7 +80,6 @@ $('#orderConfirmed').click(function(event){
                       $("#errorHandling").html("The server could not create a order. Please login again or try again at a later time.");
                     }
                 });
-                soapy(response.orderid,response.name,response.deliveryAddress,totalPrice);
 
 
 
@@ -105,7 +104,7 @@ $('#orderConfirmed').click(function(event){
 function soapy(orderid,name,deliveryaddress,price){
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('POST', 'giveurl', true);
+    xmlhttp.open('POST', 'http://83.128.252.112:9999/java-ws/finishOrder?wsdl', true);
 
     var sr='<?xml version="1.0" encoding="utf-8"?>' +
         '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service/">\n' +
