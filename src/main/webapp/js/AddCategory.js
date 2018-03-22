@@ -42,9 +42,11 @@ function submitCategory(){
          })
          .done(function() {
              console.log("category added");
+             alert("category added");
          })
          .fail(function() {
              console.log("failed");
+             alert("failed");
          })
          .always(function() {
             Materialize.toast('', 4000);

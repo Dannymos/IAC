@@ -13,9 +13,11 @@ function submitProduct(){
          })
          .done(function() {
              console.log("Product added");
+             alert("Product added");
          })
          .fail(function() {
              console.log("failed");
+             alert("failed");
          })
          .always(function() {
             Materialize.toast('', 4000);
