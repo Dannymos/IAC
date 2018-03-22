@@ -18,8 +18,6 @@ $('#login').click(function(event){
             window.location.replace("https://iacgroep3.herokuapp.com/Home.html");
           },
 	        error: function(response) {
-            console.log(textStatus);
-            console.log(errorThrown);
             console.log("Try logging in again");
             $("#wrongLogin").html("Wrong password email combination");
 	        }
