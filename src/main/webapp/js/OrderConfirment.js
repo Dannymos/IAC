@@ -32,6 +32,8 @@ if(element !== null){
 
 $('#orderConfirmed').click(function(event){
   var uri = "https://iacgroep3.herokuapp.com/restservices/user/"+sessionStorage.getItem("id");
+  let address;
+  let name;
    $.ajax(uri, {
           type: "GET",
           beforeSend: function(xhr){
@@ -39,6 +41,7 @@ $('#orderConfirmed').click(function(event){
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(response) {
+
             console.log(response);
             var uri = "https://iacgroep3.herokuapp.com/restservices/order/complete?CustomerID="+sessionStorage.getItem("id")+"&deliveryAddress="+response.deliveryAddress;
              $.ajax(uri, {
@@ -77,6 +80,19 @@ $('#orderConfirmed').click(function(event){
                       $("#errorHandling").html("The server could not create a order. Please login again or try again at a later time.");
                     }
                 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           },
