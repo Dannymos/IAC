@@ -10,6 +10,7 @@ $("#registerMember").click(function(){
 $.ajax(uri, {
     type: "POST",
     data: $("#registerForm").serialize(),
+    contentType: 'application/x-www-form-urlencoded',
     beforeSend: function(xhr){
     	var token = window.sessionStorage.getItem("sessionToken");
     	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
