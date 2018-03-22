@@ -4,6 +4,7 @@ import Model.ProdCats;
 
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -55,7 +56,46 @@ public class ProdCatDAO extends BaseDAO{
 
     public boolean addProductToCategory(int prodid,int catid){
 
+        try (Connection con = super.getConnection()) {
 
-        return true;
+            String query = "INSERT INTO category_product (product_id, category_id)" +
+                    " VALUES(?, ?)";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1,prodid);
+            stmt.setInt(2,catid);
+
+            if(stmt.executeUpdate() == 1) {
+
+                return true;
+            }
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+
+        return false;
+    }
+    public boolean deleteProductFromCategory(int prodid,int catid){
+
+        try (Connection con = super.getConnection()) {
+
+            String query = "delete from category_product " +
+                    " where category_id = ?" +
+                    " and product_id = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1,catid);
+            stmt.setInt(2,prodid);
+
+
+            if(stmt.executeUpdate() == 1) {
+
+                return true;
+            }
+
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+
+        return false;
     }
 }

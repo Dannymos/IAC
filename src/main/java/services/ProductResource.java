@@ -115,5 +115,18 @@ public class ProductResource {
             return Response.status(500).build();
         }
     }
+    @PUT
+    @Path("/deletecategory")
+    public Response deleteCategoryFromProduct(@QueryParam("product")int product,@QueryParam("category")int category){
+
+        if(controller.deleteCategoryFromProduct(product,category)){
+
+            return Response.ok().build();
+        }
+        else{
+            return Response.status(500).build();
+        }
+
+    }
 
 }

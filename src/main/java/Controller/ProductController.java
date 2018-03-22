@@ -39,6 +39,9 @@ public class ProductController {
     public boolean updateCategoryOfProduct(int product,int category){
        return pcdao.addProductToCategory(product,category);
     }
+    public boolean deleteCategoryFromProduct(int product,int category){
+        return pcdao.deleteProductFromCategory(product,category);
+    }
 
     public boolean deleteProduct(int id) {
         return dao.deleteProduct(id);
