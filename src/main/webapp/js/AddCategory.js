@@ -5,7 +5,7 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
-function loadGegevens(){
+$( document ).ready(function loadCategory(){
   $.ajax({
             url: "../restservices/categories/subcategories",
             type: 'GET',
@@ -21,7 +21,7 @@ function loadGegevens(){
             });
 
 
-}
+});
 
 
 
