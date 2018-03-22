@@ -65,7 +65,8 @@ $('#orderConfirmed').click(function(event){
                                     },
                                     success: function(response) {
                                       console.log("order added");
-                                      //MOOIE MELDING ALS ALLES IS GOED GEGAAN EN WINDOW RELOCATE
+                                      alert("Order added!");
+                                        window.location.replace("https://iacgroep3.herokuapp.com/Home.html");
                                     },
                                     error: function(response) {
                                       console.log("order failed");
