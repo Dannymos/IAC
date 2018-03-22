@@ -15,11 +15,11 @@ $("#getcategoriesforproduct").click( (e)=> {
     })
         .done(function (data) {
             console.log(data);
-            $(data).each(() => {
+            $(data).each((index) => {
                 console.log(this);
                 $('#categories').empty();
                 $('#categories').append(
-                    "<li class=\"collection-item\"><div>" + this.name + "<a class=\" removebutton data-category=\"" + this.id + "\" href=\"#!\">delete me</a></div></li>"
+                    "<li class=\"collection-item\"><div>" + data[index].name + "<a class=\" removebutton data-category=\"" + data[index].id + "\" href=\"#!\">delete me</a></div></li>"
                 );
 
 
