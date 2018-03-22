@@ -1,8 +1,7 @@
+var LogedIn = "Log in"
 if(sessionStorage.getItem("role") == "user"){
+  console.log(sessionStorage.getItem("role"));
   var LogedIn = "Log out";
-}
-else{
-  var LogedIn = "Log in";
 }
 
 $("#navbar").html(
@@ -14,7 +13,7 @@ $("#navbar").html(
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">ShoppingCard</a></li>"+
-        "<li><a id=\"logOut\" href=\"index.html\">Log out</a></li>"+
+        "<li><a id=\"logOut\" href=\"index.html\">"+LogedIn+"</a></li>"+
       "</ul>"+
       "<ul class=\"side-nav\" id=\"mobile-demo\">"+
         "<li><a href=\"Categorie.html\">Categories</a></li>"+
