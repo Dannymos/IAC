@@ -64,5 +64,7 @@ function Categorieinfo(){
 
 $('#logOut').click(function(event){
   sessionStorage.removeItem("sessionToken");
+  sessionStorage.removeItem("role");
+  sessionStorage.removeItem("id");
   console.log("Afgemeld");
 });
