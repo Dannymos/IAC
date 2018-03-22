@@ -27,14 +27,14 @@ public class ProductDAO extends BaseDAO {
                 int productid = rs.getInt("product_id");
 
                 String product_name = rs.getString("product_name");
-                float price = rs.getFloat("price");
+                double price = rs.getDouble("price");
                 String explanation = rs.getString("explanation");
                 String image = rs.getString("image_url");
                 if (odao.getOfferByProduct(productid) != null) {
                     Product product = aProduct()
                             .setId(productid)
                             .setName(product_name)
-                            .setPrice(price)
+                            .setPrice(Math.round(price * 100.0) / 100.0)
                             .setExplanation(explanation)
                             .setImage(image)
                             .setOffer(odao.getOfferByProduct(productid))
