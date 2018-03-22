@@ -57,5 +57,6 @@ $('#orderConfirmed').click(function(event){
           },
           error: function(response) {
             $("errorHandling").html("The server could not get your account information. Please try to log in again or try again at a later time.");
+          }
       });
 });
