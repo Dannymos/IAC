@@ -58,7 +58,7 @@ public class UserDAO extends BaseDAO {
     }
 
     public boolean registerUser(String postcode, int housenumber, String name, String email, String password, int phonenumber) {
-        System.out.println("Trying connection");
+        int custid;
         try(Connection con = super.getConnection()) {
             String query1 = "INSERT INTO customer (customer_name, email, phonenumber) VALUES (?, ?, ?)";
             PreparedStatement stmt1 = con.prepareStatement(query1);
@@ -71,7 +71,7 @@ public class UserDAO extends BaseDAO {
                 stmt2.setString(1, email);
                 ResultSet rs = stmt2.executeQuery();
                 rs.next();
-                int custid = rs.getInt("customer_id");
+                custid = rs.getInt("customer_id");
 
                 String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
                 PreparedStatement stmt = con.prepareStatement(query);
