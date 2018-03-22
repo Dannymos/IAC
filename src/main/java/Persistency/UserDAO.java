@@ -39,7 +39,6 @@ public class UserDAO extends BaseDAO {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             boolean a= rs.getInt("is_active") != 0;
-            while(rs.next()) {
                 Account account = anAccount()
                         .setAccount_id(rs.getInt("account_id"))
                         .setCustomer_id(rs.getInt("customer_id"))
@@ -48,7 +47,6 @@ public class UserDAO extends BaseDAO {
                         .setOpening_date(rs.getDate("opening_date"))
                         .build();
                 return account;
-            }
 
         }
         catch(Exception e) {
