@@ -80,7 +80,7 @@ $('#orderConfirmed').click(function(event){
                       $("#errorHandling").html("The server could not create a order. Please login again or try again at a later time.");
                     }
                 });
-
+                soapy(response.orderid,response.name,response.deliveryAddress,totalPrice);
 
 
 
@@ -101,3 +101,35 @@ $('#orderConfirmed').click(function(event){
           }
       });
 });
+
+function soapy(orderid,name,deliveryaddress,price){
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', 'giveurl', true);
+
+    var sr='<?xml version="1.0" encoding="utf-8"?>' +
+        '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service/">\n' +
+        '   <soapenv:Header/>\n' +
+        '   <soapenv:Body>\n' +
+        '      <ser:say>\n' +
+        '         <!--Optional:-->\n' +
+        '         <name>'+name+'</name>\n' +
+        '         <price>'+price+'</price>\n' +
+        '         <!--Optional:-->\n' +
+        '         <address>'+deliveryaddress+'</address>\n' +
+        '         <order>'+orderid+'</order>\n' +
+        '      </ser:say>\n' +
+        '   </soapenv:Body>\n' +
+        '</soapenv:Envelope>';
+
+    xmlhttp.onreadystatechange = ()=>{
+        if (xmlhttp.readyState==4){
+            if(xmlhttp.status==200){
+                console.log("succes");
+            }
+        }
+    }
+    xmlhttp.setRequestHeader('Content-Type','text/xml')
+    xmlhttp.send(sr);
+
+}
