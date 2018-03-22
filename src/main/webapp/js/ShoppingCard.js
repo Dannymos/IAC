@@ -52,11 +52,14 @@ function removeProduct(id){
 }
 
 $('#orderConfirmed').click(function(event){
-  if(sessionStorage.getItem("role") != "null"){
-    sessionStorage.setItem("performingOrder", true);
-    window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
+  if(sessionStorage.getItem("role") == "user"){
+    window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
+  }
+  else if(sessionStorage.getItem("role") == "admin"){
+    //ADMIN TRIES TO BUY SOMETHING?????
   }
   else{
-    window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
+    sessionStorage.setItem("performingOrder", true);
+    window.location.replace("https://iacgroep3.herokuapp.com/Registration.html");
   }
 });
