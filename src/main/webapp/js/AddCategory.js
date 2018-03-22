@@ -40,7 +40,7 @@ $( document ).ready(function loadCategory(){
                           console.log(this.name);
                             $("#select").append($('<option>', {
         value: this.id,
-        text : item.name
+        text : this.name
     }));
 
 
