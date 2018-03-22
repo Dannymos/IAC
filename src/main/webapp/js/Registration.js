@@ -7,7 +7,7 @@ $('.button-collapse').sideNav({
 
 $("#registerMember").click(function(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/user/register";
-    console.log($("#registerForm").serialize());
+    alert($("#registerForm").serialize());
     $.ajax(uri, {
     type: "POST",
     data: $("#registerForm").serialize(),
