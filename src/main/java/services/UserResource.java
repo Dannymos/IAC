@@ -24,8 +24,8 @@ public class UserResource {
 
     @POST
     @Path("/register")
-    public Response registerUser( @FormParam("name") String name, @FormParam("email") String email, @FormParam("password") String password) {
-        if(controller.registerUser(name, email, password)) {
+    public Response registerUser(@FormParam("phonenumber") int phonenumber, @FormParam("name") String name, @FormParam("email") String email, @FormParam("password") String password) {
+        if(controller.registerUser(name, email, password, phonenumber)) {
             return Response.status(201).build();
         }
         else {

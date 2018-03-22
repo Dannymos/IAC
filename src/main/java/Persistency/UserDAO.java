@@ -57,13 +57,14 @@ public class UserDAO extends BaseDAO {
         return null;
     }
 
-    public boolean registerUser(String name, String email, String password) {
+    public boolean registerUser(String name, String email, String password, int phonenumber) {
         System.out.println("Trying connection");
         try(Connection con = super.getConnection()) {
-            String query1 = "INSERT INTO customer (customer_name, email) VALUES (?, ?)";
+            String query1 = "INSERT INTO customer (customer_name, email, phonenumber) VALUES (?, ?, ?)";
             PreparedStatement stmt1 = con.prepareStatement(query1);
             stmt1.setString(1, name);
             stmt1.setString(2, email);
+            stmt1.setInt(3, phonenumber);
             if(stmt1.executeUpdate() == 1) {
                 String query2 = "SELECT customer_id FROM customer WHERE email = ?";
                 PreparedStatement stmt2 = con.prepareStatement(query2);
