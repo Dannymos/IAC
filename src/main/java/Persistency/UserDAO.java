@@ -57,21 +57,21 @@ public class UserDAO extends BaseDAO {
         return null;
     }
 
-    public boolean registerUser(String name, String email, String password, int phonenumber) {
-        System.out.println("Trying connection");
+    public boolean registerUser(String postcode, int housenumber, String name, String email, String password, int phonenumber) {
+        int custid;
         try(Connection con = super.getConnection()) {
             String query1 = "INSERT INTO customer (customer_name, email, phonenumber) VALUES (?, ?, ?)";
             PreparedStatement stmt1 = con.prepareStatement(query1);
             stmt1.setString(1, name);
             stmt1.setString(2, email);
-            stmt1.setInt(3, phonenumber);
+            stmt1.setString(3, Integer.toString(phonenumber));
             if(stmt1.executeUpdate() == 1) {
                 String query2 = "SELECT customer_id FROM customer WHERE email = ?";
                 PreparedStatement stmt2 = con.prepareStatement(query2);
                 stmt2.setString(1, email);
                 ResultSet rs = stmt2.executeQuery();
                 rs.next();
-                int custid = rs.getInt("customer_id");
+                custid = rs.getInt("customer_id");
 
                 String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
                 PreparedStatement stmt = con.prepareStatement(query);
@@ -79,7 +79,13 @@ public class UserDAO extends BaseDAO {
                 stmt.setString(2, password);
                 stmt.setInt(3, custid);
                 if(stmt.executeUpdate() == 1) {
-                    return true;
+                    String query3 = "INSERT INTO account (customer_id, billing_address, is_active, opening_date) VALUES (?, ?, 1, CURRENT_DATE())";
+                    PreparedStatement stmt3 = con.prepareStatement(query3);
+                    stmt.setInt(1, custid);
+                    stmt.setString(2, postcode + " " + Integer.toString(housenumber));
+                    if(stmt3.executeUpdate() == 1) {
+                        return true;
+                    }
                 }
             }
 
