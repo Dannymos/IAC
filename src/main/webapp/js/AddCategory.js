@@ -37,8 +37,11 @@ $( document ).ready(function loadCategory(){
             })
             .done(function(data) {
                         $.each(data, function (i, data) {
-                          console.log('test');
-                            $("#select").append($("<option value="+this.id+">"+this.name+"</option>"));
+                          console.log(this.name);
+                            $("#select").append($('<option>', {
+        value: this.id,
+        text : item.name
+    }));
 
 
 
