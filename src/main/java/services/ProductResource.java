@@ -49,6 +49,7 @@ public class ProductResource {
 
 
     @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/add")
 
     public Response addProduct(@FormParam("name")String name,@FormParam("price")double price,@FormParam("explanation")String explanation,@FormParam("image")String image) {
