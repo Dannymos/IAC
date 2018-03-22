@@ -38,14 +38,13 @@ public class UserDAO extends BaseDAO {
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
-            boolean a= rs.getInt("is_active") != 0;
             rs.next();
             System.out.print(rs.getString("billing_address"));
                 Account account = anAccount()
                         .setAccount_id(rs.getInt("account_id"))
                         .setCustomer_id(rs.getInt("customer_id"))
                         .setBilling_address(rs.getString("billing_address"))
-                        .setIs_active(a)
+                        .setIs_active(true)
                         .setOpening_date(rs.getDate("opening_date"))
                         .build();
                 return account;
