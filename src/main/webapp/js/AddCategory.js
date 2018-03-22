@@ -39,6 +39,7 @@ $( document ).ready(function loadCategory(){
                         $.each(data, function (i, data) {
                           console.log(this.name);
                             $('#select').append(new Option(this.id, this.name));
+                            $('select').material_select();
 
 
 
@@ -46,9 +47,3 @@ $( document ).ready(function loadCategory(){
 
 });
 });
-
-
-
-$(document).ready(function() {
-    $('select').material_select();
-  });
