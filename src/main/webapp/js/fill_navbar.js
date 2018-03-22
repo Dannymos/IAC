@@ -1,3 +1,10 @@
+if(sessionStorage.getItem("role") == "user"){
+  var LogedIn = "Log out";
+}
+else{
+  var LogedIn = "Log in";
+}
+
 $("#navbar").html(
     "<div class=\"nav-wrapper light-blue lighten-1\" id=\"navContent1\">"+
       "<a href=\"Home.html\" class=\"brand-logo\">Logo</a>"+
@@ -14,7 +21,7 @@ $("#navbar").html(
         "<li><a href=\"Contact.html\">Contact</a></li>"+
         "<li><a href=\"ProductSearch.html\">All products</a></li>"+
         "<li><a href=\"ShoppingCard.html\">Shopping Cart</a></li>"+
-        "<li><a id=\"logOut\" href=\"index.html\">Log out</a></li>"+
+        "<li><a id=\"logOut\" href=\"index.html\">"+ LogedIn +"</a></li>"+
       "</ul>"+
     "</div>"
 );
@@ -57,5 +64,7 @@ function Categorieinfo(){
 
 $('#logOut').click(function(event){
   sessionStorage.removeItem("sessionToken");
+  sessionStorage.removeItem("role");
+  sessionStorage.removeItem("id");
   console.log("Afgemeld");
 });
