@@ -16,7 +16,7 @@ public class UserResource {
     UserController controller = new UserController();
 
     @GET
-    @Path("/get/{id}")
+    @Path("/{id}")
     public Account getUserById(@PathParam("id") int id) {
         return controller.getUserById(id);
     }
