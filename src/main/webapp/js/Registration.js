@@ -7,10 +7,11 @@ $('.button-collapse').sideNav({
 
 $("#registerMember").click(function(){
 	var uri = "https://iacgroep3.herokuapp.com/restservices/user/register";
-    alert($("#registerForm").serialize());
+    data = $("#registerForm").serialize());
+    alert(data);
     $.ajax(uri, {
     type: "POST",
-    data: $("#registerForm").serialize(),
+    data: data,
     contentType: 'application/x-www-form-urlencoded',
     beforeSend: function(xhr){
     	var token = window.sessionStorage.getItem("sessionToken");
