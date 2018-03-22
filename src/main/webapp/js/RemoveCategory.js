@@ -39,10 +39,28 @@ $("#getcategoriesforproduct").click( (e)=> {
 
 $("#categories").delegate('a', 'click', () =>{
 
-        data = $(this).val;
-    console.log('hello');
+        data = $(e.target).val();
     console.log(data);
 
+    $.ajax({
+        url: '../restservices/product/deletecategory?product='+$("#id").val()+'&category='+data,
+        type: 'PUT',
+
+
+        beforeSend: function(xhr) {
+            var token = window.sessionStorage.getItem("sessionToken");
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        }
+    })
+        .done(function() {
+            console.log("Category deleted");
+        })
+        .fail(function() {
+            console.log("failed");
+        })
+        .always(function() {
+
+        });
 
 
 });
