@@ -38,7 +38,7 @@ $("#getcategoriesforproduct").click( (e)=> {
         });
 
 $(".removebutton").on( 'click', () =>{
-
+    event.preventDefault()
         data = $(event.target).val();
     console.log(data);
 
