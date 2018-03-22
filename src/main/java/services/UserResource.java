@@ -24,7 +24,6 @@ public class UserResource {
 
     @POST
     @Path("/register")
-    @Produces(MediaType.APPLICATION_JSON)
     public boolean registerUser(@FormParam("email") String email, @FormParam("password1") String password) {
         return controller.registerUser(email, password);
     }
