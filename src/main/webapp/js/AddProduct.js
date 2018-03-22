@@ -2,8 +2,8 @@ function submitProduct(){
     event.preventDefault();
   var data = $("#submitform").serialize();
    $.ajax({
-             url: '../restservices/product/'+$("#id").val(),
-             type: 'PUT',
+             url: '../restservices/product/add',
+             type: 'POST',
              data: data,
 
              beforeSend: function(xhr) {
@@ -12,7 +12,7 @@ function submitProduct(){
              }
          })
          .done(function() {
-             console.log("Information is changed");
+             console.log("Product added");
          })
          .fail(function() {
              console.log("failed");
