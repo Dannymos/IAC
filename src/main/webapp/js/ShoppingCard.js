@@ -55,7 +55,7 @@ $('#orderConfirmed').click(function(event){
   if(sessionStorage.getItem("role") == "user"){
     window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
   }
-  if else(sessionStorage.getItem("role") == "admin"){
+  else if(sessionStorage.getItem("role") == "admin"){
     //ADMIN TRIES TO BUY SOMETHING?????
   }
   else{
