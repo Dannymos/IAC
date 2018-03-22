@@ -43,4 +43,4 @@ $('#login').click(function(event){
             console.log("Try logging in again");
 	        }
 	    });
-    }
+    });
