@@ -36,8 +36,7 @@ $('#login').click(function(event){
         		console.log(tokenAndId.token);
         		window.sessionStorage.setItem("sessionToken", tokenAndId.token);
         		window.sessionStorage.setItem("id", tokenAndId.id);
-            }
-	        },
+          },
 	        error: function(response) {
             console.log(textStatus);
             console.log(errorThrown);
