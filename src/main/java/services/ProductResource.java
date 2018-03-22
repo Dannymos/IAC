@@ -4,6 +4,8 @@ import Controller.ProductController;
 import java.util.ArrayList;
 import Model.Product;
 import Model.Offer;
+import org.glassfish.jersey.media.multipart.FormDataParam;
+
 import static Model.Product.ProductBuilder.aProduct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -52,7 +54,7 @@ public class ProductResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/add")
 
-    public Response addProduct(@FormParam("name")String name,@FormParam("price")double price,@FormParam("explanation")String explanation,@FormParam("image")String image) {
+    public Response addProduct(@FormDataParam("name")String name, @FormDataParam("price")double price, @FormDataParam("explanation")String explanation, @FormDataParam("image")String image) {
         Product product = aProduct()
                 .setName(name)
                 .setPrice(price)
