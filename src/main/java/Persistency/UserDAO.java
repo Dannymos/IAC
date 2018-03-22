@@ -72,14 +72,14 @@ public class UserDAO extends BaseDAO {
                 ResultSet rs = stmt2.executeQuery();
                 rs.next();
                 custid = rs.getInt("customer_id");
-
+                //test
                 String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
                 PreparedStatement stmt = con.prepareStatement(query);
                 stmt.setString(1, email);
                 stmt.setString(2, password);
                 stmt.setInt(3, custid);
                 if(stmt.executeUpdate() == 1) {
-                    String query3 = "INSERT INTO account (customer_id, billing_address, is_active, opening_date) VALUES (?, ?, 1, CURRENT_DATE)";
+                    String query3 = "INSERT INTO account (customer_id, billing_address, is_active, opening_date) VALUES (?, ?, true, CURRENT_DATE)";
                     PreparedStatement stmt3 = con.prepareStatement(query3);
                     stmt3.setInt(1, custid);
                     stmt3.setString(2, postcode + " " + Integer.toString(housenumber));
