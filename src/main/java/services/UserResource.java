@@ -24,7 +24,7 @@ public class UserResource {
 
     @POST
     @Path("/register")
-    public Response registerUser(@FormParam("postalcode") String postcode, @FormParam("housenumber") int housenumber, @FormParam("phonenumber") int phonenumber, @FormParam("name") String name, @FormParam("email") String email, @FormParam("password") String password) {
+    public Response registerUser(@QueryParam("postalcode") String postcode, @QueryParam("housenumber") int housenumber, @QueryParam("phonenumber") int phonenumber, @QueryParam("name") String name, @QueryParam("email") String email, @QueryParam("password") String password) {
         if(controller.registerUser(postcode, housenumber, name, email, password, phonenumber)) {
             return Response.ok().build();
         }
