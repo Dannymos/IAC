@@ -40,7 +40,7 @@ $("#getcategoriesforproduct").click( (e)=> {
 $("#categories").delegate('a', 'click', () =>{
 
         data = $(this).val;
-    console.log('hello');
+    console.log(data);
 
     $.ajax({
         url: '../restservices/product/deletecategory?product='+$("#id").val()+'&category='+data,
