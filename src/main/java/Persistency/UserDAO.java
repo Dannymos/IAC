@@ -6,9 +6,6 @@ import Model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
@@ -60,25 +57,34 @@ public class UserDAO extends BaseDAO {
         return null;
     }
 
-    public boolean registerUser(String email, String password) {
+    public boolean registerUser(String name, String email, String password) {
         System.out.println("Trying connection");
         try(Connection con = super.getConnection()) {
-            System.out.println("Connection made");
-            String query = "INSERT INTO \"user\"(email, password, role) VALUES (?, ?, 'user')";
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            System.out.println("TRying query");
-            if(stmt.executeUpdate() == 1) {
-                System.out.println("Executed query");
-                return true;
+            String query1 = "INSERT INTO customer (customer_name, email) VALUES (?, ?)";
+            PreparedStatement stmt1 = con.prepareStatement(query1);
+            stmt1.setString(1, name);
+            stmt1.setString(2, email);
+            if(stmt1.executeUpdate() == 1) {
+                String query2 = "SELECT customer_id FROM customer WHERE email = ?";
+                PreparedStatement stmt2 = con.prepareStatement(query2);
+                stmt2.setString(1, email);
+                ResultSet rs = stmt2.executeQuery();
+                String custid = Integer.toString(rs.getInt("customer_id"));
+
+                String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setString(1, email);
+                stmt.setString(2, password);
+                stmt.setString(3, custid);
+                if(stmt.executeUpdate() == 1) {
+                    return true;
+                }
             }
 
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Something went wrong!");
         return false;
     }
 }
