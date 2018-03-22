@@ -76,7 +76,7 @@ public class UserDAO extends BaseDAO {
                 PreparedStatement stmt = con.prepareStatement(query);
                 stmt.setString(1, email);
                 stmt.setString(2, password);
-                stmt.setString(3, rs.getString("customer_id"));
+                stmt.setString(3, Integer.toString(rs.getInt("customer_id")));
                 if(stmt.executeUpdate() == 1) {
                     return true;
                 }
