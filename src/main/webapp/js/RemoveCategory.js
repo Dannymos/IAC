@@ -44,7 +44,7 @@ $(document).ready( ()=>{
         console.log(data);
 
         $.ajax({
-            url: '../restservices/product/deletecategory?product='+$("#id").val()+'&category='+data,
+             url: '../restservices/product/deletecategory?product='+$("#id").val()+'&category='+data,
             type: 'PUT',
 
 
