@@ -16,14 +16,14 @@ $("#getcategoriesforproduct").click( (e)=> {
         .done(function (data) {
             console.log(data);
             for (let i = 0; i < data.length;i++) {
-                console.log(index);
+                console.log(i);
                 $('#categories').empty();
                 $('#categories').append(
                     "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton data-category=\"" + data[i].id + "\" href=\"#!\">delete me</a></div></li>"
                 );
             }
 
-            
+
         })
                 .fail(function () {
                     console.log("failed");
