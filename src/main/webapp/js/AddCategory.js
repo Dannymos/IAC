@@ -5,26 +5,6 @@ $('.button-collapse').sideNav({
     draggable: true
 });
 
-// $( document ).ready(function loadCategory(){
-//   $.ajax({
-//             url: "../restservices/categories/subcategories",
-//             type: 'GET',
-//             beforeSend: function(xhr) {
-//                 var token = window.sessionStorage.getItem("sessionToken");
-//                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-//             }
-//           })
-//
-//
-//
-//             .done(function(result) {
-//               $(result).each(function(index)){
-//                   $("#select").append($("<option />").val(this.id).text(this.name));
-//
-//               });
-//
-// });
-// }
 
 $( document ).ready(function loadCategory(){
   $.ajax({
@@ -46,3 +26,27 @@ $( document ).ready(function loadCategory(){
 
 });
 });
+
+function submitCategory(){
+    event.preventDefault();
+  var data = $("#submitform").serialize();
+   $.ajax({
+             url: '../restservices/product/'+$("#id").val(),
+             type: 'PUT',
+             data: data,
+
+             beforeSend: function(xhr) {
+                 var token = window.sessionStorage.getItem("sessionToken");
+                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+             }
+         })
+         .done(function() {
+             console.log("Information is changed");
+         })
+         .fail(function() {
+             console.log("failed");
+         })
+         .always(function() {
+            Materialize.toast('', 4000);
+         });
+}
