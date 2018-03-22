@@ -23,7 +23,7 @@ $("#getcategoriesforproduct").click( (e)=> {
                 );
             }
 
-            })
+            
         })
                 .fail(function () {
                     console.log("failed");
