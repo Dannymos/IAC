@@ -81,8 +81,8 @@ public class UserDAO extends BaseDAO {
                 if(stmt.executeUpdate() == 1) {
                     String query3 = "INSERT INTO account (customer_id, billing_address, is_active, opening_date) VALUES (?, ?, 1, CURRENT_DATE())";
                     PreparedStatement stmt3 = con.prepareStatement(query3);
-                    stmt.setInt(1, custid);
-                    stmt.setString(2, postcode + " " + Integer.toString(housenumber));
+                    stmt3.setInt(1, custid);
+                    stmt3.setString(2, postcode + " " + Integer.toString(housenumber));
                     if(stmt3.executeUpdate() == 1) {
                         return true;
                     }
