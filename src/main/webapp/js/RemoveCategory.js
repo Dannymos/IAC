@@ -1,35 +1,33 @@
-$("#getcategoriesforproduct").click( (e)=>{
+$("#getcategoriesforproduct").click( (e)=> {
     e.preventDefault();
 
-  let product = $("#id").val();
+    let product = $("#id").val();
 
     $.ajax({
-        url: '../restservices/category/product/'+product,
+        url: '../restservices/category/product/' + product,
         type: 'GET',
 
 
-        beforeSend: function(xhr) {
+        beforeSend: function (xhr) {
             var token = window.sessionStorage.getItem("sessionToken");
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         }
     })
-        .done(function(data) {
-            $(data).each(data,  (index) => {
+        .done(function (data) {
+            $(data).each(data, (index) => {
                 $('#categories').append(
-                    "<li class=\"collection-item\"><div>"+this.name+"<a data-category=\""+this.id+"\" href=\"#!\">delete me</a></div></li>"
+                    "<li class=\"collection-item\"><div>" + this.name + "<a data-category=\"" + this.id + "\" href=\"#!\">delete me</a></div></li>"
                 );
 
 
-
-
             })
-        .fail(function() {
-            console.log("failed");
+                .fail(function () {
+                    console.log("failed");
+                })
+                .always(function () {
+
+                });
+
+
         })
-        .always(function() {
-
-        });
-
-
-
-})
+});
