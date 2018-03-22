@@ -32,7 +32,7 @@ function submitCategory(){
   var data = $("#submitform").serialize();
    $.ajax({
              url: '../restservices/product/'+$("#id").val(),
-             type: 'PUT',
+             type: 'POST',
              data: data,
 
              beforeSend: function(xhr) {
@@ -41,7 +41,7 @@ function submitCategory(){
              }
          })
          .done(function() {
-             console.log("Information is changed");
+             console.log("category added");
          })
          .fail(function() {
              console.log("failed");
