@@ -40,7 +40,7 @@ $('#orderConfirmed').click(function(event){
           },
           success: function(response) {
             console.log(response);
-            var uri = "https://iacgroep3.herokuapp.com/restservices/order/complete?CustomerID="+sessionStorage.getItem("id")+"&deliveryAddress="+response.deliveryAddress;
+            var uri = "https://iacgroep3.herokuapp.com/restservices/order/complete?CustomerID="+sessionStorage.getItem("id")+"&deliveryAddress="+response.billing_address;
              $.ajax(uri, {
                     type: "POST",
                     beforeSend: function(xhr){

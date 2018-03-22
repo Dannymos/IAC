@@ -19,7 +19,9 @@ public class UserResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Account getUserById(@PathParam("id") int id) {
-        return controller.getUserById(id);
+        Account account = controller.getUserById(id);
+        System.out.println(account.getBilling_address());
+        return account;
     }
 
     @POST
