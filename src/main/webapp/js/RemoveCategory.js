@@ -39,7 +39,7 @@ $("#getcategoriesforproduct").click( (e)=> {
 
 $("#categories").delegate('a', 'click', () =>{
 
-        data = $(this).val();
+        data = $(e.target).val();
     console.log(data);
 
     $.ajax({
