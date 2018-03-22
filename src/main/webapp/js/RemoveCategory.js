@@ -37,7 +37,7 @@ $("#getcategoriesforproduct").click( (e)=> {
 
         });
 
-$("#categories").delegate('a', 'click', () =>{
+$(".removebutton").on( 'click', () =>{
 
         data = $(event.target).val();
     console.log(data);
