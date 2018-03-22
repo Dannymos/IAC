@@ -29,7 +29,7 @@ $( document ).ready(function loadCategory(){
 
 function submitCategory(){
     event.preventDefault();
-  var data = $("#submitform").serialize();
+  var data = $("#AddCategoryForm").serialize();
    $.ajax({
              url: '../restservices/product/'+$("#id").val(),
              type: 'POST',
