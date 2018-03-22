@@ -1,6 +1,6 @@
 function submitProduct(){
     event.preventDefault();
-  var data = $("#submitform").serialize();
+  var data = $("#AddProductForm").serialize();
    $.ajax({
              url: '../restservices/product/add',
              type: 'POST',
