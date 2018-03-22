@@ -38,7 +38,7 @@ $("#getcategoriesforproduct").click( (e)=> {
         });
 $(document).ready( ()=>{
 
-    $("#categories").delegate('a', 'click', () =>{
+    $("#categories").on('click','a', () =>{
 
        let  data = $(this).text();
         console.log(data);
