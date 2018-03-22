@@ -71,7 +71,7 @@ public class UserDAO extends BaseDAO {
                 stmt2.setString(1, email);
                 ResultSet rs = stmt2.executeQuery();
                 rs.next();
-                String custid = Integer.toString(rs.getInt("customer_id"));
+                int custid = rs.getInt("customer_id");
 
                 String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
                 PreparedStatement stmt = con.prepareStatement(query);
