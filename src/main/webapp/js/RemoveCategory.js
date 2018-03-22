@@ -35,8 +35,8 @@ $("#getcategoriesforproduct").click( (e)=> {
 
 $(".removebutton").click( (e) =>{
 
-this
+        data = this.data()
 
 
 
-})
+});
