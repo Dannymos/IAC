@@ -17,8 +17,8 @@ public class UserResource {
 
     @GET
     @Path("/{id}")
-    public int getUserById(@PathParam("id") int id) {
-        return id;
+    public Account getUserById(@PathParam("id") int id) {
+        return controller.getUserById(id);
     }
 
     @POST
