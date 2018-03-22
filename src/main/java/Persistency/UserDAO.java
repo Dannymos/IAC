@@ -60,19 +60,28 @@ public class UserDAO extends BaseDAO {
         return null;
     }
 
-    public boolean registerUser(String email, String password) {
-        System.out.println("Trying connection");
+    public boolean registerUser(String name, String email, String password) {
         try(Connection con = super.getConnection()) {
-            System.out.println("Connection made");
-            String query = "INSERT INTO \"user\"(email, password, role) VALUES (?, ?, 'user')";
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            System.out.println("TRying query");
-            if(stmt.executeUpdate() == 1) {
-                System.out.println("Executed query");
-                return true;
+            String query1 = "INSERT INTO customer (customer_name, email) VALUES (?, ?)";
+            PreparedStatement stmt1 = con.prepareStatement(query1);
+            stmt1.setString(1, name);
+            stmt1.setString(2, email);
+            if(stmt1.executeUpdate() == 1) {
+                String query2 = "SELECT customer_id FROM customer WHERE email = ?";
+                PreparedStatement stmt2 = con.prepareStatement(query2);
+                stmt2.setString(1, email);
+                ResultSet rs = stmt2.executeQuery();
+
+                String query = "INSERT INTO \"user\"(email, password, customer_id, role) VALUES (?, ?, ?, 'user')";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setString(1, email);
+                stmt.setString(2, password);
+                stmt.setString(3, rs.getString("customer_id"));
+                if(stmt.executeUpdate() == 1) {
+                    return true;
+                }
             }
+
 
         }
         catch(Exception e) {
