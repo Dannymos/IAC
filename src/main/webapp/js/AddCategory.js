@@ -12,13 +12,14 @@ $( document ).ready(function loadCategory(){
             beforeSend: function(xhr) {
                 var token = window.sessionStorage.getItem("sessionToken");
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-            }
-          });
-            var $select = $("#select");
-            $.each(result, function() {
-                $select.append($("<option />").val(this.id).text(this.name));
+            }, success: function(result) {
+              var $select = $("#select");
+              $.each(result, function() {
+                  $select.append($("<option />").val(this.id).text(this.name));
 
-            });
+              });
+            }
+});
 
 
 });
