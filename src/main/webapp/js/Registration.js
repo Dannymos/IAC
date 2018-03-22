@@ -17,10 +17,10 @@ $.ajax(uri, {
     success: function(response) {
       if(sessionStorage.getItem("performingOrder")){
         sessionStorage.removeItem("performingOrder");
-        window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
+        //window.location.replace("https://iacgroep3.herokuapp.com/OrderConfirment.html");
       }
       else{
-        window.location.replace("https://iacgroep3.herokuapp.com/index.html");
+        //window.location.replace("https://iacgroep3.herokuapp.com/index.html");
       }
     },
     error: function(response) {
