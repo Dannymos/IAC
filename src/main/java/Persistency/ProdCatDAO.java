@@ -52,4 +52,10 @@ public class ProdCatDAO extends BaseDAO{
     public ArrayList<ProdCats> getAllProdCatsByProduct(int product){
         return getProdCats("select * from category_product where product_id = "+product);
     }
+
+    public boolean addProductToCategory(int prodid,int catid){
+
+
+        return true;
+    }
 }

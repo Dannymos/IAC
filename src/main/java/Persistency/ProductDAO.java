@@ -1,5 +1,6 @@
 package Persistency;
 
+import Model.Order;
 import Model.Product;
 
 import java.sql.Connection;
@@ -70,7 +71,9 @@ public class ProductDAO extends BaseDAO {
 
         return getProducts("select * from product where product_id = " + id).get(0);
     }
-
+    public Product getLatestProduct(){
+        return getProducts("select * from product ORDER BY product_id DESC LIMIT 1").get(0);
+    }
     public boolean deleteProduct(int id){
         int deleted =0;
 
@@ -112,6 +115,7 @@ public class ProductDAO extends BaseDAO {
     }
 
     public boolean addProduct(Product product){
+
         try (Connection con = super.getConnection()) {
 
             String query = "INSERT INTO product (product_name, price, explanation, image_url)" +
@@ -121,14 +125,15 @@ public class ProductDAO extends BaseDAO {
             stmt.setDouble(2,product.getPrice());
             stmt.setString(3,product.getExplanation());
             stmt.setString(4,product.getImage());
-
             if(stmt.executeUpdate() == 1) {
+
                 return true;
             }
 
         } catch (Exception sqle) {
             sqle.printStackTrace();
         }
+
         return false;
     }
 }

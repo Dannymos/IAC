@@ -30,7 +30,14 @@ public class ProductController {
     }
 
     public boolean addProduct(Product product) {
-       return dao.addProduct(product);
+
+        boolean added = dao.addProduct(product);
+         int id = dao.getLatestProduct().getId();
+         pcdao.addProductToCategory(id,44);
+         return added;
+    }
+    public boolean updateCategoryOfProduct(int product,int category){
+       return pcdao.addProductToCategory(product,category);
     }
 
     public boolean deleteProduct(int id) {
@@ -60,4 +67,5 @@ public class ProductController {
         System.out.println(results);
         return results;
     }
+
 }
