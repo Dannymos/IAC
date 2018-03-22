@@ -4,6 +4,8 @@ import Controller.ProductController;
 import java.util.ArrayList;
 import Model.Product;
 import Model.Offer;
+import org.glassfish.jersey.media.multipart.FormDataParam;
+
 import static Model.Product.ProductBuilder.aProduct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -49,9 +51,10 @@ public class ProductResource {
 
 
     @POST
-    @Path("/add")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("/addproduct")
 
-    public Response addProduct(@FormParam("name")String name,@FormParam("price")double price,@FormParam("explanation")String explanation,@FormParam("image")String image) {
+    public Response addProduct(@FormParam("name")String name, @FormParam("price")double price, @FormParam("explanation")String explanation, @FormParam("image")String image) {
         Product product = aProduct()
                 .setName(name)
                 .setPrice(price)
@@ -63,7 +66,7 @@ public class ProductResource {
             return Response.ok("Succes").build();
         }
         else {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(500).build();
         }
     }
 
@@ -75,7 +78,7 @@ public class ProductResource {
         }
         else {
 
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(500).build();
         }
     }
 

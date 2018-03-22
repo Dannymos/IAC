@@ -1,8 +1,10 @@
 function submitProduct(){
     event.preventDefault();
+
   var data = $("#AddProductForm").serialize();
+    console.log(data);
    $.ajax({
-             url: '../restservices/product/add',
+             url: '../restservices/product/addproduct',
              type: 'POST',
              data: data,
 
