@@ -23,7 +23,6 @@ $('#login').click(function(event){
 });*/
 
 $('#login').click(function(event){
-  sessionStorage.setItem("Product_id", urlParams.get('id'));
 	var uri = "https://iacgroep3.herokuapp.com/restservices/authentication/authenticate";
 	 $.ajax(uri, {
 	        type: "POST",
