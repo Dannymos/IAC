@@ -14,7 +14,7 @@ $("#getcategoriesforproduct").click( (e)=> {
         }
     })
         .done(function (data) {
-            $(data).each(data, (index) => {
+            $(data).each( () => {
                 $('#categories').empty();
                 $('#categories').append(
                     "<li class=\"collection-item\"><div>" + this.name + "<a class=\" removebutton data-category=\"" + this.id + "\" href=\"#!\">delete me</a></div></li>"
