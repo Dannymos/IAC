@@ -6,9 +6,6 @@ import Model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 public class UserDAO extends BaseDAO {
 
     public User findUser(String ml, String pwd) {
@@ -61,6 +58,7 @@ public class UserDAO extends BaseDAO {
     }
 
     public boolean registerUser(String name, String email, String password) {
+        System.out.println("Trying connection");
         try(Connection con = super.getConnection()) {
             String query1 = "INSERT INTO customer (customer_name, email) VALUES (?, ?)";
             PreparedStatement stmt1 = con.prepareStatement(query1);
@@ -82,7 +80,6 @@ public class UserDAO extends BaseDAO {
                     return true;
                 }
             }
-
 
         }
         catch(Exception e) {
