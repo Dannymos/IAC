@@ -36,31 +36,33 @@ $("#getcategoriesforproduct").click( (e)=> {
 
 
         });
+$(document).ready( ()=>{
 
-$(".removebutton").click(  () =>{
-    
+    $("a").click( () =>{
+
         data = $(this).val();
-    console.log(data);
+        console.log(data);
 
-    $.ajax({
-        url: '../restservices/product/deletecategory?product='+$("#id").val()+'&category='+data,
-        type: 'PUT',
+        $.ajax({
+             url: '../restservices/product/deletecategory?product='+$("#id").val()+'&category='+data,
+            type: 'PUT',
 
 
-        beforeSend: function(xhr) {
-            var token = window.sessionStorage.getItem("sessionToken");
-            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-        }
-    })
-        .done(function() {
-            console.log("Category deleted");
+            beforeSend: function(xhr) {
+                var token = window.sessionStorage.getItem("sessionToken");
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            }
         })
-        .fail(function() {
-            console.log("failed");
-        })
-        .always(function() {
+            .done(function() {
+                console.log("Category deleted");
+            })
+            .fail(function() {
+                console.log("failed");
+            })
+            .always(function() {
 
-        });
+            });
 
 
+    });
 });
