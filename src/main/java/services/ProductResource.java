@@ -100,4 +100,17 @@ public class ProductResource {
         }
     }
 
+    @PUT
+    @Path("/addcategory")
+    public Response addCategoryToProduct(@QueryParam("product")int product,@QueryParam("category")int category){
+
+        if(controller.updateCategoryOfProduct(product,category)){
+
+            return Response.ok().build();
+        }
+        else{
+            return Response.status(500).build();
+        }
+    }
+
 }
