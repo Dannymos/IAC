@@ -40,7 +40,7 @@ public class UserDAO extends BaseDAO {
             String query = "SELECT * FROM account WHERE customer_id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, Integer.toString(id));
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet rs = stmt.executeQuery();
             boolean a= rs.getInt("is_active") != 0;
             while(rs.next()) {
                 Account account = anAccount()
@@ -60,16 +60,14 @@ public class UserDAO extends BaseDAO {
         return null;
     }
 
-    public boolean registerUser(String email, String password1, String password2) {
+    public boolean registerUser(String email, String password) {
         try(Connection con = super.getConnection()) {
-            if (password1 == password2) {
-                String query = "INSERT INTO \"user\"(email, password, role) VALUES (?, ?, \"user\")";
-                PreparedStatement stmt = con.prepareStatement(query);
-                stmt.setString(1, email);
-                stmt.setString(2, password1);
-                if(stmt.executeUpdate(query) == 1) {
-                    return true;
-                }
+            String query = "INSERT INTO \"user\"(email, password, role) VALUES (?, ?, \"user\")";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            if(stmt.executeUpdate(query) == 1) {
+                return true;
             }
 
         }
