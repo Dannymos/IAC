@@ -23,7 +23,7 @@ public class UserResource {
 
     @POST
     @Path("/register")
-    public boolean registerUser(@FormParam("email") String email, @FormParam("password1") String password1, @FormParam("password2") String password2) {
-        return controller.registerUser(email, password1, password2);
+    public boolean registerUser(@FormParam("email") String email, @FormParam("password1") String password) {
+        return controller.registerUser(email, password);
     }
 }

@@ -36,19 +36,13 @@ $( document ).ready(function loadCategory(){
             }
             })
             .done(function(data) {
-                        $(data).each(function(index) {
-                            $("#select").append($("<option />").val(this.id).text(this.name));
+                        $.each(data, function (i, data) {
+                            $('#select').append(new Option(this.name, this.id));
+                            $('select').material_select();
 
 
-                            Materialize.updateTextFields();
 
                         });
 
 });
 });
-
-
-
-$(document).ready(function() {
-    $('select').material_select();
-  });
