@@ -13,9 +13,9 @@ $( document ).ready(function loadCategory(){
                 var token = window.sessionStorage.getItem("sessionToken");
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             }, success: function(result) {
-              var $select = $("#select");
+              
               $.each(result, function() {
-                  $select.append($("<option />").val(this.id).text(this.name));
+                  $("#select").append($("<option />").val(this.id).text(this.name));
 
               });
             }
