@@ -20,9 +20,9 @@ $("#getcategoriesforproduct").click( (e)=> {
                 console.log(i);
 
                 $('#categories').append(
-                    "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton \" href=\"#!\">delete me</a></div></li>"
+                    "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton \" value=\""+data[i].id+"\"href=\"#!\">delete me</a></div></li>"
                 );
-                $(".removebutton").last().data("id",data[i].id)
+
             }
 
 
