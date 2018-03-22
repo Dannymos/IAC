@@ -14,6 +14,7 @@ $.ajax(uri, {
     beforeSend: function(xhr){
     	var token = window.sessionStorage.getItem("sessionToken");
     	xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+    	console.log($("#registerForm").serialize());
     },
     success: function(response) {
       if(sessionStorage.getItem("performingOrder")){
