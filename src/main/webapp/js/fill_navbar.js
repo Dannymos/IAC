@@ -1,8 +1,7 @@
+var LogedIn = "Log in"
 if(sessionStorage.getItem("role") == "user"){
+  console.log(sessionStorage.getItem("role"));
   var LogedIn = "Log out";
-}
-else{
-  var LogedIn = "Log in";
 }
 
 $("#navbar").html(
