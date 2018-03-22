@@ -32,7 +32,7 @@ function submitCategory(){
   var data = $("#AddCategoryForm").serialize();
    $.ajax({
              url: '../restservices/product/addcategory?product='+$("#id").val()+'&category='+$("#select").val(),
-             type: 'POST',
+             type: 'PUT',
              data: data,
 
              beforeSend: function(xhr) {
