@@ -27,7 +27,7 @@ public class ProductDAO extends BaseDAO {
                 int productid = rs.getInt("product_id");
 
                 String product_name = rs.getString("product_name");
-                float price = rs.getFloat("price");
+                float price = Math.round(rs.getFloat("price") * 100.0) / 100.0;
                 String explanation = rs.getString("explanation");
                 String image = rs.getString("image_url");
                 if (odao.getOfferByProduct(productid) != null) {
