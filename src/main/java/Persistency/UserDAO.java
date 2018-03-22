@@ -58,4 +58,15 @@ public class UserDAO extends BaseDAO {
         }
         return null;
     }
+
+    public boolean registerUser(String email1, String email2, String password) {
+        /*try() {
+            return false;
+
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }*/
+        return false;
+    }
 }

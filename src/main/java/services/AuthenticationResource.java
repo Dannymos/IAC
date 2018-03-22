@@ -50,7 +50,7 @@ public class AuthenticationResource {
                     .signWith(SignatureAlgorithm.HS512, key)
                     .compact();
             // Return the token on the response
-            String response = "{\"id\":\"" + Integer.toString(user.getCustomerId()) + "\", \"token\":\"" + token + "\"}";
+            String response = "{\"id\":\"" + Integer.toString(user.getCustomerId()) + "\", \"token\":\"" + token + "\", \"role\":\"" + user.getRole() +"\"}";
             return Response.ok(response).build();
         } catch (JwtException | IllegalArgumentException e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
