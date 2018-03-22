@@ -31,7 +31,7 @@ function submitCategory(){
     event.preventDefault();
   var data = $("#AddCategoryForm").serialize();
    $.ajax({
-             url: '../restservices/product/'+$("#id").val(),
+             url: '../restservices/product/addcategory'+$("#id").val()+$("#select"),
              type: 'POST',
              data: data,
 
