@@ -20,7 +20,7 @@ $("#getcategoriesforproduct").click( (e)=> {
                 console.log(i);
 
                 $('#categories').append(
-                    "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton \" value=\""+data[i].id+"\"href=\"#!\">delete me</a></div></li>"
+                    "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton btn \" href=\"#!\">"+data[i].id+"</input></div></li>"
                 );
 
             }
@@ -38,9 +38,9 @@ $("#getcategoriesforproduct").click( (e)=> {
         });
 $(document).ready( ()=>{
 
-    $("a").click( () =>{
+    $(".removebutton").click( () =>{
 
-        data = $(this).val();
+       let  data = $(this).text();
         console.log(data);
 
         $.ajax({
