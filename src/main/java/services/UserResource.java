@@ -17,12 +17,14 @@ public class UserResource {
 
     @GET
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Account getUserById(@PathParam("id") int id) {
         return controller.getUserById(id);
     }
 
     @POST
     @Path("/register")
+    @Produces(MediaType.APPLICATION_JSON)
     public boolean registerUser(@FormParam("email") String email, @FormParam("password1") String password) {
         return controller.registerUser(email, password);
     }
