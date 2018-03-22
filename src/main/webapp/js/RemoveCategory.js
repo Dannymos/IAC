@@ -20,7 +20,7 @@ $("#getcategoriesforproduct").click( (e)=> {
                 console.log(i);
 
                 $('#categories').append(
-                    "<li class=\"collection-item\"><div>" + data[i].name + "<input class=\" removebutton btn \" value=\""+data[i].id+"\"href=\"#!\">delete me</input></div></li>"
+                    "<li class=\"collection-item\"><div>" + data[i].name + "<a class=\" removebutton btn \" href=\"#!\">"+data[i].id+"</input></div></li>"
                 );
 
             }
@@ -40,7 +40,7 @@ $(document).ready( ()=>{
 
     $(".removebutton").click( () =>{
         event.preventDefault();
-       let  data = $(this).val();
+       let  data = $(this).text();
         console.log(data);
 
         $.ajax({
