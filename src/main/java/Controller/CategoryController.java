@@ -1,7 +1,9 @@
 package Controller;
 
 import Model.Category;
+import Model.ProdCats;
 import Persistency.CategoryDAO;
+import Persistency.ProdCatDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -12,6 +14,7 @@ import static Model.Category.CategoryBuilder.aCategory;
 public class CategoryController {
 
     CategoryDAO cdao = new CategoryDAO();
+    ProdCatDAO pcdao = new ProdCatDAO();
 
     public ArrayList<Category> getMainCategories(){
 
@@ -40,6 +43,21 @@ public class CategoryController {
         }
         return results;
     }
+
+
+    public ArrayList<Category> getCategoriesFromProduct(int product){
+        ArrayList<Category> results = new ArrayList<Category>();
+       ArrayList<ProdCats> pcs = pcdao.getAllProdCatsByProduct(product);
+
+       for(ProdCats i : pcs){
+          Category catg = cdao.getCategory(i.getCategory());
+           results.add(catg);
+       }
+
+        return results;
+    }
+
+
     public boolean addMainCategory(Category category){
 
         return cdao.addMainCategory(category);

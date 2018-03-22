@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args){
 
        UserDAO udao = new UserDAO();
-
-       System.out.println(udao.registerUser("testt@testt.nl","testt"));
+        CategoryController cc = new CategoryController();
+       System.out.println(cc.getCategoriesFromProduct(41));
     }
 }
