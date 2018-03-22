@@ -51,12 +51,12 @@ public class ProductResource {
     @POST
     @Path("/add")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response addProduct(MultivaluedMap<String,String> formParams) {
+    public Response addProduct(@FormParam("name")String name,@FormParam("price")double price,@FormParam("explanation")String explanation,@FormParam("image")String image) {
         Product product = aProduct()
-                .setName(formParams.getFirst("name"))
-                .setPrice(Integer.parseInt(formParams.getFirst("price")))
-                .setExplanation(formParams.getFirst("explanation"))
-                .setImage(formParams.getFirst("image"))
+                .setName(name)
+                .setPrice(price)
+                .setExplanation(explanation)
+                .setImage(image)
                 .build();
 
         if(controller.addProduct(product)) {
