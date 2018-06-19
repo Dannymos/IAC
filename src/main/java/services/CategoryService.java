@@ -42,6 +42,13 @@ public class CategoryService {
 
         return cc.getAllSubCategoriesList();
     }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/product/{product}")
+    public ArrayList<Category> getCategoriesFromProduct(@PathParam("product")int product){
+
+        return cc.getCategoriesFromProduct(product);
+    }
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Path("/main")

@@ -11,5 +11,5 @@ public class UserController {
         return dao.getUserById(id);
     }
 
-    public boolean registerUser(String email, String password) { return dao.registerUser(email, password); }
+    public boolean registerUser(String postcode, int housenumber, String name, String email, String password, int phonenumber) { return dao.registerUser(postcode, housenumber, name, email, password, phonenumber); }
 }

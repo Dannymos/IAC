@@ -56,6 +56,10 @@ public class CategoryDAO extends BaseDAO{
 
         return getCategories("select * from category where subcategory_id is not null");
     }
+    public Category getCategory(int id){
+
+        return getCategories("select * from category where category_id = "+id).get(0);
+    }
     public boolean addMainCategory(Category category){
         try (Connection con = super.getConnection()) {
             String query = "INSERT INTO category (category_name,description,picture)" +

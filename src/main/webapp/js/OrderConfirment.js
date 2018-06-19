@@ -32,6 +32,8 @@ if(element !== null){
 
 $('#orderConfirmed').click(function(event){
   var uri = "https://iacgroep3.herokuapp.com/restservices/user/"+sessionStorage.getItem("id");
+  let address;
+  let name;
    $.ajax(uri, {
           type: "GET",
           beforeSend: function(xhr){
@@ -39,8 +41,9 @@ $('#orderConfirmed').click(function(event){
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(response) {
+
             console.log(response);
-            var uri = "https://iacgroep3.herokuapp.com/restservices/order/complete?CustomerID="+sessionStorage.getItem("id")+"&deliveryAddress="+response.deliveryAddress;
+            var uri = "https://iacgroep3.herokuapp.com/restservices/order/complete?CustomerID="+sessionStorage.getItem("id")+"&deliveryAddress="+response.billing_address;
              $.ajax(uri, {
                     type: "POST",
                     beforeSend: function(xhr){
@@ -48,11 +51,12 @@ $('#orderConfirmed').click(function(event){
                       xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                     },
                     success: function(response) {
+                        console.log(response);
                       if(element !== null){
                         if(element.length > 0){
                           var el;
                           for (el in element) {
-                            var uri = "https://iacgroep3.herokuapp.com/restservices/order/"+response.orderid+"?product="+element[el].id+"&amount="+element[el].amount;
+                            var uri = "https://iacgroep3.herokuapp.com/restservices/order/"+response+"?product="+element[el].id+"&amount="+element[el].amount;
                              $.ajax(uri, {
                                     type: "POST",
                                     beforeSend: function(xhr){
@@ -61,7 +65,8 @@ $('#orderConfirmed').click(function(event){
                                     },
                                     success: function(response) {
                                       console.log("order added");
-                                      //MOOIE MELDING ALS ALLES IS GOED GEGAAN EN WINDOW RELOCATE
+                                      alert("Order added!");
+                                        window.location.replace("https://iacgroep3.herokuapp.com/Home.html");
                                     },
                                     error: function(response) {
                                       console.log("order failed");
@@ -77,9 +82,55 @@ $('#orderConfirmed').click(function(event){
                       $("#errorHandling").html("The server could not create a order. Please login again or try again at a later time.");
                     }
                 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           },
           error: function(response) {
             $("errorHandling").html("The server could not get your account information. Please try to log in again or try again at a later time.");
           }
       });
 });
+
+function soapy(orderid,name,deliveryaddress,price){
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', 'http://83.128.252.112:9999/java-ws/finishOrder?wsdl', true);
+
+    var sr='<?xml version="1.0" encoding="utf-8"?>' +
+        '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service/">\n' +
+        '   <soapenv:Header/>\n' +
+        '   <soapenv:Body>\n' +
+        '      <ser:say>\n' +
+        '         <!--Optional:-->\n' +
+        '         <name>'+name+'</name>\n' +
+        '         <price>'+price+'</price>\n' +
+        '         <!--Optional:-->\n' +
+        '         <address>'+deliveryaddress+'</address>\n' +
+        '         <order>'+orderid+'</order>\n' +
+        '      </ser:say>\n' +
+        '   </soapenv:Body>\n' +
+        '</soapenv:Envelope>';
+
+    xmlhttp.onreadystatechange = ()=>{
+        if (xmlhttp.readyState==4){
+            if(xmlhttp.status==200){
+                console.log("succes");
+            }
+        }
+    }
+    xmlhttp.setRequestHeader('Content-Type','text/xml')
+    xmlhttp.send(sr);
+
+}

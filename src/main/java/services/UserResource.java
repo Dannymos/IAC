@@ -17,13 +17,22 @@ public class UserResource {
 
     @GET
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Account getUserById(@PathParam("id") int id) {
-        return controller.getUserById(id);
+        Account account = controller.getUserById(id);
+        System.out.println(account.getBilling_address());
+        return account;
     }
 
     @POST
     @Path("/register")
-    public boolean registerUser(@FormParam("email") String email, @FormParam("password1") String password) {
-        return controller.registerUser(email, password);
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response registerUser(@FormParam("postalcode") String postcode, @FormParam("housenumber") int housenumber, @FormParam("phonenumber") int phonenumber, @FormParam("name") String name, @FormParam("email") String email, @FormParam("password") String password) {
+        if(controller.registerUser(postcode, housenumber, name, email, password, phonenumber)) {
+            return Response.ok().build();
+        }
+        else {
+            return Response.status(400).build();
+        }
     }
 }
